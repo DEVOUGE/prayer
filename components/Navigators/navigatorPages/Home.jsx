@@ -41,6 +41,6 @@ const styles = StyleSheet.create({
       fontSize: 28
     },
     subTxt: {
-        fontSize:
+        fontSize:22
     }
 });
