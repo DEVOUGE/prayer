@@ -8,23 +8,24 @@ import {
   View,
 } from "react-native";
 import React from "react";
-import pic from "../images/station03.jpg";
+import pic from "../images/station08.jpg";
 import GeneralComponentContainer from "../navigatorComponents/GeneralComponentContainer";
 
-export default function ThirdStation() {
+export default function EighthStation() {
   return (
     <ScrollView>
       <View style={styles.container}>
         <GeneralComponentContainer />
         <View style={styles.flexContainer}>
           <Text style={styles.heading}>
-            Third Station: Jesus falls the first time
+            Eighth Station: Jesus meets the women of Jerusalem
           </Text>
           <Text style={styles.txt}>
-            Jesus, the cross you have been carrying is very heavy. You are
-            becoming weak and almost ready to faint, and you fall down. Nobody
-            seems to want to help you. The soldiers are interested in getting
-            home, so they yell at you and try to get you up and moving again.
+            Jesus, as you carry your cross you see a group of women along the
+            road. As you pass by you see they are sad. You stop to spend a
+            moment with them, to offer them some encouragement. Although you
+            have been abandoned by your friends and are in pain, you stop and
+            try to help them.
           </Text>
           <Image source={pic} />
           <Text style={styles.leader}>
@@ -40,25 +41,30 @@ export default function ThirdStation() {
             </Text>
           </Text>
           <Text style={styles.txt}>
-            Jesus, the cross you have been carrying is very heavy. You are
-            becoming weak and almost ready to faint, and you fall down. Nobody
-            seems to want to help you. The soldiers are interested in getting
-            home, so they yell at you and try to get you up and moving again.
+            Jesus, as you carry your cross you see a group of women along the
+            road. As you pass by you see they are sad. You stop to spend a
+            moment with them, to offer them some encouragement. Although you
+            have been abandoned by your friends and are in pain, you stop and
+            try to help them.
           </Text>
           <Text style={styles.txt}>
-            As a child, sometimes I start to do something, but then get tired of
-            it. I hurry to get finished and sometimes don't do my work well.
-            Sometimes I don't pay attention to what I should be doing. When
-            things get hard for me, sometimes I give up.
+            As a child, sometimes I think a lot about myself. I think about what
+            I want and would like people to spend their lives pleasing me.
           </Text>
           <Text style={styles.txt}>
-            As an adult, I sometimes put things off. I give up too easily, and
-            sometimes don't do my work as well as I know I can.
+            As an adult, sometimes I act like a child. I become so absorbed in
+            myself and what I'd like that I forget about the needs of others. I
+            take them for granted, and often ignore their needs.
           </Text>
           <Text style={styles.txt}>
-            My Jesus, the heavy burden of my sins is on Thee, and bears Thee
-            down beneath the cross. I loathe them, I detest them; I call on Thee
-            to pardon them; may Thy grace aid me never more to commit them.
+            Help me think more about others. Help me remember that others have
+            problems, too. Help me respond to them even when I'm busy or
+            preoccupied with my own problems.
+          </Text>
+          <Text style={styles.txt}>
+            My Jesus, Who didst comfort the pious women of Jerusalem who wept to
+            see Thee bruised and torn, comfort my soul with Thy tender pity, for
+            in Thy pity lies my trust. May my heart ever answer Thine.
           </Text>
           <Text style={styles.txt}>
             Our Father.... Hail Mary.... Glory Be to the Father....

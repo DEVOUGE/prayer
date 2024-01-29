@@ -1,14 +1,16 @@
-import { Button, Pressable, StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Pressable } from 'react-native'
 import React from 'react'
 import { useNavigation } from "@react-navigation/native";
 
-
-export default function FirstComponent() {
-    const navigation = useNavigation();
+export default function FirstStationsComponent() {
+  const navigation = useNavigation();
   return (
     <View>
-      <Pressable style={styles.btn} title="gore" onPress={() => navigation.navigate("First")} >
-        <Text style={styles.txt}>Click</Text>
+      <Pressable
+        style={styles.btn}
+        onPress={() => navigation.navigate("FirstStation")}
+      >
+        <Text style={styles.txt}>1st </Text>
       </Pressable>
     </View>
   );
@@ -16,11 +18,12 @@ export default function FirstComponent() {
 
 const styles = StyleSheet.create({
   btn: {
-    backgroundColor: 'blue',
-    paddingHorizontal: 80,
-    paddingVertical: 30
+    backgroundColor: "orange",
+    paddingHorizontal: 89,
+    marginHorizontal: 5,
+    marginHorizontal: 5,
   },
   txt: {
-    color: 'white',
-  }
-})
+    color: "white",
+  },
+});

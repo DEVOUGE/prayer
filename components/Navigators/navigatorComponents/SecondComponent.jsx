@@ -9,9 +9,9 @@ export default function SecondComponent() {
       <Pressable
         style={styles.btn}
         title="gore"
-        onPress={() => navigation.navigate("Seconder")}
+        onPress={() => navigation.navigate("SecondStation")}
       >
-        <Text style={styles.txt}>Click</Text>
+        <Text style={styles.txt}>2nd</Text>
       </Pressable>
     </View>
   );
@@ -19,8 +19,9 @@ export default function SecondComponent() {
 
 const styles = StyleSheet.create({
   btn: {
-    backgroundColor: "red",
-    paddingHorizontal: 3,
+    backgroundColor: "black",
+    paddingHorizontal: 89,
+    marginHorizontal: 5,
   },
   txt: {
     color: "white",

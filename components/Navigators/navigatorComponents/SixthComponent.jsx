@@ -9,9 +9,9 @@ export default function SixthComponent() {
       <Pressable
         style={styles.btn}
         title="gore"
-        onPress={() => navigation.navigate("Seconder")}
+        onPress={() => navigation.navigate("SixthStation")}
       >
-        <Text style={styles.txt}>Click</Text>
+        <Text style={styles.txt}>6th</Text>
       </Pressable>
     </View>
   );
@@ -20,7 +20,8 @@ export default function SixthComponent() {
 const styles = StyleSheet.create({
   btn: {
     backgroundColor: "red",
-    paddingHorizontal: 3,
+    paddingHorizontal: 80,
+    marginHorizontal: 5,
   },
   txt: {
     color: "white",

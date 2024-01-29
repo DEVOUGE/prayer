@@ -8,23 +8,23 @@ import {
   View,
 } from "react-native";
 import React from "react";
-import pic from "../images/station03.jpg";
+import pic from "../images/station12.jpg";
 import GeneralComponentContainer from "../navigatorComponents/GeneralComponentContainer";
 
-export default function ThirdStation() {
+export default function TwelfthStation() {
   return (
     <ScrollView>
       <View style={styles.container}>
         <GeneralComponentContainer />
         <View style={styles.flexContainer}>
           <Text style={styles.heading}>
-            Third Station: Jesus falls the first time
+            Twelfth Station: Jesus dies on the cross
           </Text>
           <Text style={styles.txt}>
-            Jesus, the cross you have been carrying is very heavy. You are
-            becoming weak and almost ready to faint, and you fall down. Nobody
-            seems to want to help you. The soldiers are interested in getting
-            home, so they yell at you and try to get you up and moving again.
+            As Jesus hung on the cross, he forgave the soldiers who had
+            crucified him, and prayed for his mother and friends. Jesus wanted
+            all of us to be able to live forever with God, so he gave all he had
+            for us.
           </Text>
           <Image source={pic} />
           <Text style={styles.leader}>
@@ -40,25 +40,20 @@ export default function ThirdStation() {
             </Text>
           </Text>
           <Text style={styles.txt}>
-            Jesus, the cross you have been carrying is very heavy. You are
-            becoming weak and almost ready to faint, and you fall down. Nobody
-            seems to want to help you. The soldiers are interested in getting
-            home, so they yell at you and try to get you up and moving again.
+            As Jesus hung on the cross, he forgave the soldiers who had
+            crucified him, and prayed for his mother and friends. Jesus wanted
+            all of us to be able to live forever with God, so he gave all he had
+            for us.
           </Text>
           <Text style={styles.txt}>
-            As a child, sometimes I start to do something, but then get tired of
-            it. I hurry to get finished and sometimes don't do my work well.
-            Sometimes I don't pay attention to what I should be doing. When
-            things get hard for me, sometimes I give up.
+            Jesus, let me take a few moments now to consider your love for me.
+            Help me thank you for your willingness to go to your death for me.
+            Help me express my love for you!
           </Text>
           <Text style={styles.txt}>
-            As an adult, I sometimes put things off. I give up too easily, and
-            sometimes don't do my work as well as I know I can.
-          </Text>
-          <Text style={styles.txt}>
-            My Jesus, the heavy burden of my sins is on Thee, and bears Thee
-            down beneath the cross. I loathe them, I detest them; I call on Thee
-            to pardon them; may Thy grace aid me never more to commit them.
+            My Jesus, three hours didst Thou hang in agony, and then die for me;
+            let me die before I sin, and if I live, live for Thy love and
+            faithful service.
           </Text>
           <Text style={styles.txt}>
             Our Father.... Hail Mary.... Glory Be to the Father....

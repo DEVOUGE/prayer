@@ -9,9 +9,9 @@ export default function ThirthenthComponent() {
       <Pressable
         style={styles.btn}
         title="gore"
-        onPress={() => navigation.navigate("Seconder")}
+        onPress={() => navigation.navigate("ThirteenthStation")}
       >
-        <Text style={styles.txt}>Click</Text>
+        <Text style={styles.txt}>13th</Text>
       </Pressable>
     </View>
   );
@@ -20,7 +20,8 @@ export default function ThirthenthComponent() {
 const styles = StyleSheet.create({
   btn: {
     backgroundColor: "red",
-    paddingHorizontal: 3,
+    paddingHorizontal: 80,
+    marginHorizontal: 5,
   },
   txt: {
     color: "white",

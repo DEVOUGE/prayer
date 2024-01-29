@@ -8,23 +8,23 @@ import {
   View,
 } from "react-native";
 import React from "react";
-import pic from "../images/station03.jpg";
+import pic from "../images/station13.jpg";
 import GeneralComponentContainer from "../navigatorComponents/GeneralComponentContainer";
 
-export default function ThirdStation() {
+export default function ThirteenthStation() {
   return (
     <ScrollView>
       <View style={styles.container}>
         <GeneralComponentContainer />
         <View style={styles.flexContainer}>
           <Text style={styles.heading}>
-            Third Station: Jesus falls the first time
+            Thirteenth Station: The body of Jesus is taken down from the cross
           </Text>
           <Text style={styles.txt}>
-            Jesus, the cross you have been carrying is very heavy. You are
-            becoming weak and almost ready to faint, and you fall down. Nobody
-            seems to want to help you. The soldiers are interested in getting
-            home, so they yell at you and try to get you up and moving again.
+            Jesus, how brutally you were put to death. How gently your are taken
+            from the cross. Your suffering and pain are ended, and you are put
+            in the lap of your mother. The dirt and blood are wiped away. You
+            are treated with love.
           </Text>
           <Image source={pic} />
           <Text style={styles.leader}>
@@ -40,25 +40,33 @@ export default function ThirdStation() {
             </Text>
           </Text>
           <Text style={styles.txt}>
-            Jesus, the cross you have been carrying is very heavy. You are
-            becoming weak and almost ready to faint, and you fall down. Nobody
-            seems to want to help you. The soldiers are interested in getting
-            home, so they yell at you and try to get you up and moving again.
+            Jesus, how brutally you were put to death. How gently your are taken
+            from the cross. Your suffering and pain are ended, and you are put
+            in the lap of your mother. The dirt and blood are wiped away. You
+            are treated with love.
           </Text>
           <Text style={styles.txt}>
-            As a child, sometimes I start to do something, but then get tired of
-            it. I hurry to get finished and sometimes don't do my work well.
-            Sometimes I don't pay attention to what I should be doing. When
-            things get hard for me, sometimes I give up.
+            As a child, sometimes I treat others better when they're sad or in
+            pain. When somebody dies, I become very gentle and kind. I notice
+            the good and kind things people say about those who have died.
           </Text>
           <Text style={styles.txt}>
-            As an adult, I sometimes put things off. I give up too easily, and
-            sometimes don't do my work as well as I know I can.
+            As an adult, I seem to be kinder when someone dies. If only I could
+            learn to see the good things about them while they were alive. If
+            only I would tell those around me how much I love them, while I
+            still have the opportunity to do so.
           </Text>
           <Text style={styles.txt}>
-            My Jesus, the heavy burden of my sins is on Thee, and bears Thee
-            down beneath the cross. I loathe them, I detest them; I call on Thee
-            to pardon them; may Thy grace aid me never more to commit them.
+            Help me look for the good in those around me, especially those I
+            love the most. Help me live this day as if it were the last. Help me
+            become a more gentle and loving person through my greater
+            appreciation for those around me.
+          </Text>
+          <Text style={styles.txt}>
+            O Mary, Mother most sorrowful, the sword of grief pierced thy soul
+            when thou didst see Jesus lying lifeless on thy bosom; obtain for me
+            hatred of sin because sin slew thy Son and wounded thine own heart,
+            and grace to live a Christian life and save my soul.
           </Text>
           <Text style={styles.txt}>
             Our Father.... Hail Mary.... Glory Be to the Father....

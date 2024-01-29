@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import React from "react";
+import HomeComponent from "./HomeComponent";
 import FirstComponent from "./FirstComponent";
 import SecondComponent from "./SecondComponent";
 import ThirdComponent from "./ThirdComponent";
@@ -18,6 +19,7 @@ import FourthenthComponent from "./FourthenthComponent";
 export default function GeneralComponentContainer() {
   return (
     <ScrollView horizontal={true}>
+      <HomeComponent />
       <FirstComponent />
       <SecondComponent />
       <ThirdComponent />
