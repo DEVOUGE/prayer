@@ -5,7 +5,7 @@ import GeneralComponentContainer from "./navigatorComponents/GeneralComponentCon
 export default function NavigationsComponent() {
   return (
     <View>
-      <GeneralComponentContainer/>
+      <GeneralComponentContainer />
     </View>
   );
 }

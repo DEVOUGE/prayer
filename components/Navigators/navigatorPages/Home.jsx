@@ -25,7 +25,7 @@ export default function Home() {
           Thee, Who art infinitely good. I will die rather than offend thee
           again.
         </Text>
-      <GeneralComponentContainer />
+        <GeneralComponentContainer />
       </View>
       <StatusBar translucent={true} />
     </ScrollView>
@@ -39,10 +39,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
   },
   flexCont: {
-  //   display: "flex",
-  //   flexDirection: "row",
-  //   columnGap: 12,
-  marginBottom: 60,
+    //   display: "flex",
+    //   flexDirection: "row",
+    //   columnGap: 12,
+    marginBottom: 60,
   },
   txt: {
     // width: 200,
