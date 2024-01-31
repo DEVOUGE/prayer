@@ -39,13 +39,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
   },
   flexCont: {
-    //   display: "flex",
-    //   flexDirection: "row",
-    //   columnGap: 12,
     marginBottom: 60,
   },
   txt: {
-    // width: 200,
     fontSize: 20,
     paddingBottom: 20,
   },
@@ -54,14 +50,11 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "600",
     marginBottom: 7,
-    // fontFamily: 'Arial'
   },
   imgs: {
     justifyContent: "center",
-    // alignSelf: 'center'
   },
   subTxt: {
     fontSize: 22,
-    // textAlign: 'left'
   },
 });

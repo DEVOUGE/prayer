@@ -26,7 +26,7 @@ import { getData } from "./lib/Storage";
 import { useState } from "react";
 
 
-const Stack = createNativeStackNavigator();
+const { Navigator, Screen } = createNativeStackNavigator();
 
 export default function App() {
   const [lang, setLang] = useState("none");
@@ -34,98 +34,111 @@ export default function App() {
   return (
     <NavigationContainer>
       {lang === 'none' ?
-       <SelectLanguage  setLang={setLang}/>
+        <SelectLanguage setLang={setLang} />
         :
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen
+        <Navigator initialRouteName="Home">
+          <Screen
             name="Home"
             component={HomeScreen}
             options={{ headerShown: false }}
+            initialParams={{ lang }}
           />
-          <Stack.Screen name="First" component={NavigationsComponent} />
-          <Stack.Screen name="Deleted" component={Delet} />
-          <Stack.Screen
+          <Screen name="First" component={NavigationsComponent} initialParams={{ lang }} />
+          <Screen name="Deleted" component={Delet} initialParams={{ lang }} />
+          <Screen
             name="Homes"
             component={BodyComponent}
             options={{ headerShown: false }}
+            initialParams={{ lang }}
           />
-          <Stack.Screen
+          <Screen
             name="FirstStation"
             component={FirstStation}
             options={{ headerShown: false }}
-
+            initialParams={{ lang }}
           />
-          <Stack.Screen
+          <Screen
             name="SecondStation"
             component={SecondStation}
             options={{ headerShown: false }}
+            initialParams={{ lang }}
           />
-          <Stack.Screen
+          <Screen
             name="ThirdStation"
             component={ThirdStation}
             options={{ headerShown: false }}
+            initialParams={{ lang }}
           />
-          <Stack.Screen
+          <Screen
             name="FourthStation"
             component={FourthStation}
             options={{ headerShown: false }}
+            initialParams={{ lang }}
           />
-          <Stack.Screen
+          <Screen
             name="FifthStation"
             component={FifthStation}
             options={{ headerShown: false }}
+            initialParams={{ lang }}
           />
-          <Stack.Screen
+          <Screen
             name="SixthStation"
             component={SixthStation}
             options={{ headerShown: false }}
+            initialParams={{ lang }}
           />
-          <Stack.Screen
+          <Screen
             name="SeventhStation"
             component={SeventhStation}
             options={{ headerShown: false }}
+            initialParams={{ lang }}
           />
-          <Stack.Screen
+          <Screen
             name="EighthStation"
             component={EighthStation}
             options={{ headerShown: false }}
+            initialParams={{ lang }}
           />
-          <Stack.Screen
+          <Screen
             name="NinthStation"
             component={NinthStation}
             options={{ headerShown: false }}
+            initialParams={{ lang }}
           />
-          <Stack.Screen
+          <Screen
             name="TenthStation"
             component={TenthStation}
             options={{ headerShown: false }}
+            initialParams={{ lang }}
           />
-          <Stack.Screen
+          <Screen
             name="EleventhStation"
             component={EleventhStation}
             options={{ headerShown: false }}
+            initialParams={{ lang }}
           />
-          <Stack.Screen
+          <Screen
             name="TwelfthStation"
             component={TwelfthStation}
             options={{ headerShown: false }}
+            initialParams={{ lang }}
           />
-          <Stack.Screen
+          <Screen
             name="ThirteenthStation"
             component={ThirteenthStation}
             options={{ headerShown: false }}
+            initialParams={{ lang }}
           />
-          <Stack.Screen
+          <Screen
             name="FourteenthStation"
             component={FourteenthStation}
             options={{ headerShown: false }}
+            initialParams={{ lang }}
           />
-        </Stack.Navigator>
+        </Navigator>
       }
     </NavigationContainer>
 
   );
-
-
 }
 

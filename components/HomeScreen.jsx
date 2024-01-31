@@ -3,11 +3,24 @@ import React from "react";
 import TopBarComponent from "./TopBarComponent";
 import BodyComponent from "./BodyComponent";
 
-export default function HomeScreen({navigation}) {
+export default function HomeScreen({navigation, route}) {
+  const {lang} = route.params;
+  let component = null;
+  switch (lang) {
+    case 'english':
+      component = <BodyComponent />;
+      break;
+  case 'igbo':
+    // component = <Igbo />
+    break;
+    default:
+      component = <EnglishComponent />;
+      break;
+  }
   return (
     <View style={styles.container}>
       <TopBarComponent />
-      <BodyComponent />
+     {component}
       {/* <Button title='gore' onPress={()=> navigation.navigate('Deleted')} /> */}
     </View>
   );
