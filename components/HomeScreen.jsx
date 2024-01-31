@@ -1,10 +1,10 @@
-import { StyleSheet, View, Platform, Button } from "react-native";
+import { StyleSheet, View, Platform, Text, Pressable } from "react-native";
 import React from "react";
 import TopBarComponent from "./TopBarComponent";
 import BodyComponent from "./BodyComponent";
-
+import { removeData } from "../lib/Storage";
 export default function HomeScreen({navigation, route}) {
-  const {lang} = route.params;
+  const {lang, setLang} = route.params;
   let component = null;
   switch (lang) {
     case 'english':
@@ -20,6 +20,9 @@ export default function HomeScreen({navigation, route}) {
   return (
     <View style={styles.container}>
       <TopBarComponent />
+      <Pressable onPress={()=>{removeData('lang'); setLang('none')}}>
+        <Text>reset</Text>
+      </Pressable>
      {component}
       {/* <Button title='gore' onPress={()=> navigation.navigate('Deleted')} /> */}
     </View>

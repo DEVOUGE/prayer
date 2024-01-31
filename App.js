@@ -41,7 +41,7 @@ export default function App() {
             name="Home"
             component={HomeScreen}
             options={{ headerShown: false }}
-            initialParams={{ lang }}
+            initialParams={{ lang, setLang }} 
           />
           <Screen name="First" component={NavigationsComponent} initialParams={{ lang }} />
           <Screen name="Deleted" component={Delet} initialParams={{ lang }} />
