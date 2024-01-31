@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet, Platform, Pressable, Text, SafeAreaView } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -29,101 +29,103 @@ import { useState } from "react";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-  const [states, setStates] = useState("none");
-
-  //
-  getData("lang").then((language)=> setStates(language))
+  const [lang, setLang] = useState("none");
+  getData("lang").then((language) => setLang(language));
   return (
-   <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen name="First" component={NavigationsComponent} />
-        <Stack.Screen name="Deleted" component={Delet} />
-        <Stack.Screen
-          name="Homes"
-          component={BodyComponent}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="FirstStation"
-          component={FirstStation}
-          options={{ headerShown: false }}
+    <NavigationContainer>
+      {lang === 'none' ?
+       <SelectLanguage  setLang={setLang}/>
+        :
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen name="First" component={NavigationsComponent} />
+          <Stack.Screen name="Deleted" component={Delet} />
+          <Stack.Screen
+            name="Homes"
+            component={BodyComponent}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="FirstStation"
+            component={FirstStation}
+            options={{ headerShown: false }}
 
-        />
-        <Stack.Screen
-          name="SecondStation"
-          component={SecondStation}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="ThirdStation"
-          component={ThirdStation}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="FourthStation"
-          component={FourthStation}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="FifthStation"
-          component={FifthStation}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="SixthStation"
-          component={SixthStation}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="SeventhStation"
-          component={SeventhStation}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="EighthStation"
-          component={EighthStation}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="NinthStation"
-          component={NinthStation}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="TenthStation"
-          component={TenthStation}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="EleventhStation"
-          component={EleventhStation}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="TwelfthStation"
-          component={TwelfthStation}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="ThirteenthStation"
-          component={ThirteenthStation}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="FourteenthStation"
-          component={FourteenthStation}
-          options={{ headerShown: false }}
-        />
-      </Stack.Navigator>
+          />
+          <Stack.Screen
+            name="SecondStation"
+            component={SecondStation}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="ThirdStation"
+            component={ThirdStation}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="FourthStation"
+            component={FourthStation}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="FifthStation"
+            component={FifthStation}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="SixthStation"
+            component={SixthStation}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="SeventhStation"
+            component={SeventhStation}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="EighthStation"
+            component={EighthStation}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="NinthStation"
+            component={NinthStation}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="TenthStation"
+            component={TenthStation}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="EleventhStation"
+            component={EleventhStation}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="TwelfthStation"
+            component={TwelfthStation}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="ThirteenthStation"
+            component={ThirteenthStation}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="FourteenthStation"
+            component={FourteenthStation}
+            options={{ headerShown: false }}
+          />
+        </Stack.Navigator>
+      }
     </NavigationContainer>
-    
+
   );
 
-  
+
 }
 
