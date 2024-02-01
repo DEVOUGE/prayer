@@ -9,7 +9,8 @@ import {
 } from "react-native";
 import React from "react";
 import pic from "../images/act_of_contrition.gif";
-import GeneralComponentContainer from "../navigatorComponents/GeneralComponentContainer";
+import GeneralComponentContainer from "../../navigatorComponents/GeneralComponentContainer";
+import { NavigationContainer } from "@react-navigation/native";
 
 export default function Home() {
   return (
@@ -37,6 +38,7 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS === "android" ? 45 : 0,
     marginHorizontal: 7,
     paddingHorizontal: 8,
+    zIndex: -100,
   },
   flexCont: {
     marginBottom: 60,
@@ -53,6 +55,7 @@ const styles = StyleSheet.create({
   },
   imgs: {
     justifyContent: "center",
+    alignSelf: "center"
   },
   subTxt: {
     fontSize: 22,

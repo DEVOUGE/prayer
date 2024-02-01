@@ -1,17 +1,16 @@
 import { StyleSheet, Text, View, Pressable } from "react-native";
-import React from 'react'
+import React from "react";
 import { useNavigation } from "@react-navigation/native";
 
-export default function SixthComponent() {
+export default function StationsComponent({name, no}) {
   const navigation = useNavigation();
   return (
     <View>
       <Pressable
         style={styles.btn}
-        title="gore"
-        onPress={() => navigation.navigate("SixthStation")}
+        onPress={() => navigation.navigate(name)}
       >
-        <Text style={styles.txt}>6th</Text>
+        <Text style={styles.txt}>{no}</Text>
       </Pressable>
     </View>
   );
@@ -19,9 +18,12 @@ export default function SixthComponent() {
 
 const styles = StyleSheet.create({
   btn: {
-    backgroundColor: "red",
-    paddingHorizontal: 80,
-    marginHorizontal: 5,
+    backgroundColor: "black",
+    height: 50,
+    width: 50,
+    borderRadius: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   txt: {
     color: "white",

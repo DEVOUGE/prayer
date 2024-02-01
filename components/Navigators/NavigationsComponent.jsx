@@ -1,7 +1,6 @@
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import GeneralComponentContainer from "./navigatorComponents/GeneralComponentContainer";
-
+import GeneralComponentContainer from "../navigatorComponents/GeneralComponentContainer";
 export default function NavigationsComponent() {
   return (
     <View>

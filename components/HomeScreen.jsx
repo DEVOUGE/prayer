@@ -24,7 +24,6 @@ export default function HomeScreen({navigation, route}) {
         <Text>reset</Text>
       </Pressable>
      {component}
-      {/* <Button title='gore' onPress={()=> navigation.navigate('Deleted')} /> */}
     </View>
   );
 }

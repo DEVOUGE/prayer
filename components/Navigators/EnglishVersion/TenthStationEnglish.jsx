@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import React from "react";
 import pic from "../images/station10.jpg";
-import GeneralComponentContainer from "../navigatorComponents/GeneralComponentContainer";
+import GeneralComponentContainer from "../../navigatorComponents/GeneralComponentContainer";
 
 export default function TenthStationEnglish() {
   return (

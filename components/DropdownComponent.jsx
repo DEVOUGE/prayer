@@ -28,6 +28,6 @@ export default function DropdownComponent() {
 
 const styles = StyleSheet.create({
     container: {
-        width: 150
+    width: 150,
     }
 });

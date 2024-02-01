@@ -6,22 +6,22 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 export default function TopBarComponent() {
   return (
     <View style={styles.topCont}>
-      <Text>HomeScreen</Text>
+      <Text style={styles.txt}>HomeScreen</Text>
       <DropdownComponent />
-      <Ionicons size={28} name="ellipsis-vertical-outline" />
+      <Ionicons size={28} name="ellipsis-vertical-outline" color={"white"} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    paddingTop: Platform.OS === "android" ? 45 : 0,
-  },
   topCont: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     marginHorizontal: 6,
-    backgroundColor: "red",
+    backgroundColor: "black",
   },
+  txt: {
+    color: "white"
+  }
 });

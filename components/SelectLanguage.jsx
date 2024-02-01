@@ -17,7 +17,11 @@ export default function SelectLanguage({ setLang }) {
             }}
             style={({ pressed }) => [
               {
-                backgroundColor: pressed ? "#fab7" : "inherit",
+                backgroundColor: pressed ? "#0005" : "inherit",
+                borderWidth: 1,
+                borderColor: '#fab9',
+                paddingBottom: 12,
+                borderRadius: 8,
               },
               styles.title,
             ]}
@@ -35,9 +39,8 @@ const styles = StyleSheet.create({
   background: {
     padding: 50,
     margin: 0,
-    backgroundColor: "#fab5",
-    borderBlockColor: 'black',
-    height: '100%'
+    borderBlockColor: "black",
+    height: "100%",
   },
   title: {
     fontSize: 20,
