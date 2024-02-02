@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
   },
   txt: {
-    color: "white"
+    color: "white",
+    alignSelf: 'center'
   }
 });

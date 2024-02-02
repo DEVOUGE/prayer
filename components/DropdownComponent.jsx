@@ -7,8 +7,7 @@ export default function DropdownComponent() {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
-    { label: "Apple", value: "apple" },
-    { label: "Banana", value: "banana" },
+    { label: "Benediction", value: "benediction" },
   ]);
 
   return (

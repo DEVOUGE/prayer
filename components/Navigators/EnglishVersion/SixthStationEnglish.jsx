@@ -79,7 +79,7 @@ export default function SixthStationEnglish() {
         <GeneralComponentContainer />
       </View>
     </ScrollView>
-  );
+  )
 }
 
 const styles = StyleSheet.create({

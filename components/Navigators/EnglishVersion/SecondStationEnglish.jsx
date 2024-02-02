@@ -11,7 +11,7 @@ import React from "react";
 import pic from "../images/station02.jpg";
 import GeneralComponentContainer from "../../navigatorComponents/GeneralComponentContainer";
 
-export default function SecondStation() {
+export default function SecondStationEnglish() {
   return (
     <ScrollView>
       <View style={styles.container}>

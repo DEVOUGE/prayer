@@ -1,30 +1,46 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Platform, Pressable, Text, SafeAreaView } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "./components/HomeScreen";
-import NavigationsComponent from "./components/Navigators/NavigationsComponent";
-import Delet from "./components/Delet";
-import BodyComponent from "./components/BodyComponent";
-import FirstStation from "./components/Navigators/navigatorPages/FirstStation";
-import SecondStation from "./components/Navigators/navigatorPages/SecondStation";
-import ThirdStation from "./components/Navigators/navigatorPages/ThirdStation";
-import FourthStation from "./components/Navigators/navigatorPages/FourthStation";
-import FifthStation from "./components/Navigators/navigatorPages/FifthStation";
-import SixthStation from "./components/Navigators/navigatorPages/SixthStation";
-import SeventhStation from "./components/Navigators/navigatorPages/SeventhStation";
-import EighthStation from "./components/Navigators/navigatorPages/EighthStation";
-import NinthStation from "./components/Navigators/navigatorPages/NinthStation";
-import TenthStation from "./components/Navigators/navigatorPages/TenthStation";
-import EleventhStation from "./components/Navigators/navigatorPages/EleventhStation";
-import TwelfthStation from "./components/Navigators/navigatorPages/TwelfthStation";
-import ThirteenthStation from "./components/Navigators/navigatorPages/ThirteenthStation";
-import FourteenthStation from "./components/Navigators/navigatorPages/FourteenthStation";
+// Testing out the English component
+import GeneralComponentContainer from "./components/navigatorComponents/GeneralComponentContainer";
+import Home from "./components/Navigators/navigatorPages/Home";
+import FirstStationEnglish from "./components/Navigators/navigatorPages/FirstStation";
+import SecondStationEnglish from "./components/Navigators/EnglishVersion/SecondStationEnglish";
+import ThirdStationEnglish from "./components/Navigators/EnglishVersion/ThirdStationEnglish";
+import FourthStationEnglish from "./components/Navigators/EnglishVersion/FourthStationEnglish";
+import FifthStationEnglish from "./components/Navigators/EnglishVersion/FifthStationEnglish";
+import SixthStationEnglish from "./components/Navigators/EnglishVersion/SixthStationEnglish";
+import SeventhStationEnglish from "./components/Navigators/EnglishVersion/SeventhStationEnglish";
+import EighthStationEnglish from "./components/Navigators/EnglishVersion/EighthStationEnglish";
+import NinthStationEnglish from "./components/Navigators/EnglishVersion/NinthStationEnglish";
+import TenthStationEnglish from "./components/Navigators/EnglishVersion/TenthStationEnglish";
+import EleventhStationEnglish from "./components/Navigators/EnglishVersion/EleventhStationEnglish";
+import TwelfthStationEnglish from "./components/Navigators/EnglishVersion/TwelfthStationEnglish";
+import ThirteenthStationEnglish from "./components/Navigators/EnglishVersion/ThirteenthStationEnglish";
+import FourteenthStationEnglish from "./components/Navigators/EnglishVersion/FourteenthStationEnglish";
+// The end of english stations
+
+// Starting Igbo Stations
+import IgboComponentForDisplayingAllStations from "./components/navigatorComponents/IgboComponentForDisplayingAllStations";
+import HomePageForIgboStation from "./components/Navigators/IgboVersion/HomePageForIgboStation";
+import FirstStationIgbo from "./components/Navigators/IgboVersion/FirstStationIgbo";
+import SecondStationIgbo from "./components/Navigators/IgboVersion/SecondStationIgbo";
+import ThirdStationIgbo from "./components/Navigators/IgboVersion/ThirdStationIgbo";
+import FourthStationIgbo from "./components/Navigators/IgboVersion/FourthStationIgbo";
+import FifthStationIgbo from "./components/Navigators/IgboVersion/FifthStationIgbo";
+import SixthStationIgbo from "./components/Navigators/IgboVersion/SixthStationIgbo";
+import SeventhStationIgbo from "./components/Navigators/IgboVersion/SeventhStationIgbo";
+import EightStationIgbo from "./components/Navigators/IgboVersion/EightStationIgbo";
+import NinthStationIgbo from "./components/Navigators/IgboVersion/NinthStationIgbo";
+import TenthStationIgbo from "./components/Navigators/IgboVersion/TenthStationIgbo";
+import EleventhStationIgbo from "./components/Navigators/IgboVersion/EleventhStationIgbo";
+import TwelfthStationIgbo from "./components/Navigators/IgboVersion/TwelfthStationIgbo";
+import ThirteenthStationIgbo from "./components/Navigators/IgboVersion/ThirteenthStationIgbo";
+import FourteenthStationIgbo from "./components/Navigators/IgboVersion/FourteenthStationIgbo";
+// End of Igbo stations
 import SelectLanguage from "./components/SelectLanguage";
 import { getData } from "./lib/Storage";
 import { useState } from "react";
-
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -33,112 +49,212 @@ export default function App() {
   getData("lang").then((language) => setLang(language));
   return (
     <NavigationContainer>
-      {lang === 'none' ?
+      {lang === "none" ? (
         <SelectLanguage setLang={setLang} />
-        :
+      ) : (
         <Navigator initialRouteName="Home">
           <Screen
             name="Home"
             component={HomeScreen}
             options={{ headerShown: false }}
-            initialParams={{ lang, setLang }} 
+            initialParams={{ lang, setLang }}
           />
-          <Screen name="First" component={NavigationsComponent} initialParams={{ lang }} />
-          <Screen name="Deleted" component={Delet} initialParams={{ lang }} />
+          <Screen
+            name="First"
+            component={GeneralComponentContainer}
+            initialParams={{ lang }}
+          />
+          {/* <Screen name="Deleted" component={Delet} initialParams={{ lang }} /> */}
+
           <Screen
             name="Homes"
-            component={BodyComponent}
+            component={Home}
             options={{ headerShown: false }}
             initialParams={{ lang }}
           />
           <Screen
-            name="FirstStation"
-            component={FirstStation}
+            name="FirstStationEnglish"
+            component={FirstStationEnglish}
             options={{ headerShown: false }}
             initialParams={{ lang }}
           />
           <Screen
-            name="SecondStation"
-            component={SecondStation}
+            name="SecondStationEnglish"
+            component={SecondStationEnglish}
             options={{ headerShown: false }}
             initialParams={{ lang }}
           />
           <Screen
-            name="ThirdStation"
-            component={ThirdStation}
+            name="ThirdStationEnglish"
+            component={ThirdStationEnglish}
             options={{ headerShown: false }}
             initialParams={{ lang }}
           />
           <Screen
-            name="FourthStation"
-            component={FourthStation}
+            name="FourthStationEnglish"
+            component={FourthStationEnglish}
             options={{ headerShown: false }}
             initialParams={{ lang }}
           />
           <Screen
-            name="FifthStation"
-            component={FifthStation}
+            name="FifthStationEnglish"
+            component={FifthStationEnglish}
             options={{ headerShown: false }}
             initialParams={{ lang }}
           />
           <Screen
-            name="SixthStation"
-            component={SixthStation}
+            name="SixthStationEnglish"
+            component={SixthStationEnglish}
             options={{ headerShown: false }}
             initialParams={{ lang }}
           />
           <Screen
-            name="SeventhStation"
-            component={SeventhStation}
+            name="SeventhStationEnglish"
+            component={SeventhStationEnglish}
             options={{ headerShown: false }}
             initialParams={{ lang }}
           />
           <Screen
-            name="EighthStation"
-            component={EighthStation}
+            name="EighthStationEnglish"
+            component={EighthStationEnglish}
             options={{ headerShown: false }}
             initialParams={{ lang }}
           />
           <Screen
-            name="NinthStation"
-            component={NinthStation}
+            name="NinthStationEnglish"
+            component={NinthStationEnglish}
             options={{ headerShown: false }}
             initialParams={{ lang }}
           />
           <Screen
-            name="TenthStation"
-            component={TenthStation}
+            name="TenthStationEnglish"
+            component={TenthStationEnglish}
             options={{ headerShown: false }}
             initialParams={{ lang }}
           />
           <Screen
-            name="EleventhStation"
-            component={EleventhStation}
+            name="EleventhStationEnglish"
+            component={EleventhStationEnglish}
             options={{ headerShown: false }}
             initialParams={{ lang }}
           />
           <Screen
-            name="TwelfthStation"
-            component={TwelfthStation}
+            name="TwelfthStationEnglish"
+            component={TwelfthStationEnglish}
             options={{ headerShown: false }}
             initialParams={{ lang }}
           />
           <Screen
-            name="ThirteenthStation"
-            component={ThirteenthStation}
+            name="ThirteenthStationEnglish"
+            component={ThirteenthStationEnglish}
             options={{ headerShown: false }}
             initialParams={{ lang }}
           />
           <Screen
-            name="FourteenthStation"
-            component={FourteenthStation}
+            name="FourteenthStationEnglish"
+            component={FourteenthStationEnglish}
+            options={{ headerShown: false }}
+            initialParams={{ lang }}
+          />
+          {/* Igbo components starts here */}
+          <Screen
+            name="IgboComponentForDisplayingAllStations"
+            component={IgboComponentForDisplayingAllStations}
+            options={{ headerShown: false }}
+            initialParams={{ lang }}
+          />
+          <Screen
+            name="HomePageForIgboStation"
+            component={HomePageForIgboStation}
+            options={{ headerShown: false }}
+            initialParams={{ lang }}
+          />
+          <Screen
+            name="FirstStationIgbo"
+            component={FirstStationIgbo}
+            options={{ headerShown: false }}
+            initialParams={{ lang }}
+          />
+          <Screen
+            name="SecondStationIgbo"
+            component={SecondStationIgbo}
+            options={{ headerShown: false }}
+            initialParams={{ lang }}
+          />
+          <Screen
+            name="ThirdStationIgbo"
+            component={ThirdStationIgbo}
+            options={{ headerShown: false }}
+            initialParams={{ lang }}
+          />
+          <Screen
+            name="FourthStationIgbo"
+            component={FourthStationIgbo}
+            options={{ headerShown: false }}
+            initialParams={{ lang }}
+          />
+          <Screen
+            name="FifthStationIgbo"
+            component={FifthStationIgbo}
+            options={{ headerShown: false }}
+            initialParams={{ lang }}
+          />
+          <Screen
+            name="SixthStationIgbo"
+            component={SixthStationIgbo}
+            options={{ headerShown: false }}
+            initialParams={{ lang }}
+          />
+          <Screen
+            name="SeventhStationIgbo"
+            component={SeventhStationIgbo}
+            options={{ headerShown: false }}
+            initialParams={{ lang }}
+          />
+          <Screen
+            name="EightStationIgbo"
+            component={EightStationIgbo}
+            options={{ headerShown: false }}
+            initialParams={{ lang }}
+          />
+          <Screen
+            name="NinthStationIgbo"
+            component={NinthStationIgbo}
+            options={{ headerShown: false }}
+            initialParams={{ lang }}
+          />
+          <Screen
+            name="TenthStationIgbo"
+            component={TenthStationIgbo}
+            options={{ headerShown: false }}
+            initialParams={{ lang }}
+          />
+          <Screen
+            name="EleventhStationIgbo"
+            component={EleventhStationIgbo}
+            options={{ headerShown: false }}
+            initialParams={{ lang }}
+          />
+          <Screen
+            name="TwelfthStationIgbo"
+            component={TwelfthStationIgbo}
+            options={{ headerShown: false }}
+            initialParams={{ lang }}
+          />
+          <Screen
+            name="ThirteenthStationIgbo"
+            component={ThirteenthStationIgbo}
+            options={{ headerShown: false }}
+            initialParams={{ lang }}
+          />
+          <Screen
+            name="FourteenthStationIgbo"
+            component={FourteenthStationIgbo}
             options={{ headerShown: false }}
             initialParams={{ lang }}
           />
         </Navigator>
-      }
+      )}
     </NavigationContainer>
-
   );
 }
-

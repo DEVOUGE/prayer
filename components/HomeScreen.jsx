@@ -1,20 +1,21 @@
 import { StyleSheet, View, Platform, Text, Pressable } from "react-native";
 import React from "react";
 import TopBarComponent from "./TopBarComponent";
-import BodyComponent from "./BodyComponent";
+import Home from "./Navigators/navigatorPages/Home";
+import HomePageForIgboStation from "./Navigators/IgboVersion/HomePageForIgboStation";
 import { removeData } from "../lib/Storage";
 export default function HomeScreen({navigation, route}) {
   const {lang, setLang} = route.params;
   let component = null;
   switch (lang) {
-    case 'english':
-      component = <BodyComponent />;
+    case "english":
+      component = <Home />;
       break;
-  case 'igbo':
-    // component = <Igbo />
-    break;
+    case "igbo":
+      component = <HomePageForIgboStation />;
+      break;
     default:
-      component = <EnglishComponent />;
+      component = <HomePageForIgboStation />;
       break;
   }
   return (

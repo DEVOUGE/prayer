@@ -1,7 +1,7 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import NinthStationEnglish from "../EnglishVersion/NinthStationEnglish";
-import NinethStationIgbo from "../IgboVersion/NinethStationIgbo";
+import NinethStationIgbo from "../IgboVersion/NinthStationIgbo";
 
 const Tab = createBottomTabNavigator();
 
