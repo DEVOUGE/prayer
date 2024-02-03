@@ -9,78 +9,72 @@ import {
 } from "react-native";
 import React from "react";
 import pic from "../images/station13.jpg";
-import GeneralComponentContainer from "../../navigatorComponents/GeneralComponentContainer";
+import IgboComponentForDisplayingAllStations from "../../navigatorComponents/IgboComponentForDisplayingAllStations";
 
 export default function ThirteenthStationIgbo() {
   return (
     <ScrollView>
       <View style={styles.container}>
-        <GeneralComponentContainer />
+        <IgboComponentForDisplayingAllStations />
         <View style={styles.flexContainer}>
           <Text style={styles.heading}>
-            Thirteenth Station: The body of Jesus is taken down from the cross
+            NKWUSI NKE IRI NA ATO: E BUTUE AHU JESU N’OBE
           </Text>
-          <Text style={styles.txt}>
-            Jesus, how brutally you were put to death. How gently your are taken
-            from the cross. Your suffering and pain are ended, and you are put
-            in the lap of your mother. The dirt and blood are wiped away. You
-            are treated with love.
+          <Text style={[styles.boldTxt, styles.txt]}>
+            V. Anyi esekpuoro gi Jesu na-enye gi ekele
+          </Text>
+          <Text style={[styles.boldTxt, styles.txt]}>
+            R. Makana Obe Gi di aso ka iji wee gbaputa uwa
           </Text>
           <Image source={pic} />
-          <Text style={styles.leader}>
-            Leader:
-            <Text style={styles.all}>
-              We adore you, O Christ, and we praise you.
+          <Text style={[styles.txt]}>
+            <Text style={styles.boldTxt}>V. </Text>
+            Joseph onye Arimatia gara nata ikike n’aka Pilate ka oburu ozu Jesu
+            ga lie. O nwere iliozu akwadoburu ebe a ga-eli ya onwe ya. Iliozu
+            ahu di nso ebe ahu a kpogburu Jesu. Na ya ka ochoziri ili Jesu. Mgbe
+            a gwara Pilate na Jesu anwuola, o nabatara aririo Joseph. Nichodemus
+            nyeere Joseph aka ha buru ozu Jesu ga lie
+          </Text>
+          <Text style={styles.txt}>
+            <Text style={styles.boldTxt}>Ka anyi rio aririo</Text>- Nne Jesu,
+            Maria di aso, kenye anyi oke ebere iji n’oge ahuhu nke Nwa gi.
+            Yotara anyi n’ebe Nwa gi no oge niile mgbaghara nke njo. Na adighi
+            ike anyi burukwa nne anyi. Amen
+          </Text>
+          <Text style={styles.txt}>
+            <Text style={styles.boldTxt}>R. </Text>
+            Jesu m; Ahuru m gi n'anya karichaa ihe niile. Eji m obi m niile
+            chegharia na mmehie m mehiere gi. Ekwela ka m kewapu onwe m ozo
+            n'ebe ino. Mee ka m hu gi na anya mbge obula. Bia were m mee ihe
+            masiri gi
+          </Text>
+          <Text style={[styles.boldTxt, styles.txt]}>
+            Nna anyi no n'elugwe... Ekene Maria... Otito diri Nna...
+          </Text>
+          <Text style={styles.txt}>
+            <Text style={styles.boldTxt}>V. </Text>O Jesu a kpogburu n'obe maka
+            ihi anyi... R. Meere anyi ebeere
+          </Text>
+          <Text style={styles.txt}>
+            <Text style={styles.boldTxt}>V.</Text> Ka mkpuruobi ndi niile
+            kwerenu gara aga...
+          </Text>
+          <Text style={styles.txt}>
+            <Text style={styles.boldTxt}>R.</Text> Site n’ebere nke Chukwu ka ha
+            zuru ike na ndokwa
+          </Text>
+          <View style={styles.songCont}>
+            <Text style={[styles.txt, styles.song]}>
+              <Text style={styles.boldTxt}>Ukwe: </Text>
+              Okworom nwuo n’obe, Okworom nwuo
             </Text>
-          </Text>
-          <Text style={styles.leader}>
-            All:
-            <Text style={styles.all}>
-              Because by your holy cross You have redeemed the world.
+            <Text style={[styles.txt, styles.song]}>
+              Eze Jesus kworom nwuo n’obe , Okworom nwuo oh
             </Text>
-          </Text>
-          <Text style={styles.txt}>
-            Jesus, how brutally you were put to death. How gently your are taken
-            from the cross. Your suffering and pain are ended, and you are put
-            in the lap of your mother. The dirt and blood are wiped away. You
-            are treated with love.
-          </Text>
-          <Text style={styles.txt}>
-            As a child, sometimes I treat others better when they're sad or in
-            pain. When somebody dies, I become very gentle and kind. I notice
-            the good and kind things people say about those who have died.
-          </Text>
-          <Text style={styles.txt}>
-            As an adult, I seem to be kinder when someone dies. If only I could
-            learn to see the good things about them while they were alive. If
-            only I would tell those around me how much I love them, while I
-            still have the opportunity to do so.
-          </Text>
-          <Text style={styles.txt}>
-            Help me look for the good in those around me, especially those I
-            love the most. Help me live this day as if it were the last. Help me
-            become a more gentle and loving person through my greater
-            appreciation for those around me.
-          </Text>
-          <Text style={styles.txt}>
-            O Mary, Mother most sorrowful, the sword of grief pierced thy soul
-            when thou didst see Jesus lying lifeless on thy bosom; obtain for me
-            hatred of sin because sin slew thy Son and wounded thine own heart,
-            and grace to live a Christian life and save my soul.
-          </Text>
-          <Text style={styles.txt}>
-            Our Father.... Hail Mary.... Glory Be to the Father....
-          </Text>
-          <Text style={styles.txt}>Leader: Jesus Christ Crucified.</Text>
-          <Text style={styles.txt}>All: Have mercy on Us.</Text>
-          <Text style={styles.txt}>
-            Leader: May the souls of the faithful departed, through the mercy of
-            God, Rest in peace.
-          </Text>
-          <Text style={styles.txt}>All: Amen.</Text>
+          </View>
         </View>
         <StatusBar translucent={true} />
-        <GeneralComponentContainer />
+        <IgboComponentForDisplayingAllStations />
       </View>
     </ScrollView>
   );
@@ -90,11 +84,13 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: Platform.OS === "android" ? 45 : 0,
     marginHorizontal: 12,
-    marginBottom: 15,
+    marginBottom: 4,
   },
   flexContainer: {
     display: "flex",
     rowGap: 15,
+    marginTop: 10,
+    marginBottom: 10,
   },
   heading: {
     fontSize: 25,
@@ -102,17 +98,18 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "red",
   },
+  boldTxt: {
+    fontWeight: "900",
+  },
   txt: {
     fontSize: 17,
     lineHeight: 24,
   },
-  leader: {
-    fontWeight: "600",
-    fontSize: 17,
-    lineHeight: 24,
+  songCont: {
+    display: "flex",
+    flexDirection: "column",
   },
-  all: {
-    fontWeight: "normal",
-    // paddingLeft: 10,
+  song: {
+    color: "purple",
   },
 });

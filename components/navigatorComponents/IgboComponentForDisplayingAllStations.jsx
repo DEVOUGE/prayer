@@ -8,7 +8,7 @@ import IgboHomeNavigationButton from "./IgboHomeNavigationButton";
 import igbo from "../../lib/igbo";
 export default function IgboComponentForDisplayingAllStations() {
   return (
-    <ScrollView horizontal={true}>
+    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
       <View style={styles.view}>
         <IgboHomeNavigationButton />
 

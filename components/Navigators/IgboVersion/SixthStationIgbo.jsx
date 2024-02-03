@@ -9,88 +9,98 @@ import {
 } from "react-native";
 import React from "react";
 import pic from "../images/station06.jpg";
-import GeneralComponentContainer from "../../navigatorComponents/GeneralComponentContainer";
+import IgboComponentForDisplayingAllStations from "../../navigatorComponents/IgboComponentForDisplayingAllStations";
 
 export default function SixthStationIgbo() {
   return (
     <ScrollView>
       <View style={styles.container}>
-        <GeneralComponentContainer />
+        <IgboComponentForDisplayingAllStations />
         <View style={styles.flexContainer}>
           <Text style={styles.heading}>
-            Sixth Station: Veronica wipes the face of Jesus
+            NKWUSI NKE ISII: VERONICA EHICHA JESU IHU
           </Text>
-          <Text style={styles.txt}>
-            Jesus, suddenly a woman comes out of the crowd. Her name is
-            Veronica. You can see how she cares for you as she takes a cloth and
-            begins to wipe the blood and sweat from your face. She can't do
-            much, but she offers what little help she can.
+          <Text style={[styles.boldTxt, styles.txt]}>
+            V. Anyi esekpuoro gi Jesu na-enye gi ekele
+          </Text>
+          <Text style={[styles.boldTxt, styles.txt]}>
+            R. Makana Obe Gi di aso ka iji wee gbaputa uwa
           </Text>
           <Image source={pic} />
-          <Text style={styles.leader}>
-            Leader:
-            <Text style={styles.all}>
-              We adore you, O Christ, and we praise you.
+          <Text style={[styles.txt]}>
+            <Text style={styles.boldTxt}>V. </Text>
+            Mgbe Veronica huru ka osisoo na obara si eruchisi Jesu imi na onu, o
+            wutere ya nke ukwu. O bia mee ka obi sie ya ike ofuma, nke na o
+            tuzighi egwu ndi agha dokpu Jesu na-aga. O zowara ije n'etiti ha,
+            jiri ichafu ya hichaa Jesu ihu. Mgbe o hichasiri ihu Jesu, o hu na
+            ihu Jesu ebiela na ichafu ahu.
+          </Text>
+          <Text style={styles.txt}>
+            <Text style={styles.boldTxt}>Ka anyi rio aririo</Text>
+            -Dinwenu Jesu; Ina-egosi anyi mgbe niile na I biri akara gi di aso
+            n'ime anyi site na grasia na-edo aso na oru itunanya Ina-aru na ndu
+            anyi oge niile. Biko, anyi na-ario ka inogide n'ime anyi oge niile.
+            Amen
+          </Text>
+          <Text style={styles.txt}>
+            <Text style={styles.boldTxt}>R. </Text>
+            Jesu m; Ahuru m gi n'anya karichaa ihe niile. Eji m obi m niile
+            chegharia na mmehie m mehiere gi. Ekwela ka m kewapu onwe m ozo
+            n'ebe ino. Mee ka m hu gi na anya mbge obula. Bia were m mee ihe
+            masiri gi.
+          </Text>
+          <Text style={[styles.boldTxt, styles.txt]}>
+            Nna anyi no n'elugwe... Ekene Maria... Otito diri Nna...
+          </Text>
+          <Text style={styles.txt}>
+            <Text style={styles.boldTxt}>V. </Text>O Jesu a kpogburu n'obe maka
+            ihi anyi... R. Meere anyi ebeere
+          </Text>
+          <Text style={styles.txt}>
+            <Text style={styles.boldTxt}>V.</Text> Ka mkpuruobi ndi niile
+            kwerenu gara aga...
+          </Text>
+          <Text style={styles.txt}>
+            <Text style={styles.boldTxt}>R.</Text> Site n’ebere nke Chukwu ka ha
+            zuru ike na ndokwa
+          </Text>
+          <View style={styles.songCont}>
+            <Text style={[styles.txt, styles.song]}>
+              <Text style={styles.boldTxt}>Ukwe: </Text>
+              Jesu ncheta I na-asoka
             </Text>
-          </Text>
-          <Text style={styles.leader}>
-            All:
-            <Text style={styles.all}>
-              Because by your holy cross You have redeemed the world.
+            <Text style={[styles.txt, styles.song]}>
+              Bu anuri ndi no na enu uwa
             </Text>
-          </Text>
-          <Text style={styles.txt}>
-            Jesus, suddenly a woman comes out of the crowd. Her name is
-            Veronica. You can see how she cares for you as she takes a cloth and
-            begins to wipe the blood and sweat from your face. She can't do
-            much, but she offers what little help she can.
-          </Text>
-          <Text style={styles.txt}>
-            As a child, sometimes I know someone could use a little help and
-            understanding. They may be picked on or teased by others, or just
-            sad or lonely. Sometimes I feel bad that others don't step in to
-            help, but I don't help either.
-          </Text>
-          <Text style={styles.txt}>
-            As an adult, I notice the needs around me. Sometimes my own family
-            members crave my attention, and I don't even seem to notice.
-            Sometimes a co-worker, friend, or family member could use help or
-            understanding, but I don't reach out to help lest I be criticized,
-            or that they demand more of me than I'd like to give.
-          </Text>
-          <Text style={styles.txt}>
-            My tender Jesus, Who didst deign to print Thy sacred face upon the
-            cloth with which Veronica wiped the sweat from off Thy brow, print
-            in my soul deep, I pray Thee, the lasting memory of Thy bitter
-            pains.
-          </Text>
-          <Text style={styles.txt}>
-            Our Father.... Hail Mary.... Glory Be to the Father....
-          </Text>
-          <Text style={styles.txt}>Leader: Jesus Christ Crucified.</Text>
-          <Text style={styles.txt}>All: Have mercy on Us.</Text>
-          <Text style={styles.txt}>
-            Leader: May the souls of the faithful departed, through the mercy of
-            God, Rest in peace.
-          </Text>
-          <Text style={styles.txt}>All: Amen.</Text>
+            <Text style={[styles.txt, styles.song]}>
+              Ma mgbe Jesu ji kwudebe
+            </Text>
+            <Text style={[styles.txt, styles.song]}>
+              Nya bu ihe kasi ihe ihe nile. Jesu ncheta I na-asoka
+            </Text>
+            <Text style={[styles.txt, styles.song]}>
+              Jesu ncheta I na-asoka, Jesu ncheta I na-asoka
+            </Text>
+          </View>
         </View>
         <StatusBar translucent={true} />
-        <GeneralComponentContainer />
+        <IgboComponentForDisplayingAllStations />
       </View>
     </ScrollView>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     paddingTop: Platform.OS === "android" ? 45 : 0,
     marginHorizontal: 12,
-    marginBottom: 15,
+    marginBottom: 4,
   },
   flexContainer: {
     display: "flex",
     rowGap: 15,
+    marginTop: 10,
+    marginBottom: 10,
   },
   heading: {
     fontSize: 25,
@@ -98,17 +108,18 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "red",
   },
+  boldTxt: {
+    fontWeight: "900",
+  },
   txt: {
     fontSize: 17,
     lineHeight: 24,
   },
-  leader: {
-    fontWeight: "600",
-    fontSize: 17,
-    lineHeight: 24,
+  songCont: {
+    display: "flex",
+    flexDirection: "column",
   },
-  all: {
-    fontWeight: "normal",
-    // paddingLeft: 10,
+  song: {
+    color: "purple",
   },
 });

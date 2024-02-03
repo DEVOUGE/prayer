@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
     fontSize: 28,
     textAlign: "center",
     fontWeight: "600",
+    marginTop: 23,
     marginBottom: 7,
   },
   imgs: {

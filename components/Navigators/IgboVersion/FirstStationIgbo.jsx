@@ -95,6 +95,7 @@ const styles = StyleSheet.create({
     display: "flex",
     rowGap: 15,
     marginTop: 10,
+    marginBottom: 10,
   },
   heading: {
     fontSize: 25,
@@ -110,8 +111,8 @@ const styles = StyleSheet.create({
     lineHeight: 24,
   },
   songCont: {
-    display: 'flex',
-    flexDirection: 'column',
+    display: "flex",
+    flexDirection: "column",
   },
   song: {
     color: "purple",

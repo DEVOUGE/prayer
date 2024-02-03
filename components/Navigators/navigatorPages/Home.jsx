@@ -19,13 +19,30 @@ export default function Home() {
       <View style={styles.flexCont}>
         <Text style={styles.title}>Opening Prayer</Text>
         <Image style={styles.imgs} source={pic} />
-        <Text style={styles.subTxt}>ACT OF CONTRITION:</Text>
+        <Text style={styles.all}>ALL:</Text>
+        <Text style={styles.txt}>My Lord, Jesus Christ, </Text>
         <Text style={styles.txt}>
-          O my God, my Redeemer, behold me here at Thy feet. From the bottom of
-          my heart I am sorry for all my sins, because by them I have offended
-          Thee, Who art infinitely good. I will die rather than offend thee
-          again.
+          You have made this journey to die for me with unspeakable love;{" "}
         </Text>
+        <Text style={styles.txt}>
+          and I have so many times ungratefully abandoned You. | But now I love
+          You with all my heart;
+        </Text>
+        <Text style={styles.txt}>
+          and, because I love You, I am sincerely sorry for ever having offended
+          You.
+        </Text>
+        <Text style={styles.txt}>
+          Pardon me, my God, and permit me to accompany You on this journey.
+        </Text>
+        <Text style={styles.txt}>You go to die for love of me; </Text>
+        <Text style={styles.txt}>I want, my beloved Redeemer, to die for love of You. </Text>
+        <Text style={styles.txt}>My Jesus, I will live and die always united to You.</Text>
+        <View style={styles.flexTxt}>
+          <Text style={styles.bottomTxt}>At the cross her station keeping </Text>
+          <Text style={styles.bottomTxt}>Stood the mournful Mother weeping </Text>
+          <Text style={styles.bottomTxt}>Close to Jesus to the last</Text>
+        </View>
         <GeneralComponentContainer />
       </View>
       <StatusBar translucent={true} />
@@ -41,11 +58,16 @@ const styles = StyleSheet.create({
     zIndex: -100,
   },
   flexCont: {
-    marginBottom: 60,
+    paddingBottom: 130,
   },
   txt: {
+    fontSize: 18,
+    lineHeight: 25,
+    fontStyle: "italic",
+  },
+  all: {
     fontSize: 20,
-    paddingBottom: 20,
+    fontWeight: "500",
   },
   title: {
     fontSize: 28,
@@ -55,9 +77,14 @@ const styles = StyleSheet.create({
   },
   imgs: {
     justifyContent: "center",
-    alignSelf: "center"
+    alignSelf: "center",
   },
   subTxt: {
     fontSize: 22,
+  },
+  bottomTxt: {
+    lineHeight: 23,
+    color: "#696969",
+    fontSize: 15,
   },
 });

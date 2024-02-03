@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
     display: "flex",
     rowGap: 15,
     marginTop: 10,
+    marginBottom: 10,
   },
   heading: {
     fontSize: 25,

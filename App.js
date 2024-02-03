@@ -1,10 +1,10 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./components/HomeScreen";
-// Testing out the English component
+// English component
 import GeneralComponentContainer from "./components/navigatorComponents/GeneralComponentContainer";
 import Home from "./components/Navigators/navigatorPages/Home";
-import FirstStationEnglish from "./components/Navigators/navigatorPages/FirstStation";
+import FirstStationEnglish from "./components/Navigators/EnglishVersion/FirstStationEnglish";
 import SecondStationEnglish from "./components/Navigators/EnglishVersion/SecondStationEnglish";
 import ThirdStationEnglish from "./components/Navigators/EnglishVersion/ThirdStationEnglish";
 import FourthStationEnglish from "./components/Navigators/EnglishVersion/FourthStationEnglish";
@@ -37,6 +37,8 @@ import EleventhStationIgbo from "./components/Navigators/IgboVersion/EleventhSta
 import TwelfthStationIgbo from "./components/Navigators/IgboVersion/TwelfthStationIgbo";
 import ThirteenthStationIgbo from "./components/Navigators/IgboVersion/ThirteenthStationIgbo";
 import FourteenthStationIgbo from "./components/Navigators/IgboVersion/FourteenthStationIgbo";
+import AririoNihuAltar from "./components/Navigators/IgboVersion/AririoNihuAltar";
+import EkpereMmechi from "./components/Navigators/IgboVersion/EkpereMmechi";
 // End of Igbo stations
 import SelectLanguage from "./components/SelectLanguage";
 import { getData } from "./lib/Storage";
@@ -212,7 +214,7 @@ export default function App() {
             initialParams={{ lang }}
           />
           <Screen
-            name="EightStationIgbo"
+            name="EighthStationIgbo"
             component={EightStationIgbo}
             options={{ headerShown: false }}
             initialParams={{ lang }}
@@ -250,6 +252,18 @@ export default function App() {
           <Screen
             name="FourteenthStationIgbo"
             component={FourteenthStationIgbo}
+            options={{ headerShown: false }}
+            initialParams={{ lang }}
+          />
+          <Screen
+            name="AririoNihuAltar"
+            component={AririoNihuAltar}
+            options={{ headerShown: false }}
+            initialParams={{ lang }}
+          />
+          <Screen
+            name="Ekperemmechi"
+            component={EkpereMmechi}
             options={{ headerShown: false }}
             initialParams={{ lang }}
           />

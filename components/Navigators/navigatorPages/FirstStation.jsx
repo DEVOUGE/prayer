@@ -29,18 +29,34 @@ export default function FirstStationEnglish() {
           </Text>
           <Image source={pic} />
           <Text style={styles.leader}>
-            Leader:
+            V:
             <Text style={styles.all}>
               We adore Thee, O Christ, and bless Thee.
             </Text>
           </Text>
           <Text style={styles.leader}>
-            All:
+            R:
             <Text style={styles.all}>
               Because by Thy holy cross Thou hast redeemed the world.
             </Text>
           </Text>
-          <Text style={styles.txt}>
+          <Text style={styles.leader}>
+            V:
+            <Text style={styles.all}>
+              Consider how Jesus Christ, after being scourged and crowned with
+              thorns, was unjustly condemned by Pilate to die on the cross.
+              (Kneel)
+            </Text>
+          </Text>
+          <Text style={styles.leader}>
+            R:
+            <Text style={styles.all}>My adorable Jesus,</Text> {"\n"}
+            <Text style={styles.all}>it was not Pilate</Text> {"\n"}
+            <Text style={styles.all}>
+              no, it was my sins that condemned You to die.{" "}
+            </Text> {"\n"}
+          </Text>
+          {/* <Text style={styles.txt}>
             Jesus, you stand all alone before Pilate. Nobody speaks up for you.
             Nobody helps defend you. You devoted your entire life to helping
             others, listening to the smallest ones, caring for those who were
@@ -67,7 +83,7 @@ export default function FirstStationEnglish() {
           <Text style={styles.txt}>
             My Jesus, often have I signed the death warrant by my sins; save me
             by Thy death from that eternal death which I have so often deserved.
-          </Text>
+          </Text> */}
           <Text style={styles.txt}>
             Our Father.... Hail Mary.... Glory Be to the Father....
           </Text>

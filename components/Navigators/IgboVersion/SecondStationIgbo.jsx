@@ -53,7 +53,10 @@ export default function SecondStationIgbo() {
           </Text>
           <Text style={styles.txt}>
             <Text style={styles.boldTxt}>V. </Text>O Jesu a kpogburu n'obe maka
-            ihi anyi... R. Meere anyi ebeere
+            ihi anyi...
+          </Text>
+          <Text style={styles.txt}>
+            <Text style={styles.boldTxt}>R. </Text>R. Meere anyi ebeere
           </Text>
           <Text style={styles.txt}>
             <Text style={styles.boldTxt}>V.</Text> Ka mkpuruobi ndi niile
@@ -72,8 +75,7 @@ export default function SecondStationIgbo() {
               Chukwu ga-ekpe Uwa niile ikpe, Adam mere njo
             </Text>
             <Text style={[styles.txt, styles.song]}>
-              Anyi na-ata ya uta, Ma anyi na-eme njo,
-              Onye na-ata anyi uta?
+              Anyi na-ata ya uta, Ma anyi na-eme njo, Onye na-ata anyi uta?
             </Text>
           </View>
         </View>
@@ -94,6 +96,7 @@ const styles = StyleSheet.create({
     display: "flex",
     rowGap: 15,
     marginTop: 10,
+    marginBottom: 10,
   },
   heading: {
     fontSize: 25,
