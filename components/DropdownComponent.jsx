@@ -7,7 +7,7 @@ export default function DropdownComponent() {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
-    { label: "Benediction", value: "benediction" },
+    { label: "Stations Of the cross", value: "Stations Of the cross" },
   ]);
 
   return (

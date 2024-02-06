@@ -18,62 +18,57 @@ export default function NinthStationIgbo() {
         <IgboComponentForDisplayingAllStations />
         <View style={styles.flexContainer}>
           <Text style={styles.heading}>
-            NKWUSI NKE ITENNANI: JESU ADAA NKE UGBORO ATO
+            NKWUSI NKE Itolu: Jesu adaa nke ugboro Ato
           </Text>
-          <Text style={[styles.boldTxt, styles.txt]}>
-            V. Anyi esekpuoro gi Jesu na-enye gi ekele
+          <Text style={styles.txt}>
+            <Text style={styles.boldTxt}> Onye-ndu:</Text> Anyi esekpuoro gi
+            Jesu na-enye gi ekele
           </Text>
-          <Text style={[styles.boldTxt, styles.txt]}>
-            R. Makana Obe Gi di aso ka iji wee gbaputa uwa
+          <Text style={styles.boldTxt}>Gbuonu otu ikpere n’ala za:</Text>
+          <Text style={styles.txt}>
+            <Text style={styles.boldTxt}>Oha:</Text> Maka na obe gi di aso ka I
+            Ji we gbaputa uwa.
           </Text>
           <Image source={pic} />
+          <Text style={styles.centerTxt}>kulitenu</Text>
+          <Text style={styles.txt}>
+            AWUFUOLA m ka mmiri, njiko okpukpu m nile agbakwarachaala. Obi m
+            edeela ka mkpuru-mmiri wuba m n’afo. Ike (Strength) m akpoola nku ka
+            mpekele ite. Ire m ataparala m n’agba m. I tuoala m n’uru nke onwu.
+          </Text>
+          <Text style={[styles.boldTxt, styles.txt]}>Sekpurunu Ala</Text>
+          <Text style={styles.txt}>
+            ‘Dinwenu, lee, I hula na aburula m onye a juru aju."O bu na ihe a
+            agbasaghi unu nile na-agafe nu?" Letanu ma o nwere ahuhu ka nke a e
+            bunyere m. Ihe ndi a ka m na-ebere akwa; anya-mmiri na-ehusi m
+            n’anya. Maka na enweghi m onye nkasi obi; nke m na-enwe onye na-asi
+            m jisie ike." (Abuakwa 1:11-12, 16)
+          </Text>
+          <Text style={styles.txt}>
+            Chineke ji ike nile, nye m amara gi n’uju ka m were Kwudosie ike ruo
+            na ngwucha. Ekwela ka obi daa m mba mgbe ihe na-esiri m ike.
+          </Text>
           <Text style={[styles.txt]}>
-            <Text style={styles.boldTxt}>V. </Text>
-            Na njem, anyi ji ekpere soro Jesu aga Kalvari, anyi ahula ebe Jesu
-            dara ugboro abuo. Ugbua O daala nke ato. Uche na-echezi ochiagha du
-            Jesu aga ma Jesu oga-jerunwukwa ebe ha ga akpogbu ya n’obe.
+            <Text style={styles.boldTxt}>Oha: </Text>
+            Jesus m, ahuru m gi n’anya karichaa ihe nile; Eji m obi m nile
+            chegharia na mmehie m mehiere gi E kwela ka m kewapu onwe m ozo
+            n’ebe I no; Mee ka m hu gi n’anya mgbe o bula; Bia ji m mee ihe o
+            bula masiri gi.
           </Text>
           <Text style={styles.txt}>
-            <Text style={styles.boldTxt}>Ka anyi rio aririo</Text>- - Jesu m,
-            mgbaputa, ikpa udo, mgbanwe, na idi ocha nke mmuo adighi mfe. O tara
-            isi gi iji wetara anyi ha. Nyere anyi aka iji obi di ocha na-eto gi
-            maka aja-onwe ichuru maka nzoputa anyi. Amen
-          </Text>
-          <Text style={styles.txt}>
-            <Text style={styles.boldTxt}>R. </Text>
-            Jesu m; Ahuru m gi n'anya karichaa ihe niile. Eji m obi m niile
-            chegharia na mmehie m mehiere gi. Ekwela ka m kewapu onwe m ozo
-            n'ebe ino. Mee ka m hu gi na anya mbge obula. Bia were m mee ihe
-            masiri gi.
-          </Text>
-          <Text style={[styles.boldTxt, styles.txt]}>
-            Nna anyi no n'elugwe... Ekene Maria... Otito diri Nna...
-          </Text>
-          <Text style={styles.txt}>
-            <Text style={styles.boldTxt}>V. </Text>O Jesu a kpogburu n'obe maka
-            ihi anyi... R. Meere anyi ebeere
-          </Text>
-          <Text style={styles.txt}>
-            <Text style={styles.boldTxt}>V.</Text> Ka mkpuruobi ndi niile
-            kwerenu gara aga...
-          </Text>
-          <Text style={styles.txt}>
-            <Text style={styles.boldTxt}>R.</Text> Site n’ebere nke Chukwu ka ha
-            zuru ike na ndokwa
+            <Text style={styles.boldTxt}>Kulitenu </Text>
+            kwere ukwe a gaa na nkwusi nke Iri.
           </Text>
           <View style={styles.songCont}>
             <Text style={[styles.txt, styles.song]}>
               <Text style={styles.boldTxt}>Ukwe: </Text>
-              Hulata
+              Buo amuma Nwanke Mmadu;
             </Text>
             <Text style={[styles.txt, styles.song]}>
-              bia nyere m aka Dinwenu
+              Ka okpukpu kporo nku nwee ndu;
             </Text>
             <Text style={[styles.txt, styles.song]}>
-              Dinwenu were oso bia za mu o
-            </Text>
-            <Text style={[styles.txt, styles.song]}>
-              Bia za mu o Chukwu
+              Ka ha nu okwu Chukwu (Ezikiel 57:4-5)
             </Text>
           </View>
         </View>
@@ -104,6 +99,12 @@ const styles = StyleSheet.create({
   },
   boldTxt: {
     fontWeight: "900",
+  },
+  centerTxt: {
+    textAlign: "center",
+    // fontSize: 20,
+    fontWeight: "700",
+    fontStyle: "italic",
   },
   txt: {
     fontSize: 17,

@@ -11,71 +11,65 @@ import React from "react";
 import pic from "../images/station14.jpg";
 import IgboComponentForDisplayingAllStations from "../../navigatorComponents/IgboComponentForDisplayingAllStations";
 
-export default function ThirteenthStationIgbo() {
+export default function FourteenthStationIgbo() {
   return (
     <ScrollView>
       <View style={styles.container}>
         <IgboComponentForDisplayingAllStations />
         <View style={styles.flexContainer}>
           <Text style={styles.heading}>
-            NKWUSI NKE IRI NA ANO: A DONYE JESU N’IME ILI
+            NKWUSI NKE IRI-NA-ANO: A donye Jesu n’ili
           </Text>
-          <Text style={[styles.boldTxt, styles.txt]}>
-            V. Anyi esekpuoro gi Jesu na-enye gi ekele
+          <Text style={styles.txt}>
+            <Text style={styles.boldTxt}> Onye-ndu:</Text> Anyi esekpuoro gi
+            Jesu na-enye gi ekele
           </Text>
-          <Text style={[styles.boldTxt, styles.txt]}>
-            R. Makana Obe Gi di aso ka iji wee gbaputa uwa
+          <Text style={styles.boldTxt}>Gbuonu otu ikpere n’ala za:</Text>
+          <Text style={styles.txt}>
+            <Text style={styles.boldTxt}>Oha:</Text> Maka na obe gi di aso ka I
+            Ji we gbaputa uwa.
           </Text>
           <Image source={pic} />
+          <Text style={styles.centerTxt}>kulitenu</Text>
+          <Text style={styles.txt}>
+            Nke a abia mezuo amuma e buru si: "E mekotara ili ya na nke ndi njo;
+            ya na ogalanya nokwa n’onwu ya." "Ya adonye ahu ahu n’ili o mezirila
+            onwe ya." (Azaya 53:9: 1 Ndi Eze 13: 30)
+          </Text>
+          <Text style={[styles.boldTxt, styles.txt]}>Sekpurunu Ala</Text>
+          <Text style={styles.txt}>
+            Otu e si mee otutu mmadu ndi njo site n’ehuweghi isi nke otu onye ka
+            e sikwa mee otutu mmadu ndi ezi-omume site n’ihuwe isi nke otu onye.
+            E mere anyi mmiri-Chukwu n’onwu Kristi, ka anyi wee soro ya na-aga
+            ije na ndu ohuru (Ndi Rom 5:19:6:3-4)
+          </Text>
+          <Text style={styles.txt}>
+            Chineke m, mee ka ndi no n’ochichi nwee obi-mmadu were obi Chineke
+            na-achi, Mee ka ndi ogalanya anyi were anya ana -asoro ha n’obodo
+            na-aruputa oru nke nzoputa.
+          </Text>
           <Text style={[styles.txt]}>
-            <Text style={styles.boldTxt}>V. </Text>
-            Ndi enyi na ndi na-eso uzo Jesu buuru ahu Jesu gaba n'ili Joseph nke
-            Arimathia. Nichodemus gwakoro mmanu isioma na ude a ga-ete Jesu.
-            Mgbe ha dozichara ahu Jesu, ha ji ugwu na nsopuru were akwa ocha
-            na-enwu ocha kechie ya ahu ya niile (Jn 19:38-40); jiri nwayo lie
-            ya. Ebe ahu ka ahu Jesu noo wee rue mgbe oga esi n’onwu kulie.
+            <Text style={styles.boldTxt}>Oha: </Text>
+            Jesus m, ahuru m gi n’anya karichaa ihe nile; Eji m obi m nile
+            chegharia na mmehie m mehiere gi E kwela ka m kewapu onwe m ozo
+            n’ebe I no; Mee ka m hu gi n’anya mgbe o bula; Bia ji m mee ihe o
+            bula masiri gi.
           </Text>
           <Text style={styles.txt}>
-            <Text style={styles.boldTxt}>Ka anyi rio aririo</Text>- Jesu nke
-            anyi, anyi na ario ka anyi nwee ike ihu gi ihu-na-ihu mgbe iga abia
-            ozo n'ebube Gi. Mgbe ndu anyi nke uwa gachara, nyere anyi aka ka
-            anyi soro Gi bili na ndu ebebe n’eluigwe. Amen
-          </Text>
-          <Text style={styles.txt}>
-            <Text style={styles.boldTxt}>R. </Text>
-            Jesu m; Ahuru m gi n'anya karichaa ihe niile. Eji m obi m niile
-            chegharia na mmehie m mehiere gi. Ekwela ka m kewapu onwe m ozo
-            n'ebe ino. Mee ka m hu gi na anya mbge obula. Bia were m mee ihe
-            masiri gi
-          </Text>
-          <Text style={[styles.boldTxt, styles.txt]}>
-            Nna anyi no n'elugwe... Ekene Maria... Otito diri Nna...
-          </Text>
-          <Text style={styles.txt}>
-            <Text style={styles.boldTxt}>V. </Text>O Jesu a kpogburu n'obe maka
-            ihi anyi... R. Meere anyi ebeere
-          </Text>
-          <Text style={styles.txt}>
-            <Text style={styles.boldTxt}>V.</Text> Ka mkpuruobi ndi niile
-            kwerenu gara aga...
-          </Text>
-          <Text style={styles.txt}>
-            <Text style={styles.boldTxt}>R.</Text> Site n’ebere nke Chukwu ka ha
-            zuru ike na ndokwa
+            <Text style={styles.boldTxt}>Kulitenu </Text>
+            kwere ukwe a gaa n’ iru altar
           </Text>
           <View style={styles.songCont}>
             <Text style={[styles.txt, styles.song]}>
               <Text style={styles.boldTxt}>Ukwe: </Text>
-              Lee ma-nya Leem anya na-mkpuru obi
+              igaghi ahapu m n’ala-mmuo;
             </Text>
             <Text style={[styles.txt, styles.song]}>
-              A tu-kwasaram Gi obi, Chineke
+              I gaghi ekwe kam ree ure;
             </Text>
             <Text style={[styles.txt, styles.song]}>
-              A-tu-kwasaram Gi obi oge ni-le
+              Anuri ejula m obi (Abu oma 16:10-11)
             </Text>
-            <Text style={[styles.txt, styles.song]}>Oge nile m no n’uwa</Text>
-            <Text style={[styles.txt, styles.song]}>O Chineke</Text>
           </View>
         </View>
         <StatusBar translucent={true} />
@@ -105,6 +99,12 @@ const styles = StyleSheet.create({
   },
   boldTxt: {
     fontWeight: "900",
+  },
+  centerTxt: {
+    textAlign: "center",
+    // fontSize: 20,
+    fontWeight: "700",
+    fontStyle: "italic",
   },
   txt: {
     fontSize: 17,

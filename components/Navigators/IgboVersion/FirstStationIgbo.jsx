@@ -20,61 +20,59 @@ export default function FirstStationIgbo() {
           <Text style={styles.heading}>
             NKWUSI NKE MBU: A MAA JESU IKPE ONWU
           </Text>
-          <Text style={[styles.boldTxt, styles.txt]}>
-            V. Anyi esekpuoro gi Jesu na-enye gi ekele
+          <Text style={styles.txt}>
+            <Text style={styles.boldTxt}> Onye-ndu:</Text> Anyi esekpuoro gi
+            Jesu na-enye gi ekele
           </Text>
-          <Text style={[styles.boldTxt, styles.txt]}>
-            R. Makana Obe Gi di aso ka iji wee gbaputa uwa
+          <Text style={styles.boldTxt}>Gbuonu otu ikpere n’ala za:</Text>
+          <Text style={styles.txt}>
+            <Text style={styles.boldTxt}>Oha:</Text> Maka na obe gi di aso ka I
+            Ji we gbaputa uwa.
           </Text>
           <Image source={pic} />
+          <Text style={styles.centerTxt}>kulitenu</Text>
+          <Text style={styles.txt}>
+            KAIFAS asi Jesu: "Ejim aha Chukwu di ndu asi gi nuora anyi iyi ma i
+            bu Kristi, Nwa nke Chukwu. "Jesu azaa ya: "Ikwuola ya. Mana ana m
+            agwa gi na e mechaa, iga-ahu Nwa nke Madu ka O no n’aka -nri nke
+            Ike, si n’urukpu nke igwe na-abia, " Kaifas adowaa uwe nru-ala ya
+            tie mkpu si: "OKwuola aru! Ndi mmadu ekwughachi si: "Kpogbuo ya
+            Kpoghuo ya" Ha bido buwa ya asu n’‘ihu; kuwa ya ihe.
+          </Text>
+          <Text style={[styles.boldTxt, styles.txt]}>Sekpurunu Ala</Text>
+          <Text style={styles.txt}>
+            Ndi iro m na-emeghi ihe ojoo obula siri oke ike. Ndi Kporo m asi na
+            nkiti akariala; ndi iro m ji ihe ojoo akwu m ugwo ihe oma, maka na
+            ana m eso uzo ezi omume. (Abuoma 38: 19-20)
+          </Text>
+          <Text style={styles.txt}>
+            Onyenwe m, nye m ndidi ka m ghara ikwuhie onu mqbe ihe na-esiri m
+            ike. E kwela ka ikwu na ibe ko m. Nye m obi siri ike, nke m ga-eji
+            emeri onwunwa nile ga-abiakwute m na ndum.
+          </Text>
           <Text style={[styles.txt]}>
-            <Text style={styles.boldTxt}>V. </Text>
-            Ndi agha kpuoro Jesu gaa n'ihu Pilate si ya na Jesu kwuru aru. O si
-            na ya bu nwa nke Chukwu. Ha gwara ya na iwu obodo kwuru ka e gbuo
-            onye obula nyara udi isi a. Ha mere ka a ga-asi na ha na-
-            ekwuchitere oha obodo onu ha; wee gwa Pilate na Caiaphas na oha
-            obodo na ario ka ha nye ikike ka a kpogbuo Jesu n'obe.
+            <Text style={styles.boldTxt}>Oha: </Text>
+            Jesu m, ahuru m gi n’anya Karichaa ihe nile Ejim obim nile chegharia
+            na mehie m mehiere Gi E kwela ka m Kewapu onwe m ozo n’ebe ino Mee
+            ka m hu gi n’anya mgbe o bula; Bia jim mee ihe o bula masiri gi.
           </Text>
           <Text style={styles.txt}>
-            <Text style={styles.boldTxt}>Ka anyi rio aririo</Text>
-            -Dinwenu Jesu, anyi bu ihere njo anyi niile wee nodu n'ihu gi. O bu
-            njo anyi buteere gi udi nhujuanya a. Ekwela ka anyi kewapu onwe anyi
-            n'ebe I no ozo. Nyere anyi aka n'adighi ike anyi. Gbaghara anyi.
-            Amen
+            A choo na nkwusi o bula e nwere ike Ikpe: Nna anyi no
+            n’ligwe........ Ekele Maria...... Otito diri Nna... Jesu a kpodoro
+            n’obe maka nihi anyi Meere anyi ebere; ka mkpuru obi ndi nile
+            Kwerenu gara aga....... Ma a choghi, e nwere ike ihapu ekpere ndia.
           </Text>
           <Text style={styles.txt}>
-            <Text style={styles.boldTxt}>R. </Text>
-            Jesu m; Ahuru m gi n'anya karichaa ihe niile. Eji m obi m niile
-            chegharia na mmehie m mehiere gi. Ekwela ka m kewapu onwe m ozo
-            n'ebe ino. Mee ka m hu gi na anya mbge obula. Bia were m mee ihe
-            masiri gi.
-          </Text>
-          <Text style={[styles.boldTxt, styles.txt]}>
-            Nna anyi no n'elugwe... Ekene Maria... Otito diri Nna...
-          </Text>
-          <Text style={styles.txt}>
-            <Text style={styles.boldTxt}>V. </Text>O Jesu a kpogburu n'obe maka
-            ihi anyi... R. Meere anyi ebeere
-          </Text>
-          <Text style={styles.txt}>
-            <Text style={styles.boldTxt}>V.</Text> Ka mkpuruobi ndi niile
-            kwerenu gara aga...
-          </Text>
-          <Text style={styles.txt}>
-            <Text style={styles.boldTxt}>R.</Text> Site n’ebere nke Chukwu ka ha
-            zuru ike na ndokwa
+            <Text style={styles.boldTxt}>Kulitenu </Text>
+            kwere ukwe a gaa na nkwusi nke abua.
           </Text>
           <View style={styles.songCont}>
             <Text style={[styles.txt, styles.song]}>
               <Text style={styles.boldTxt}>Ukwe: </Text>
-              Ka pailate juru, I bu onye Eze
+              Nsogbu norom n’ebe nile:
             </Text>
             <Text style={[styles.txt, styles.song]}>
-              Jesu zara ee, a bu m Onye Eze
-            </Text>
-            <Text style={[styles.txt, styles.song]}>
-              Dinwenu anyi Jesu, na-achi eze n’enigwe, Eze nke ora nile Eze nke
-              Eze
+              Anuru m ndi na-agba izu:‘
             </Text>
           </View>
         </View>
@@ -105,6 +103,12 @@ const styles = StyleSheet.create({
   },
   boldTxt: {
     fontWeight: "900",
+  },
+  centerTxt: {
+    textAlign: "center",
+    // fontSize: 20,
+    fontWeight: "700",
+    fontStyle: "italic",
   },
   txt: {
     fontSize: 17,

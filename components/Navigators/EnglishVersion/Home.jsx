@@ -8,9 +8,8 @@ import {
   StatusBar,
 } from "react-native";
 import React from "react";
-import pic from "../images/act_of_contrition.gif";
+import pic from "../images/act_of_contrition.gif"
 import GeneralComponentContainer from "../../navigatorComponents/GeneralComponentContainer";
-// import { NavigationContainer } from "@react-navigation/native";
 
 export default function Home() {
   return (
@@ -36,11 +35,19 @@ export default function Home() {
           Pardon me, my God, and permit me to accompany You on this journey.
         </Text>
         <Text style={styles.txt}>You go to die for love of me; </Text>
-        <Text style={styles.txt}>I want, my beloved Redeemer, to die for love of You. </Text>
-        <Text style={styles.txt}>My Jesus, I will live and die always united to You.</Text>
+        <Text style={styles.txt}>
+          I want, my beloved Redeemer, to die for love of You.{" "}
+        </Text>
+        <Text style={styles.txt}>
+          My Jesus, I will live and die always united to You.
+        </Text>
         <View style={styles.flexTxt}>
-          <Text style={styles.bottomTxt}>At the cross her station keeping </Text>
-          <Text style={styles.bottomTxt}>Stood the mournful Mother weeping </Text>
+          <Text style={styles.bottomTxt}>
+            At the cross her station keeping{" "}
+          </Text>
+          <Text style={styles.bottomTxt}>
+            Stood the mournful Mother weeping{" "}
+          </Text>
           <Text style={styles.bottomTxt}>Close to Jesus to the last</Text>
         </View>
         <GeneralComponentContainer />
@@ -88,3 +95,4 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
 });
+

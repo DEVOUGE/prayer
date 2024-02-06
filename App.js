@@ -3,7 +3,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./components/HomeScreen";
 // English component
 import GeneralComponentContainer from "./components/navigatorComponents/GeneralComponentContainer";
-import Home from "./components/Navigators/navigatorPages/Home";
+import Settings from "./components/Navigators/header/Settings";
+import Home from "./components/Navigators/EnglishVersion/Home";
 import FirstStationEnglish from "./components/Navigators/EnglishVersion/FirstStationEnglish";
 import SecondStationEnglish from "./components/Navigators/EnglishVersion/SecondStationEnglish";
 import ThirdStationEnglish from "./components/Navigators/EnglishVersion/ThirdStationEnglish";
@@ -60,6 +61,12 @@ export default function App() {
             component={HomeScreen}
             options={{ headerShown: false }}
             initialParams={{ lang, setLang }}
+          />
+          <Screen
+            name="Settings"
+            component={Settings}
+            options={{ headerShown: false }}
+            initialParams={{ lang }}
           />
           <Screen
             name="First"

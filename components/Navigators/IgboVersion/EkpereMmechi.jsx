@@ -1,43 +1,59 @@
-import { StyleSheet, Text, View, Platform } from "react-native";
+import { StyleSheet, Text, View, Platform, ScrollView } from "react-native";
 import React from "react";
 import IgboComponentForDisplayingAllStations from "../../navigatorComponents/IgboComponentForDisplayingAllStations";
 
 export default function EkpereMmechi() {
   return (
-    <View style={styles.container}>
-      <IgboComponentForDisplayingAllStations />
-      <Text style={styles.heading}>EKPERE MMECHI</Text>
-      <Text style={styles.response}>Maka Izuzu Pope na Nzuko Nso Katolik:</Text>
-      <Text style={styles.prayer}>
-        Nna anyi no n'eluigwe ... Ekene Maria … Otito diri Nna...
-      </Text>
-      <Text style={styles.response}>
-        <Text style={styles.v}>V. </Text>O Jesu a kpogburu n'obe maka ihi
-        anyi... Meere anyi ebeere.
-      </Text>
-      <Text style={styles.response}>
-        <Text style={styles.v}>V. </Text>
-        Ka mkpuruobi ndi niile kwerenu gara aga... Site n’ebere nke Chukwu ka ha
-        zuru ike na ndokwa. {"\n"}
-        <Text style={styles.ukwe}>Ngozi:</Text>
-      </Text>
-      <Text style={styles.ukwe}>Ukwe Mmechi:</Text>
-      <Text style={styles.mmechi}>
-        {"      "}
-        <Text>1. {"   "} </Text>
-        Obi nso Maria, kasi ihunanya {"\n"} {"             "}
-        Anyi na ndi muo-oma kene I nekwe
-      </Text>
-      <Text style={styles.chorus}>
-        {"             "} Chorus: Ave Ave Ave Maria
-      </Text>
-      <Text style={styles.mmechi}>
-        {"      "}
-        <Text>2. {"   "} </Text>
-        Were Obi ebere O nne nke gratia {"\n"} {"              "}
-        Na-enekwasi anya na nkpa nk’umu I.
-      </Text>
-    </View>
+    <ScrollView>
+      <View style={styles.container}>
+        <IgboComponentForDisplayingAllStations />
+        <Text style={styles.heading}>
+          EKPERE MMECHI {"\n"} (Nke a ga-abu n’‘ihu altar)
+        </Text>
+        <Text style={styles.response}>
+          <Text style={styles.ukwe}>Onye-ndu: </Text>
+          Maka Izuzu Pope na Nzuko Nso Katolik:
+        </Text>
+        <Text style={styles.response}>
+          <Text style={styles.ukwe}>Sekpurunu ala za: </Text>
+          ONWU N’ELU OBE
+        </Text>
+        <Text style={styles.response}>
+          GEENU nti ka m gwa unu otu ihe omimi. Anyi nile agaghi adacha mba
+          n‘ura, ma anyi nile ga-agba-nwocha. N‘oge ntakiri, n‘otu ntabi anya,
+          n‘uda opi-igwe. Maka na a ga-egbu opi-igwe, ndi nwuru anwu ebilite
+          n’udi anwu anwu, anyi nile abia gbanwoo. Maka na ahu anyi nke a na
+          emebi emebi ga-abia yiri emebighi-emebi; ahu anyi nke a na-anwu anwu
+          abia buru anwu anwu. Mgbe ihe na-emebi emebi ga-abia yiri emebigh
+          emebi, ihe na-anwu abia yiri anwu anwu, mgbe ahu kaa ga-emezu ihe e
+          dere si: Eloole onwu na mmeri" “Onwu! olee mmeri gi? Onwul! olee ufu
+          gi? {"       "} (I Ndi Korint 15:51 -52)
+        </Text>
+        <Text style={styles.response}>
+          <Text style={styles.ukwe}>Sekpurunu ala Oha: </Text>
+          Jesu m, ahuru m gi n’anya Karichaa ihe nile; Ejim obi m nile chegharia
+          na mmehie m mehiere gi E kwela ka m kewapu onwe m ozo n’ebe I no; Mee
+          kam hu gi n’anya mgbe o bula; Bia jim mee ihe o bula masiri gi.
+        </Text>
+        <Text style={styles.response}>
+          Nna anyi no n’eligwe ...................... {"\n"}
+          Ekele Maria....................................... {"\n"}
+          Otito diri Nna.................................... {"\n"}
+        </Text>
+        <Text style={styles.response}>
+          <Text style={styles.ukwe}>Onye-ndu: </Text>
+          Jesu a kpodoro n’obe maka ihi anyi; {"\n"}
+          <Text style={styles.ukwe}>Oha: </Text>
+          Meere anyi ebere. {"\n"}
+          <Text style={styles.ukwe}>Onye-ndu: </Text>
+          Ka mkpuruobi ndi nile kwerenu gara aga; {"\n"}
+          <Text style={styles.ukwe}>Oha: </Text>
+          Site n’ebere nke Chukwu were Zuo ike na ndokwa. Amen. {"\n"}
+          <Text style={styles.ukwe}>Ukwe: </Text>
+          Otu ukwe, lent m‘obu ukwe mbilite n‘onwu. {"\n"}
+        </Text>
+      </View>
+    </ScrollView>
   );
 }
 

@@ -9,9 +9,7 @@ import {
 } from "react-native";
 import React from "react";
 import pic from "../images/act_of_contrition.gif";
-// import GeneralComponentContainer from "../../navigatorComponents/GeneralComponentContainer";
 import IgboComponentForDisplayingAllStations from "../../navigatorComponents/IgboComponentForDisplayingAllStations";
-// import { NavigationContainer } from "@react-navigation/native";
 
 export default function HomePageForIgboStation() {
   return (

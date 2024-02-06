@@ -18,65 +18,55 @@ export default function EighthStationIgbo() {
         <IgboComponentForDisplayingAllStations />
         <View style={styles.flexContainer}>
           <Text style={styles.heading}>
-            NKWUSI NKE ASATO: JESU AKASIE UMUNWANYI JERUSALEM OBI
+            NKWUSI NKE ASATO: Jesu ezute Umunwanyi Jerusalem
           </Text>
-          <Text style={[styles.boldTxt, styles.txt]}>
-            V. Anyi esekpuoro gi Jesu na-enye gi ekele
+          <Text style={styles.txt}>
+            <Text style={styles.boldTxt}> Onye-ndu:</Text> Anyi esekpuoro gi
+            Jesu na-enye gi ekele
           </Text>
-          <Text style={[styles.boldTxt, styles.txt]}>
-            R. Makana Obe Gi di aso ka iji wee gbaputa uwa
+          <Text style={styles.boldTxt}>Gbuonu otu ikpere n’ala za:</Text>
+          <Text style={styles.txt}>
+            <Text style={styles.boldTxt}>Oha:</Text> Maka na obe gi di aso ka I
+            Ji we gbaputa uwa.
           </Text>
           <Image source={pic} />
+          <Text style={styles.centerTxt}>kulitenu</Text>
+          <Text style={styles.txt}>
+            IGWE Ndi mmadu so Jesu na-aga n’uzo, tinyekwara umunwanyi na-emere
+            ya ebere na-ebere ya akwa. Ma Jesu atugharia si ha "Umuada
+            Jerusalem, unu eberela m akwa; kama bewerenu onwe unu na umu unu
+            akwa‘(Luk. 25:27 -28)
+          </Text>
+          <Text style={[styles.boldTxt, styles.txt]}>Sekpurunu Ala</Text>
+          <Text style={styles.txt}>
+            A nuru olu na-ebe akwa ariri, na-eru nnukwu uju na Rama, Rechel
+            na-ebere umu ya akwa, O jula Inara nkasi-obi maka umu ya n‘ihi na ha
+            adighi kwa. Dinwenu kwuru sli ‘Ebekwala akwa ozo. Hichaa anya-mmiri
+            maka na ha ga-esi n‘ala ndi iro aloghachi’ (Jeremaya 5 1:15-16)
+          </Text>
+          <Text style={styles.txt}>
+            Dinwenu m, a napukwala m ndi nkasi obi mgbe m no na mkpa, E kwela ka
+            onwunwa merie m, ma mee ka m merie onwunwa.
+          </Text>
           <Text style={[styles.txt]}>
-            <Text style={styles.boldTxt}>V. </Text>
-            Igwe mmadu na-eso Jesu. Umunwanyi na-eru uru, na-ebe akwa, sokwa
-            na-aga (Lk. 23:27). Akwa ha wutere Jesu, mana o nyekwara ya agbamume
-            na ntasiobi. O tugharia lee ha anya si ha, “umunwanyi Jerusalem, unu
-            ebezinalu m akwa, kama beberenu onwe unu na umu unu akwa.
+            <Text style={styles.boldTxt}>Oha: </Text>
+            Jesus m, ahuru m gi n’anya karichaa ihe nile; Eji m obi m nile
+            chegharia na mmehie m mehiere gi E kwela ka m kewapu onwe m ozo
+            n’ebe I no; Mee ka m hu gi n’anya mgbe o bula; Bia ji m mee ihe o
+            bula masiri gi.
           </Text>
           <Text style={styles.txt}>
-            <Text style={styles.boldTxt}>Ka anyi rio aririo</Text>- Dinwenu;
-            ikpara agwa dika onye nkuzi, nnaukwu na onye nkwusa ozioma nke
-            nzoputa, makana I kweghi ka ochicho nke onwe gi gbochie ozi Nna ziri
-            gi. I ji ohere a gozie umunwanyi na- eru uju. Anyammiri ha dika
-            onyinye obi ebere n'ebe ino mgbe ahuhu zuru gi ahu. Biko, nye anyi
-            ike ka anyi na-ezere njo oge niile. Amen.
-          </Text>
-          <Text style={styles.txt}>
-            <Text style={styles.boldTxt}>R. </Text>
-            Jesu m; Ahuru m gi n'anya karichaa ihe niile. Eji m obi m niile
-            chegharia na mmehie m mehiere gi. Ekwela ka m kewapu onwe m ozo
-            n'ebe ino. Mee ka m hu gi na anya mbge obula. Bia were m mee ihe
-            masiri gi.
-          </Text>
-          <Text style={[styles.boldTxt, styles.txt]}>
-            Nna anyi no n'elugwe... Ekene Maria... Otito diri Nna...
-          </Text>
-          <Text style={styles.txt}>
-            <Text style={styles.boldTxt}>V. </Text>O Jesu a kpogburu n'obe maka
-            ihi anyi... R. Meere anyi ebeere
-          </Text>
-          <Text style={styles.txt}>
-            <Text style={styles.boldTxt}>V.</Text> Ka mkpuruobi ndi niile
-            kwerenu gara aga...
-          </Text>
-          <Text style={styles.txt}>
-            <Text style={styles.boldTxt}>R.</Text> Site n’ebere nke Chukwu ka ha
-            zuru ike na ndokwa
+            <Text style={styles.boldTxt}>Kulitenu </Text>
+            kwere ukwe a gaa na nkwusi nke Itolu.
           </Text>
           <View style={styles.songCont}>
             <Text style={[styles.txt, styles.song]}>
               <Text style={styles.boldTxt}>Ukwe: </Text>
-              Bianu soro m be akwa nwoge
+              Kedu ihe eji atunyere gi;
             </Text>
+            <Text style={[styles.txt, styles.song]}>ji nye gi nkasi obi</Text>
             <Text style={[styles.txt, styles.song]}>
-              Lee Maria ka o na-akpo anyi
-            </Text>
-            <Text style={[styles.txt, styles.song]}>
-              Zukobanu ka anyi be akwa
-            </Text>
-            <Text style={[styles.txt, styles.song]}>
-              Akpogburu Jesu Nna anyi.
+              Ewoo! Ada zayon? (Abu akwa 2:15)
             </Text>
           </View>
         </View>
@@ -107,6 +97,12 @@ const styles = StyleSheet.create({
   },
   boldTxt: {
     fontWeight: "900",
+  },
+  centerTxt: {
+    textAlign: "center",
+    // fontSize: 20,
+    fontWeight: "700",
+    fontStyle: "italic",
   },
   txt: {
     fontSize: 17,
