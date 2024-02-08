@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./components/HomeScreen";
 // English component
 import GeneralComponentContainer from "./components/navigatorComponents/GeneralComponentContainer";
-import Settings from "./components/Navigators/header/Settings";
+import Settings from "./components/Navigators/header/settings/Settings";
 import Home from "./components/Navigators/EnglishVersion/Home";
 import FirstStationEnglish from "./components/Navigators/EnglishVersion/FirstStationEnglish";
 import SecondStationEnglish from "./components/Navigators/EnglishVersion/SecondStationEnglish";
@@ -44,6 +44,7 @@ import EkpereMmechi from "./components/Navigators/IgboVersion/EkpereMmechi";
 import SelectLanguage from "./components/SelectLanguage";
 import { getData } from "./lib/Storage";
 import { useState } from "react";
+import FirstScreen from "./components/Navigators/EnglishVersion/FirstScreen";
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -56,6 +57,13 @@ export default function App() {
         <SelectLanguage setLang={setLang} />
       ) : (
         <Navigator initialRouteName="Home">
+          <Screen
+            name="SelectLanguage"
+            component={SelectLanguage}
+            options={{ headerShown: false }}
+            initialParams={{ lang, setLang }}
+            setLang={setLang}
+          />
           <Screen
             name="Home"
             component={HomeScreen}
@@ -78,6 +86,12 @@ export default function App() {
           <Screen
             name="Homes"
             component={Home}
+            options={{ headerShown: false }}
+            initialParams={{ lang }}
+          />
+          <Screen
+            name="Homey"
+            component={FirstScreen}
             options={{ headerShown: false }}
             initialParams={{ lang }}
           />

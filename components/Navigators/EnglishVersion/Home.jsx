@@ -8,7 +8,7 @@ import {
   StatusBar,
 } from "react-native";
 import React from "react";
-import pic from "../images/act_of_contrition.gif"
+import pic from "../images/act_of_contrition.gif";
 import GeneralComponentContainer from "../../navigatorComponents/GeneralComponentContainer";
 
 export default function Home() {
@@ -48,7 +48,9 @@ export default function Home() {
           <Text style={styles.bottomTxt}>
             Stood the mournful Mother weeping{" "}
           </Text>
-          <Text style={styles.bottomTxt}>Close to Jesus to the last</Text>
+          <Text style={[styles.bottomTxt, styles.lastTxt]}>
+            Close to Jesus to the last
+          </Text>
         </View>
         <GeneralComponentContainer />
       </View>
@@ -63,6 +65,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 7,
     paddingHorizontal: 8,
     zIndex: -100,
+    marginBottom: 52,
   },
   flexCont: {
     paddingBottom: 130,
@@ -81,6 +84,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "600",
     marginBottom: 7,
+    color: "indigo",
   },
   imgs: {
     justifyContent: "center",
@@ -94,5 +98,7 @@ const styles = StyleSheet.create({
     color: "#696969",
     fontSize: 15,
   },
+  lastTxt: {
+    marginBottom: 10,
+  },
 });
-

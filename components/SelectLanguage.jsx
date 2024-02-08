@@ -2,7 +2,7 @@ import { Pressable, StyleSheet, Text, SafeAreaView, StatusBar, ScrollView } from
 import { storeData } from "../lib/Storage";
 import languages from "../lib/languges";
 
-export default function SelectLanguage({ setLang }) {
+export default function SelectLanguage({ setLang, navigation }) {
   return (
     <SafeAreaView style={styles.background}>
       <StatusBar style="auto" />

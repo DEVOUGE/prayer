@@ -8,7 +8,7 @@ export default function HomeComponent() {
     <View>
       <Pressable
         style={styles.btn}
-        onPress={() => navigation.navigate("Homes")}
+        onPress={() => navigation.navigate("Homey")}
       >
         <Text style={styles.txt}>Home</Text>
       </Pressable>
@@ -18,7 +18,7 @@ export default function HomeComponent() {
 
 const styles = StyleSheet.create({
   btn: {
-    backgroundColor: "black",
+    backgroundColor: "indigo",
     height: 50,
     width: 50,
     borderRadius: 12,

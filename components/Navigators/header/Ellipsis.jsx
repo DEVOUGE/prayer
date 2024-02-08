@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
 
-export default function Ellipsis({ fruitItem }) {
+export default function Ellipsis({ setting }) {
   const [showItems, setShowItems] = useState(false);
   const navigation = useNavigation();
 
-  const handleFruitSelection = (fruit) => {
+  const handleSettingsNavigation = (fruit) => {
     navigation.navigate(`${fruit}`);
   };
 
@@ -22,14 +22,15 @@ export default function Ellipsis({ fruitItem }) {
         name="ellipsis-vertical"
         onPress={toggleItems}
         color={"white"}
+        style={styles.icon}
       />
       {showItems && (
         <View style={styles.itemsContainer}>
-          {fruitItem.map((fruit, index) => (
+          {setting.map((fruit, index) => (
             <Text
               key={index}
               style={[styles.fruitText, index !== 0 && styles.seperator]}
-              onPress={() => handleFruitSelection(fruit)}
+              onPress={() => handleSettingsNavigation(fruit)}
             >
               {fruit}
             </Text>
@@ -59,5 +60,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     color: "white",
     fontStyle: "italic",
-  },
+    },
+    icon: {
+        padding: 12
+  }
 });

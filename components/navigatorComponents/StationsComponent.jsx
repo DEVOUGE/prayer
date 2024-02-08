@@ -18,7 +18,7 @@ export default function StationsComponent({name, no}) {
 
 const styles = StyleSheet.create({
   btn: {
-    backgroundColor: "black",
+    backgroundColor: "indigo",
     height: 50,
     width: 50,
     borderRadius: 12,

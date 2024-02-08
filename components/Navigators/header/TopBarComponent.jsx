@@ -1,18 +1,17 @@
 import { StyleSheet, Text, View, Platform, Image } from "react-native";
 import React from "react";
 import DropdownComponent from "./DropdownComponent";
-import Ionicons from "@expo/vector-icons/Ionicons";
-import Ellipsis from "./Navigators/header/Ellipsis";
+import Ellipsis from "./Ellipsis";
 
-export default function TopBarComponent({top}) {
-  const fruitItem = ["Settings", "TextSize",];
+export default function TopBarComponent() {
+  const setting = ["Settings", "TextSize"];
   return (
     <View style={styles.topCont}>
-      <View style={{ width: 62, height: 35, }}>
-      {/* <Image source={require("../assets/logo.jpeg")} height={35} /> */}
+      <View style={{ width: 62, height: 35 }}>
+        {/* <Image source={require("../assets/pray.png")} height={15} /> */}
       </View>
       <DropdownComponent />
-      <Ellipsis fruitItem={fruitItem} />
+      <Ellipsis setting={setting} />
     </View>
   );
 }
@@ -22,13 +21,13 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    // marginHorizontal: 6,
     backgroundColor: "black",
-    zIndex: 1000
+    alignItems: "center",
+    zIndex: 1000,
   },
   txt: {
     color: "white",
-    alignSelf: 'center'
+    alignSelf: "center",
   },
-  top:{}
+  top: {},
 });

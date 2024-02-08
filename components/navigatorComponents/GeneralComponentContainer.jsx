@@ -11,7 +11,7 @@ export default function GeneralComponentContainer() {
     <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
       <View style={styles.view}>
         <HomeComponent />
-        
+
         {allStations}
       </View>
     </ScrollView>
@@ -19,9 +19,10 @@ export default function GeneralComponentContainer() {
 }
 
 const styles = StyleSheet.create({
-    view: {
-        display: "flex",
-        flexDirection: "row",
-        columnGap: 12,
-    }
-})
+  view: {
+    display: "flex",
+    flexDirection: "row",
+    columnGap: 12,
+    marginBottom: 12,
+  },
+});
