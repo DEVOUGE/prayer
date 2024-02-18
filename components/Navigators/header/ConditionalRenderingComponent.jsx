@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function ConditionalRenderingComponent() {
   return (
-    <View>
+    <View className="h-50">
       <Text>ConditionalRenderingComponent</Text>
     </View>
   )

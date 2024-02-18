@@ -60,8 +60,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     color: "white",
     fontStyle: "italic",
-    },
-    icon: {
-        padding: 12
+  },
+  icon: {
+    padding: 12
   }
 });

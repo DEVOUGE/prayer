@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { Pressable, StyleSheet, Text, SafeAreaView, StatusBar, ScrollView } from "react-native";
 import { storeData } from "../lib/Storage";
 import languages from "../lib/languges";
