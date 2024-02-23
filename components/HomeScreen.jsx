@@ -33,7 +33,7 @@ export default function HomeScreen({ navigation, route }) {
             setLang("none");
           }}
         >
-          <Text>reset</Text>
+          {/* <Text>reset</Text> */}
         </Pressable>
         {component}
       </SafeAreaView>

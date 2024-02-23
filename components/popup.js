@@ -8,14 +8,12 @@ export default function Popup({ children, visible, transparent, dismiss, margin 
         transparent={transparent}
         onRequestClose={dismiss}
       >
-
-
         <View
           className="flex-1 bg-[#000000aa] flex items-center justify-center"
         ><TouchableWithoutFeedback onPress={dismiss}>
             <View style={styles.modalOverlay} />
           </TouchableWithoutFeedback>
-          <View className="flex-1 bg-[#f0eaea] w-[80%] my-[50px] p-[40px] flex-1 rounded-[20px] overflow-hidden max-h-[30%]"
+          <View className="flex-1 bg-[#f0eaea] w-[80%] my-[50px] p-[40px] rounded-[20px] overflow-hidden max-h-[45%]"
           >
             {children}
           </View>

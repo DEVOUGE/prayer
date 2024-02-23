@@ -1,4 +1,15 @@
-import { Platform, Pressable, SafeAreaView, StyleSheet, Text, View, Modal, TouchableOpacity, } from "react-native";
+import {
+  Platform,
+  Pressable,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  Modal,
+  TouchableOpacity,
+  Switch,
+  Dimensions,
+} from "react-native";
 import React, { useState } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
@@ -7,6 +18,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import Popup from "../../../popup";
 import { getData, removeData, storeData } from "../../../../lib/Storage";
 import { AntDesign, Entypo } from "@expo/vector-icons";
+import { useColorScheme } from "nativewind";
 
 export default function Settings({ route }) {
   const navigation = useNavigation();
@@ -14,14 +26,15 @@ export default function Settings({ route }) {
   const [selectedLanguage, setSelectedLanguage] = useState(lang);
   const { lang, setLang } = route.params;
   const [visible, setVisible] = useState(false);
-
+  const { colorScheme, toggleColorScheme } = useColorScheme();
+  const { width, height } = Dimensions.get("window");
   const openPopup = () => {
     setVisible(true);
-  }
+  };
 
   const closePopup = () => {
     setVisible(false);
-  }
+  };
 
   // function RenderSettingsItems(
   //   settingObjectIcon,
@@ -67,7 +80,7 @@ export default function Settings({ route }) {
   // }
   // getData("lang").then((language) => setSelectedLanguage(language));
 
-  function RenderSelectLanguages({ langName,navigation }) {
+  function RenderSelectLanguages({ langName, navigation }) {
     return (
       <Pressable
         className="flex flex-row items-center w-11/12 justify-between"
@@ -76,53 +89,47 @@ export default function Settings({ route }) {
           await setLang("none");
           setSelectedLanguage(`${langName}`);
           // await storeData("lang",  `${langName}`).then(()=>  navigation.navigate('Home'));
-          await storeData("lang",  `${langName}`);
-          // await setLang(selectedLanguage)
-          console.log(lang)
+          await storeData("lang", `${langName}`);
+          // await setLang(selectedLanguage
+          console.log(lang);
         }}
       >
-        <Text
-          className="font-bold text-lg capitalize my-2.5"
-        >
-          {langName}
-        </Text>
+        <Text className="font-bold text-lg capitalize my-2.5">{langName}</Text>
         <Entypo name="circle" size={24} color={"#56636f"} />
       </Pressable>
-    )
+    );
   }
+  // console.log(colorScheme);
 
   return (
-    <SafeAreaProvider style={styles.container}>
+    <SafeAreaProvider className="">
       <StatusBar />
-      <View>
-        <Ionicons
-          name="arrow-back-outline"
-          size={30}
-          style={styles.iconBack}
-          onPress={() => navigation.goBack()}
-        />
+      <View style={{ ...styles.container }} className="">
+        <View className="flex ml-3 flex-row  ">
+          <Ionicons
+            name="arrow-back-outline"
+            size={30}
+            style={styles.iconBack}
+            onPress={() => navigation.goBack()}
+          />
+          <Text className="uppercase text-[#800080e1] ml-5 text-lg font-bold">
+            Settings
+          </Text>
+        </View>
 
-        <View style={styles.cardCont} className="hover:bg-[purple]">
-          <Pressable
-            style={styles.card}
-          // onPress={openModal}
-          >
-            <Text className="uppercase">Change Language</Text>
-            <Ionicons name="arrow-forward-outline" size={30} />
-          </Pressable>
+        {/* <Switch value={colorScheme == "light"} onChange={toggleColorScheme} /> */}
 
+        <View style={styles.cardCont} className="hover:bg-[#800080e1]">
           <TouchableOpacity
-            style={{ ...styles.popupButton, ...styles.card, }}
+            style={{ ...styles.popupButton, ...styles.card }}
             onPress={openPopup}
           >
-            <Text className="text-orange-400">Open Popup</Text>
+            <Text className="font-medium text-base">Change Language</Text>
           </TouchableOpacity>
-
           {/* ========================pop up modal ============================*/}
-
           <Popup
             visible={visible}
-            // transparent={true}
+            transparent={true}
             dismiss={closePopup}
             margin={"25%"}
           >
@@ -130,18 +137,7 @@ export default function Settings({ route }) {
             <RenderSelectLanguages langName={"igbo"} />
           </Popup>
           {/* ========================pop up modal ============================*/}
-
-          <View style={styles.card}>
-            <Text>Language</Text>
-            <Ionicons name="arrow-forward-outline" size={30} />
-          </View>
-
-          <View style={styles.card}>
-            <Text>Language</Text>
-            <Ionicons name="arrow-forward-outline" size={30} />
-          </View>
         </View>
-
       </View>
     </SafeAreaProvider>
   );
