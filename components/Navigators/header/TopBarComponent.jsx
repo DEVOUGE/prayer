@@ -4,7 +4,7 @@ import DropdownComponent from "./DropdownComponent";
 import Ellipsis from "./Ellipsis";
 
 export default function TopBarComponent() {
-  const setting = ["Settings", "TextSize"];
+  const setting = ["Settings"];
   return (
     <View style={styles.topCont}>
       <View style={{ width: 62, height: 35 }}>

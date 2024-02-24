@@ -9,13 +9,13 @@ import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 export default function HomeScreen({ navigation, route }) {
   const { lang, setLang } = route.params;
-  let component = null;
+  let   component = null;
   switch (lang) {
     case "english":
       component = <Home />;
       break;
     case "igbo":
-      component = <HomePageForIgboStation />;
+      component = <HomePageForIgboStation  />;
       break;
     default:
       // component = <HomePageForIgboStation />;
@@ -33,7 +33,7 @@ export default function HomeScreen({ navigation, route }) {
             setLang("none");
           }}
         >
-          <Text>reset</Text>
+          {/* <Text>reset</Text> */}
         </Pressable>
         {component}
       </SafeAreaView>
