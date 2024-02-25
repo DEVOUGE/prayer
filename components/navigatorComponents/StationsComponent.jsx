@@ -8,7 +8,10 @@ export default function StationsComponent({name, no}) {
     <View>
       <Pressable
         style={styles.btn}
-        onPress={() => navigation.navigate(name)}
+        onPress={() => {navigation.navigate(name);
+           console.log(name)}
+        }
+        className=""
       >
         <Text style={styles.txt}>{no}</Text>
       </Pressable>

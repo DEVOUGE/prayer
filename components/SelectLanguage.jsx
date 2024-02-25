@@ -20,11 +20,15 @@ export default function SelectLanguage({ setLang, navigation }) {
   }, [])
 
 
-  // if (isLoading) {
-  //   return (
-  //     <Loading />
-  //   );
-  // }
+  if (isLoading) {
+    return (
+      <Loading />
+    );
+  }
+  
+  if(language===null||" "||"none"){
+    setIsLoading(true)
+  }
 
   function Loading() {
     return (
@@ -48,7 +52,7 @@ export default function SelectLanguage({ setLang, navigation }) {
   console.log("lang is ", language)
 
   return (
-    language===null||" "?
+    language!==null||" "||"none"?
     <Loading/>
     :
     <SafeAreaView style={styles.background}>
