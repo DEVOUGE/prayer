@@ -10,12 +10,15 @@ import {
 import React from "react";
 import pic from "../images/station02.jpg";
 import GeneralComponentContainer from "../../navigatorComponents/GeneralComponentContainer";
+import globalStyles from "../../../styles/styles";
+import TopBarComponent from "../header/TopBarComponent";
+import StyledStationsComponent from "../../styledStationsComponent";
 
 export default function SecondStationEnglish() {
   return (
-    <ScrollView>
+    <StyledStationsComponent>
       <View style={styles.container}>
-        <GeneralComponentContainer />
+          <GeneralComponentContainer />
         <View style={styles.flexContainer}>
           <Text style={styles.heading}>
             Second Station: Jesus carries His cross
@@ -25,7 +28,7 @@ export default function SecondStationEnglish() {
             your death on Calvary. You knew it wouldn't be easy, but you
             accepted it and carried it just the same.
           </Text>
-          <Image source={pic} />
+          <Image source={pic} style={globalStyles.image} />
           <Text style={styles.leader}>
             Leader:
             <Text style={styles.all}>
@@ -74,7 +77,7 @@ export default function SecondStationEnglish() {
         <StatusBar translucent={true} />
         <GeneralComponentContainer />
       </View>
-    </ScrollView>
+    </StyledStationsComponent>
   );
 }
 

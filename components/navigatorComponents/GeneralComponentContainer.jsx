@@ -9,7 +9,7 @@ const allStations = stations.map(({ name, no }) => (
 export default function GeneralComponentContainer() {
   return (
     <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-      <View style={styles.view}>
+      <View style={styles.view} >
         <HomeComponent />
 
         {allStations}
