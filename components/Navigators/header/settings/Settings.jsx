@@ -10,15 +10,16 @@ import {
   Switch,
   Dimensions,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import Popup from "../../../popup";
 import { getData, removeData, storeData } from "../../../../lib/Storage";
-import { AntDesign, Entypo } from "@expo/vector-icons";
+import { AntDesign, Entypo, FontAwesome } from "@expo/vector-icons";
 import { useColorScheme } from "nativewind";
+import showToast from "../../../toast";
 
 export default function Settings({ route }) {
   const navigation = useNavigation();
@@ -35,6 +36,11 @@ export default function Settings({ route }) {
   const closePopup = () => {
     setVisible(false);
   };
+
+  useEffect(() => {
+    languageTransform();    
+  }, [lang])
+  
 
   // function RenderSettingsItems(
   //   settingObjectIcon,
@@ -80,7 +86,8 @@ export default function Settings({ route }) {
   // }
   // getData("lang").then((language) => setSelectedLanguage(language));
 
-  function RenderSelectLanguages({ langName, navigation }) {
+  function RenderSelectLanguages({ langName, navigation, active }) {
+    console.log(lang);
     return (
       <Pressable
         className="flex flex-row items-center w-11/12 justify-between"
@@ -88,19 +95,36 @@ export default function Settings({ route }) {
           await removeData("lang");
           await setLang("none");
           setSelectedLanguage(`${langName}`);
-          // await storeData("lang",  `${langName}`).then(()=>  navigation.navigate('Home'));
           await storeData("lang", `${langName}`);
-          // await setLang(selectedLanguage
-          console.log(lang);
+          showToast(`Language set successfully ${langName}`);
         }}
       >
         <Text className="font-bold text-lg capitalize my-2.5">{langName}</Text>
-        <Entypo name="circle" size={24} color={"#56636f"} />
+        {lang == langName ? (
+          <FontAwesome
+            name="check-circle"
+            style={{ color: "#9e19e6" }}
+            size={25}
+          />
+        ) : (
+          <Entypo name="circle" size={24} color={"#56636f"} />
+        )}
       </Pressable>
     );
   }
   // console.log(colorScheme);
-
+  function languageTransform(
+    normalTranslation,
+    igboTranslation,
+    // englishTranslation,
+    ) {
+    if (lang=="igbo") {
+      normalTranslation = igboTranslation      
+    }
+    
+    return <Text>{normalTranslation}</Text>;
+  }
+  
   return (
     <SafeAreaProvider className="">
       <StatusBar />
@@ -124,7 +148,9 @@ export default function Settings({ route }) {
             style={{ ...styles.popupButton, ...styles.card }}
             onPress={openPopup}
           >
-            <Text className="font-medium text-base">Change Language</Text>
+            <Text className="font-medium text-base capitalize">
+              {languageTransform("change language", "Gbanwee Asụsụ")}
+            </Text>
           </TouchableOpacity>
           {/* ========================pop up modal ============================*/}
           <Popup
