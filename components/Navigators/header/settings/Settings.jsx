@@ -18,7 +18,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import Popup from "../../../popup";
 import { getData, removeData, storeData } from "../../../../lib/Storage";
 import { AntDesign, Entypo, FontAwesome } from "@expo/vector-icons";
-import { useColorScheme } from "nativewind";
+import { NativeWindStyleSheet, useColorScheme } from "nativewind";
 import showToast from "../../../toast";
 
 export default function Settings({ route }) {
@@ -38,55 +38,49 @@ export default function Settings({ route }) {
   };
 
   useEffect(() => {
-    languageTransform();    
-  }, [lang])
-  
+    languageTransform();
+  }, [lang]);
 
-  // function RenderSettingsItems(
-  //   settingObjectIcon,
-  //   item,
-  //   icon,
-  //   useIcon,
-  //   onpressFunc,
-  // ) {
-  //   return (
-  //     <TouchableOpacity
-  //       className="flex flex-row items-center w-11/12 justify-between my-3.5"
-  //       onPress={() => {
-  //         onpressFunc();
-  //       }}
-  //     >
-  //       <Text
-  //         className="text-[#101318] font-bold text-lg"
-  //       >
-  //         <FontAwesome5
-  //           name={settingObjectIcon}
-  //           size={25}
-  //           color={"purple"}
-  //         />
-  //         &nbsp;
-  //         {item}
-  //       </Text>
-  //       <Ionicons
-  //         style={{ display: useIcon ? "none" : "flex" }}
-  //         name={`${icon}`}
-  //         color={"purple"}
-  //         size={25}
-  //       />
+  function RenderSettingsItems({
+    settingObjectIcon,
+    item,
+    icon,
+    useIcon,
+    onpressFunc,
+  }) {
+    return (
+      <TouchableOpacity
+        className="flex flex-row items-center justify-between "
+        style={{ ...styles.card }}
+        onPress={() => {
+          showToast("coming soon");
+        }}
+      >
+        <Text className="text-[#101318] font-medium text-base">
+          <FontAwesome name={settingObjectIcon} size={25} color={"purple"} />
+          &nbsp;&nbsp;&nbsp;
+          {item}
+        </Text>
 
-  //       <Switch
-  //         style={{ display: useIcon ? "flex" : "none" }}
-  //         value={pushEnabled}
-  //         onValueChange={togglePushSwitch}
-  //         thumbColor={pushEnabled ? "#f4511e" : "#f4f3f4"}
-  //         trackColor={{ false: "#767577", true: "#f4511e" }}
-  //       />
-  //     </TouchableOpacity>
-  //   );
-  // }
-  // getData("lang").then((language) => setSelectedLanguage(language));
+        {/* <Ionicons
+          style={{ display: useIcon ? "none" : "flex" }}
+          name={`${icon}`}
+          color={"purple"}
+          size={25}
+        /> */}
 
-  function RenderSelectLanguages({ langName, navigation, active }) {
+        {/* <Switch
+          style={{ display: useIcon ? "flex" : "none" }}
+          value={pushEnabled}
+          onValueChange={togglePushSwitch}
+          thumbColor={pushEnabled ? "#f4511e" : "#f4f3f4"}
+          trackColor={{ false: "#767577", true: "#f4511e" }}
+        /> */}
+      </TouchableOpacity>
+    );
+  }
+
+  function RenderSelectLanguages({ langName }) {
     console.log(lang);
     return (
       <Pressable
@@ -96,7 +90,7 @@ export default function Settings({ route }) {
           await setLang("none");
           setSelectedLanguage(`${langName}`);
           await storeData("lang", `${langName}`);
-          showToast(`Language set successfully ${langName}`);
+          showToast(`Language set successfully to ${langName}`);
         }}
       >
         <Text className="font-bold text-lg capitalize my-2.5">{langName}</Text>
@@ -115,16 +109,16 @@ export default function Settings({ route }) {
   // console.log(colorScheme);
   function languageTransform(
     normalTranslation,
-    igboTranslation,
+    igboTranslation
     // englishTranslation,
-    ) {
-    if (lang=="igbo") {
-      normalTranslation = igboTranslation      
+  ) {
+    if (lang == "igbo") {
+      normalTranslation = igboTranslation;
     }
-    
+
     return <Text>{normalTranslation}</Text>;
   }
-  
+
   return (
     <SafeAreaProvider className="">
       <StatusBar />
@@ -143,16 +137,18 @@ export default function Settings({ route }) {
 
         {/* <Switch value={colorScheme == "light"} onChange={toggleColorScheme} /> */}
 
-        <View style={styles.cardCont} className="hover:bg-[#800080e1]">
-          <TouchableOpacity
-            style={{ ...styles.popupButton, ...styles.card }}
-            onPress={openPopup}
-          >
+        <View style={styles.cardCont} className="space-y-3">
+          <RenderSettingsItems
+            item={"Change font size"}
+            settingObjectIcon={"file-text"}
+          />
+          {/* ========================pop up modal ============================*/}
+          <TouchableOpacity style={{ ...styles.card }} onPress={openPopup}>
             <Text className="font-medium text-base capitalize">
               {languageTransform("change language", "Gbanwee Asụsụ")}
             </Text>
           </TouchableOpacity>
-          {/* ========================pop up modal ============================*/}
+
           <Popup
             visible={visible}
             transparent={true}
@@ -185,6 +181,7 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     paddingVertical: 20,
     paddingHorizontal: 10,
-    marginBottom: 13,
+    width: "95%",
+    alignSelf: "center",
   },
 });

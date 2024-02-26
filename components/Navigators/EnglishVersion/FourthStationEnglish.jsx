@@ -10,10 +10,12 @@ import {
 import React from "react";
 import pic from "../images/station04.jpg";
 import GeneralComponentContainer from "../../navigatorComponents/GeneralComponentContainer";
+import StyledStationsComponent from "../../styledStationsComponent";
+import globalStyles from "../../../styles/styles";
 
 export default function FourthStationEnglish() {
   return (
-    <ScrollView>
+    <StyledStationsComponent>    
       <View style={styles.container}>
         <GeneralComponentContainer />
         <View style={styles.flexContainer}>
@@ -27,7 +29,7 @@ export default function FourthStationEnglish() {
             can't make the hurting stop, but it helps to see that she is on your
             side, that she is suffering with you. She does understand and care.
           </Text>
-          <Image source={pic} />
+          <Image source={pic} style={globalStyles.image}/>
           <Text style={styles.leader}>
             Leader:
             <Text style={styles.all}>
@@ -79,7 +81,7 @@ export default function FourthStationEnglish() {
         <StatusBar translucent={true} />
         <GeneralComponentContainer />
       </View>
-    </ScrollView>
+      </StyledStationsComponent>
   );
 }
 

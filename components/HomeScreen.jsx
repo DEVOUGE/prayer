@@ -26,7 +26,7 @@ export default function HomeScreen({ navigation, route }) {
     <View>
       <StatusBar backgroundColor="white" />
       <SafeAreaView>
-        <TopBarComponent />
+        <TopBarComponent shouldDisplayDropdownComponent={"yes"}/>
         <Pressable
           onPress={() => {
             removeData("lang");

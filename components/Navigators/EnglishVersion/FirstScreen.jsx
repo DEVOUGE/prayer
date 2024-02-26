@@ -15,7 +15,7 @@ import TopBarComponent from "../header/TopBarComponent";
 export default function FirstScreen() {
   return (
     <View style={styles.stickyHeader}>
-      <TopBarComponent />
+      <TopBarComponent shouldDisplayDropdownComponent={"yes"} />
       <ScrollView style={styles.scroll}>
         <View style={styles.container}>
           <GeneralComponentContainer />
@@ -52,7 +52,7 @@ export default function FirstScreen() {
               <Text style={styles.bottomTxt}>
                 Stood the mournful Mother weeping{" "}
               </Text>
-              <Text style={[styles.bottomTxt, styles.lastTxt]}>
+              <Text style={[styles.bottomTxt, styles.lastTxt]} className="mb-4">
                 Close to Jesus to the last
               </Text>
             </View>
