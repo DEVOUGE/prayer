@@ -10,10 +10,11 @@ import {
 import React from "react";
 import pic from "../images/station05.jpg";
 import GeneralComponentContainer from "../../navigatorComponents/GeneralComponentContainer";
+import StyledStationsComponent from "../../styledStationsComponent";
 
 export default function FifthStationEnglish() {
   return (
-    <ScrollView>
+    <StyledStationsComponent>
       <View style={styles.container}>
         <GeneralComponentContainer />
         <View style={styles.flexContainer}>
@@ -79,7 +80,7 @@ export default function FifthStationEnglish() {
         <StatusBar translucent={true} />
         <GeneralComponentContainer />
       </View>
-    </ScrollView>
+    </StyledStationsComponent>
   );
 }
 
