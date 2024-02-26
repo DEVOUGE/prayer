@@ -52,7 +52,7 @@ export default function FirstScreen() {
               <Text style={styles.bottomTxt}>
                 Stood the mournful Mother weeping{" "}
               </Text>
-              <Text style={[styles.bottomTxt, styles.lastTxt]} className="mb-4">
+              <Text style={[styles.bottomTxt, styles.lastTxt]}>
                 Close to Jesus to the last
               </Text>
             </View>

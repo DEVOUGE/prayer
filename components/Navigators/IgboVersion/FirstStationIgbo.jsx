@@ -11,12 +11,11 @@ import React from "react";
 import pic from "../images/station01.jpg";
 import IgboComponentForDisplayingAllStations from "../../navigatorComponents/IgboComponentForDisplayingAllStations";
 import TopBarComponent from "../header/TopBarComponent";
+import StyledStationsComponent from "../../styledStationsComponent";
 
 export default function FirstStationIgbo() {
   return (
-    <View className="pt-6">
-      <ScrollView>
-        <TopBarComponent shouldDisplayDropdownComponent={"no"} />
+   <StyledStationsComponent>
         <View style={styles.container}>
           <IgboComponentForDisplayingAllStations />
           <View style={styles.flexContainer}>
@@ -87,8 +86,7 @@ export default function FirstStationIgbo() {
           <StatusBar translucent={true} />
           <IgboComponentForDisplayingAllStations />
         </View>
-      </ScrollView>
-    </View>
+      </StyledStationsComponent>
   );
 }
 

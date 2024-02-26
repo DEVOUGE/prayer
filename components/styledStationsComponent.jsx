@@ -6,7 +6,7 @@ const StyledStationsComponent = ({ children }) => {
   return (
     <View className="pt-6">
       <TopBarComponent shouldDisplayDropdownComponent={"no"} />
-      <ScrollView contentContainerStyle={{ paddingBottom: 30 }}>
+      <ScrollView contentContainerStyle={{ paddingBottom: 60 }} className="-mt-6">
         {children}
       </ScrollView>
     </View>
