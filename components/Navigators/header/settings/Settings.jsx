@@ -18,7 +18,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import Popup from "../../../popup";
 import { getData, removeData, storeData } from "../../../../lib/Storage";
 import { AntDesign, Entypo, FontAwesome } from "@expo/vector-icons";
-import { NativeWindStyleSheet, useColorScheme } from "nativewind";
+import { colorScheme, useColorScheme } from "nativewind";
 import showToast from "../../../toast";
 
 export default function Settings({ route }) {
@@ -27,8 +27,10 @@ export default function Settings({ route }) {
   const [selectedLanguage, setSelectedLanguage] = useState(lang);
   const { lang, setLang } = route.params;
   const [visible, setVisible] = useState(false);
-  const { colorScheme, toggleColorScheme } = useColorScheme();
+  const { colorScheme, setColorScheme } = useColorScheme();
   const { width, height } = Dimensions.get("window");
+  const [activeStation, setActiveStation] = useState(null);
+
   const openPopup = () => {
     setVisible(true);
   };
@@ -88,7 +90,7 @@ export default function Settings({ route }) {
         onPress={async () => {
           await removeData("lang");
           await setLang("none");
-          setSelectedLanguage(`${langName}`);
+          // setSelectedLanguage(`${langName}`);
           await storeData("lang", `${langName}`);
           showToast(`Language set successfully to ${langName}`);
         }}
@@ -120,7 +122,7 @@ export default function Settings({ route }) {
   }
 
   return (
-    <SafeAreaProvider className="">
+    <SafeAreaProvider className="dark:bg-red-400">
       <StatusBar />
       <View style={{ ...styles.container }} className="">
         <View className="flex ml-3 flex-row  ">
@@ -135,7 +137,15 @@ export default function Settings({ route }) {
           </Text>
         </View>
 
-        {/* <Switch value={colorScheme == "light"} onChange={toggleColorScheme} /> */}
+        {/* <Switch value={colorScheme == "light"} onChange={setColorScheme} />
+
+        <Text className="my-4 font-medium text-xl dark:text-red-400"
+          onPress={() =>
+            setColorScheme(colorScheme === "light" ? "dark" : "light")
+          }
+        >
+          {`The color scheme is ${colorScheme}`}
+        </Text> */}
 
         <View style={styles.cardCont} className="space-y-3">
           <RenderSettingsItems

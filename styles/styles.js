@@ -10,5 +10,6 @@ export default StyleSheet.create({
   alignSelf:"center",
   width:"100%",
   borderRadius:5
-  }
+  },
+  
 });
