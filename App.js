@@ -48,19 +48,21 @@ import SelectLanguage from "./components/SelectLanguage";
 import { getData } from "./lib/Storage";
 import { useState } from "react";
 import FirstScreen from "./components/Navigators/EnglishVersion/FirstScreen";
+import { View } from "react-native";
+import LottieView from "lottie-react-native";
 
 const { Navigator, Screen } = createNativeStackNavigator();
- NativeWindStyleSheet.setOutput({
-    default: "native",
-  });
+NativeWindStyleSheet.setOutput({
+  default: "native",
+});
 export default function App() {
   const [lang, setLang] = useState("none");
   getData("lang").then((language) => setLang(language));
- 
+
   return (
     <LanguageProvider>
-      <NavigationContainer>
-        {lang === "none" ? (
+      <NavigationContainer >
+        {lang == "none" ? (
           <SelectLanguage setLang={setLang} />
         ) : (
           <Navigator initialRouteName="Home">
@@ -81,7 +83,7 @@ export default function App() {
               name="Settings"
               component={Settings}
               options={{ headerShown: false }}
-              initialParams={{ lang,setLang }}
+              initialParams={{ lang, setLang }}
             />
             <Screen
               name="First"
