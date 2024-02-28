@@ -13,7 +13,7 @@ import IgboComponentForDisplayingAllStations from "../../navigatorComponents/Igb
 
 export default function HomePageForIgboStation() {
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
       <IgboComponentForDisplayingAllStations />
       <View style={styles.flexCont}>
         <Text style={styles.title}>EKPERE MBIDO</Text>
@@ -37,17 +37,19 @@ export default function HomePageForIgboStation() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: Platform.OS === "android" ? 45 : 0,
+    paddingTop: Platform.OS === "android" ? 10 : 0,
     marginHorizontal: 7,
     paddingHorizontal: 8,
     zIndex: -100,
+    marginBottom: 10,
   },
   flexCont: {
-    marginBottom: 60,
+    marginBottom: 115,
   },
   txt: {
-    fontSize: 20,
-    paddingBottom: 20,
+    fontSize: 18,
+    lineHeight: 25,
+    paddingBottom: 10,
   },
   title: {
     fontSize: 28,
@@ -55,6 +57,7 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     marginTop: 23,
     marginBottom: 7,
+    color: "red",
   },
   imgs: {
     justifyContent: "center",

@@ -13,7 +13,7 @@ import GeneralComponentContainer from "../../navigatorComponents/GeneralComponen
 
 export default function Home() {
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
       <GeneralComponentContainer />
       <View style={styles.flexCont}>
         <Text style={styles.title}>Opening Prayer</Text>
@@ -61,14 +61,13 @@ export default function Home() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: Platform.OS === "android" ? 45 : 0,
+    paddingTop: Platform.OS === "android" ? 10 : 0,
     marginHorizontal: 7,
     paddingHorizontal: 8,
     zIndex: -100,
-    marginBottom: 52,
   },
   flexCont: {
-    paddingBottom: 130,
+    paddingBottom: 113,
   },
   txt: {
     fontSize: 18,
@@ -84,7 +83,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "600",
     marginBottom: 7,
-    color: "indigo",
+    color: "red",
   },
   imgs: {
     justifyContent: "center",

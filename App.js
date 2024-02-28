@@ -26,6 +26,7 @@ import FourteenthStationEnglish from "./components/Navigators/EnglishVersion/Fou
 
 // Starting Igbo Stations
 import IgboComponentForDisplayingAllStations from "./components/navigatorComponents/IgboComponentForDisplayingAllStations";
+// import FirstIgboScreen from "./components/Navigators/IgboVersion/FirstIgboScreen";
 import HomePageForIgboStation from "./components/Navigators/IgboVersion/HomePageForIgboStation";
 import FirstStationIgbo from "./components/Navigators/IgboVersion/FirstStationIgbo";
 import SecondStationIgbo from "./components/Navigators/IgboVersion/SecondStationIgbo";
@@ -47,9 +48,6 @@ import EkpereMmechi from "./components/Navigators/IgboVersion/EkpereMmechi";
 import SelectLanguage from "./components/SelectLanguage";
 import { getData } from "./lib/Storage";
 import { useState } from "react";
-import FirstScreen from "./components/Navigators/EnglishVersion/FirstScreen";
-import { View } from "react-native";
-import LottieView from "lottie-react-native";
 
 const { Navigator, Screen } = createNativeStackNavigator();
 NativeWindStyleSheet.setOutput({
@@ -90,17 +88,9 @@ export default function App() {
               component={GeneralComponentContainer}
               initialParams={{ lang }}
             />
-            {/* <Screen name="Deleted" component={Delet} initialParams={{ lang }} /> */}
-
             <Screen
               name="Homes"
               component={Home}
-              options={{ headerShown: false }}
-              initialParams={{ lang }}
-            />
-            <Screen
-              name="Homey"
-              component={FirstScreen}
               options={{ headerShown: false }}
               initialParams={{ lang }}
             />
