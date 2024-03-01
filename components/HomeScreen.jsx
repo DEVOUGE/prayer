@@ -1,13 +1,12 @@
-import { StyleSheet, View, Platform, Text, Pressable } from "react-native";
+import { StyleSheet, View } from "react-native";
 import React from "react";
 import TopBarComponent from "./Navigators/header/TopBarComponent";
 import Home from "./Navigators/EnglishVersion/Home";
 import HomePageForIgboStation from "./Navigators/IgboVersion/HomePageForIgboStation";
-import { removeData } from "../lib/Storage";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 export default function HomeScreen({ route }) {
-  const { lang, setLang } = route.params;
+  const { lang } = route.params;
   let component = null;
   switch (lang) {
     case "english":
@@ -22,13 +21,6 @@ export default function HomeScreen({ route }) {
       <StatusBar backgroundColor="white" />
       <SafeAreaView>
         <TopBarComponent shouldDisplayDropdownComponent={"yes"} />
-        <Pressable
-          onPress={() => {
-            removeData("lang");
-            setLang("none");
-          }}
-        >
-        </Pressable>
         {component}
       </SafeAreaView>
     </View>

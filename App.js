@@ -58,7 +58,7 @@ export default function App() {
   getData("lang").then((language) => setLang(language));
 
   return (
-    <LanguageProvider>
+    <LanguageProvider setLang={setLang}>
       <NavigationContainer >
         {lang == "none" ? (
           <SelectLanguage setLang={setLang} />
@@ -68,20 +68,20 @@ export default function App() {
               name="SelectLanguage"
               component={SelectLanguage}
               options={{ headerShown: false }}
-              initialParams={{ lang, setLang }}
+              initialParams={{ lang }}
               setLang={setLang}
             />
             <Screen
               name="Home"
               component={HomeScreen}
               options={{ headerShown: false }}
-              initialParams={{ lang, setLang }}
+              initialParams={{ lang }}
             />
             <Screen
               name="Settings"
               component={Settings}
               options={{ headerShown: false }}
-              initialParams={{ lang, setLang }}
+              initialParams={{ lang }}
             />
             <Screen
               name="First"
