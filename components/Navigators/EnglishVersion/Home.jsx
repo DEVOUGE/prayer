@@ -67,8 +67,7 @@ export default function Home({ route }) {
   });
 
   return (
-    <ScrollView style={styles.container} className="bg-white dark:bg-[#101720]">
-      <StatusBar translucent />
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
       <GeneralComponentContainer />
       <View style={styles.flexCont}>
         <Text style={styles.title}>Opening Prayer</Text>

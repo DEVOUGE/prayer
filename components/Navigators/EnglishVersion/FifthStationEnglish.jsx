@@ -1,15 +1,15 @@
 import {
   Image,
   Platform,
-  ScrollView,
   StatusBar,
   StyleSheet,
   Text,
   View,
 } from "react-native";
 import React from "react";
-import pic from "../images/station05.jpg";
+import pic from "../images/station01.jpg";
 import GeneralComponentContainer from "../../navigatorComponents/GeneralComponentContainer";
+import globalStyles from "../../../styles/styles";
 import StyledStationsComponent from "../../styledStationsComponent";
 
 export default function FifthStationEnglish() {
@@ -29,7 +29,7 @@ export default function FifthStationEnglish() {
             watching what was happening, but all of a sudden he is helping you
             carry your cross.
           </Text>
-          <Image source={pic} />
+          <Image source={pic} style={{ ...globalStyles.image }} />
           <Text style={styles.leader}>
             Leader:
             <Text style={styles.all}>
@@ -86,9 +86,9 @@ export default function FifthStationEnglish() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: Platform.OS === "android" ? 45 : 0,
+    paddingTop: Platform.OS === "android" ? 10 : 0,
     marginHorizontal: 12,
-    marginBottom: 15,
+    marginBottom: 23,
   },
   flexContainer: {
     display: "flex",
@@ -98,11 +98,12 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: "500",
     textAlign: "center",
-    color: "indigo",
+    color: "red",
   },
   txt: {
     fontSize: 17,
     lineHeight: 24,
+    marginBottom: 10,
   },
   leader: {
     fontWeight: "600",
@@ -111,6 +112,5 @@ const styles = StyleSheet.create({
   },
   all: {
     fontWeight: "normal",
-    // paddingLeft: 10,
   },
 });

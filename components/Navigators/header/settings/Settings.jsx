@@ -27,11 +27,14 @@ import {
 } from "@gorhom/bottom-sheet";
 
 const StyledText = styled(Text);
+import { useContext } from "react";
+import { LanguageContext } from "../../../../lib/LanguageContext";
 export default function Settings({ route }) {
+  const { setLang } = useContext(LanguageContext);
   const navigation = useNavigation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState(lang);
-  const { lang, setLang } = route.params;
+  const { lang } = route.params;
   const [visible, setVisible] = useState(false);
   const { colorScheme, toggleColorScheme, setColorScheme } = useColorScheme();
   const { width, height } = Dimensions.get("window");
@@ -92,15 +95,14 @@ export default function Settings({ route }) {
   }
 
   function RenderSelectLanguages({ langName }) {
-    console.log(lang);
     return (
       <Pressable
         className="flex flex-row items-center w-11/12 justify-between"
         onPress={async () => {
           await removeData("lang");
           await setLang("none");
-          // setSelectedLanguage(`${langName}`);
           await storeData("lang", `${langName}`);
+          // setSelectedLanguage(`${langName}`);
           showToast(`Language set successfully to ${langName}`);
         }}
       >

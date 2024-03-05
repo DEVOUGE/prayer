@@ -26,6 +26,7 @@ import FourteenthStationEnglish from "./components/Navigators/EnglishVersion/Fou
 
 // Starting Igbo Stations
 import IgboComponentForDisplayingAllStations from "./components/navigatorComponents/IgboComponentForDisplayingAllStations";
+// import FirstIgboScreen from "./components/Navigators/IgboVersion/FirstIgboScreen";
 import HomePageForIgboStation from "./components/Navigators/IgboVersion/HomePageForIgboStation";
 import FirstStationIgbo from "./components/Navigators/IgboVersion/FirstStationIgbo";
 import SecondStationIgbo from "./components/Navigators/IgboVersion/SecondStationIgbo";
@@ -47,7 +48,6 @@ import EkpereMmechi from "./components/Navigators/IgboVersion/EkpereMmechi";
 import SelectLanguage from "./components/SelectLanguage";
 import { getData } from "./lib/Storage";
 import { useEffect, useState } from "react";
-import FirstScreen from "./components/Navigators/EnglishVersion/FirstScreen";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useColorScheme } from "nativewind";
 
@@ -71,7 +71,7 @@ export default function App() {
   getData("lang").then((language) => setLang(language));
 
   return (
-    <LanguageProvider>
+    <LanguageProvider setLang={setLang}>
       <NavigationContainer >
         {lang == "none" ? (
           <SelectLanguage setLang={setLang} />
@@ -82,14 +82,14 @@ export default function App() {
               name="SelectLanguage"
               component={SelectLanguage}
               options={{ headerShown: false }}
-              initialParams={{ lang, setLang }}
+              initialParams={{ lang }}
               setLang={setLang}
             />
             <Screen
               name="Home"
               component={HomeScreen}
               options={{ headerShown: false }}
-              initialParams={{ lang, setLang }}
+              initialParams={{ lang }}
             />
             <Screen
               name="Settings"
@@ -106,12 +106,6 @@ export default function App() {
             <Screen
               name="Homes"
               component={Home}
-              options={{ headerShown: false }}
-              initialParams={{ lang, colorScheme }}
-            />
-            <Screen
-              name="Homey"
-              component={FirstScreen}
               options={{ headerShown: false }}
               initialParams={{ lang, colorScheme }}
             />

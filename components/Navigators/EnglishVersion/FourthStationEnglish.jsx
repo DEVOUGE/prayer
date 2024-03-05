@@ -1,7 +1,6 @@
 import {
   Image,
   Platform,
-  ScrollView,
   StatusBar,
   StyleSheet,
   Text,
@@ -15,7 +14,7 @@ import globalStyles from "../../../styles/styles";
 
 export default function FourthStationEnglish() {
   return (
-    <StyledStationsComponent>    
+    <StyledStationsComponent>
       <View style={styles.container}>
         <GeneralComponentContainer />
         <View style={styles.flexContainer}>
@@ -29,7 +28,7 @@ export default function FourthStationEnglish() {
             can't make the hurting stop, but it helps to see that she is on your
             side, that she is suffering with you. She does understand and care.
           </Text>
-          <Image source={pic} style={globalStyles.image}/>
+          <Image source={pic} style={globalStyles.image} />
           <Text style={styles.leader}>
             Leader:
             <Text style={styles.all}>
@@ -81,15 +80,15 @@ export default function FourthStationEnglish() {
         <StatusBar translucent={true} />
         <GeneralComponentContainer />
       </View>
-      </StyledStationsComponent>
+    </StyledStationsComponent>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: Platform.OS === "android" ? 45 : 0,
+    paddingTop: Platform.OS === "android" ? 10 : 0,
     marginHorizontal: 12,
-    marginBottom: 15,
+    marginBottom: 23,
   },
   flexContainer: {
     display: "flex",
@@ -99,11 +98,12 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: "500",
     textAlign: "center",
-    color: "indigo",
+    color: "red",
   },
   txt: {
     fontSize: 17,
     lineHeight: 24,
+    marginBottom: 10,
   },
   leader: {
     fontWeight: "600",
@@ -112,6 +112,5 @@ const styles = StyleSheet.create({
   },
   all: {
     fontWeight: "normal",
-    // paddingLeft: 10,
   },
 });

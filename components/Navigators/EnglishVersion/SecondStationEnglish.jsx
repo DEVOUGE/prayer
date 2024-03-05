@@ -1,7 +1,6 @@
 import {
   Image,
   Platform,
-  ScrollView,
   StatusBar,
   StyleSheet,
   Text,
@@ -11,14 +10,13 @@ import React from "react";
 import pic from "../images/station02.jpg";
 import GeneralComponentContainer from "../../navigatorComponents/GeneralComponentContainer";
 import globalStyles from "../../../styles/styles";
-import TopBarComponent from "../header/TopBarComponent";
 import StyledStationsComponent from "../../styledStationsComponent";
 
 export default function SecondStationEnglish() {
   return (
     <StyledStationsComponent>
       <View style={styles.container}>
-          <GeneralComponentContainer />
+        <GeneralComponentContainer />
         <View style={styles.flexContainer}>
           <Text style={styles.heading}>
             Second Station: Jesus carries His cross
@@ -83,9 +81,9 @@ export default function SecondStationEnglish() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: Platform.OS === "android" ? 45 : 0,
+    paddingTop: Platform.OS === "android" ? 10 : 0,
     marginHorizontal: 12,
-    marginBottom: 15,
+    marginBottom: 23,
   },
   flexContainer: {
     display: "flex",
@@ -95,11 +93,12 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: "500",
     textAlign: "center",
-    color: "indigo",
+    color: "red",
   },
   txt: {
     fontSize: 17,
     lineHeight: 24,
+    marginBottom: 10,
   },
   leader: {
     fontWeight: "600",
@@ -108,6 +107,5 @@ const styles = StyleSheet.create({
   },
   all: {
     fontWeight: "normal",
-    // paddingLeft: 10,
   },
 });

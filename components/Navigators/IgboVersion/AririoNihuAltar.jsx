@@ -1,9 +1,11 @@
 import { StyleSheet, Text, View, Platform } from "react-native";
 import React from "react";
 import IgboComponentForDisplayingAllStations from "../../navigatorComponents/IgboComponentForDisplayingAllStations";
+import StyledStationsComponent from "../../styledStationsComponent";
 
 export default function AririoNihuAltar() {
   return (
+    <StyledStationsComponent>
       <View style={styles.container}>
         <IgboComponentForDisplayingAllStations />
         <Text style={styles.heading}>AririoNihuAltar</Text>
@@ -24,29 +26,30 @@ export default function AririoNihuAltar() {
           gosiri anyi onwe gi dika Chukwu di ndu. Amen.
         </Text>
       </View>
+    </StyledStationsComponent>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: Platform.OS === "android" ? 45 : 0,
+    paddingTop: Platform.OS === "android" ? 10 : 0,
     marginHorizontal: 12,
-    marginBottom: 4,
   },
   heading: {
-    textAlign: 'center',
+    textAlign: "center",
     fontSize: 27,
     marginTop: 12,
-    fontWeight: '600'
+    fontWeight: "600",
+    color: "red",
   },
   vr: {
-    fontSize: 17
+    fontSize: 17,
   },
   boldTxt: {
-    fontWeight: '500'
+    fontWeight: "500",
   },
   txt: {
     fontSize: 16,
-    lineHeight: 25
-  }
+    lineHeight: 25,
+  },
 });

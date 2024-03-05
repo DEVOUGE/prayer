@@ -58,5 +58,4 @@ const styles = StyleSheet.create({
     color: "white",
     alignSelf: "center",
   },
-  top: {},
 });

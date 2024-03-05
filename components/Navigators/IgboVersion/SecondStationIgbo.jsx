@@ -1,7 +1,6 @@
 import {
   Image,
   Platform,
-  ScrollView,
   StatusBar,
   StyleSheet,
   Text,
@@ -10,10 +9,11 @@ import {
 import React from "react";
 import pic from "../images/station02.jpg";
 import IgboComponentForDisplayingAllStations from "../../navigatorComponents/IgboComponentForDisplayingAllStations";
+import StyledStationsComponent from "../../styledStationsComponent";
 
 export default function SecondStationIgbo() {
   return (
-    <ScrollView>
+    <StyledStationsComponent>
       <View style={styles.container}>
         <IgboComponentForDisplayingAllStations />
         <View style={styles.flexContainer}>
@@ -27,7 +27,10 @@ export default function SecondStationIgbo() {
             <Text style={styles.boldTxt}>Oha:</Text> Maka na obe gi di aso ka I
             Ji we gbaputa uwa.
           </Text>
-          <Image source={pic} />
+          <Image
+            source={pic}
+            className="self-center w-full bg-blend-color-burn rounded-sm"
+          />
           <Text style={styles.centerTxt}>kulitenu</Text>
           <Text style={styles.txt}>
             KAIFAS eziga Jesu na nke Pailet, onye lechara ya Kwuputa si: “O
@@ -75,15 +78,15 @@ export default function SecondStationIgbo() {
         <StatusBar translucent={true} />
         <IgboComponentForDisplayingAllStations />
       </View>
-    </ScrollView>
+    </StyledStationsComponent>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: Platform.OS === "android" ? 45 : 0,
+    paddingTop: Platform.OS === "android" ? 10 : 0,
     marginHorizontal: 12,
-    marginBottom: 4,
+    marginBottom: 33,
   },
   flexContainer: {
     display: "flex",
@@ -102,13 +105,12 @@ const styles = StyleSheet.create({
   },
   centerTxt: {
     textAlign: "center",
-    // fontSize: 20,
     fontWeight: "700",
     fontStyle: "italic",
   },
   txt: {
     fontSize: 17,
-    lineHeight: 24,
+    lineHeight: 25,
   },
   songCont: {
     display: "flex",
@@ -118,4 +120,3 @@ const styles = StyleSheet.create({
     color: "purple",
   },
 });
-
