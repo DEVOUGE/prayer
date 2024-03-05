@@ -12,7 +12,57 @@ import pic from "../images/act_of_contrition.gif";
 import GeneralComponentContainer from "../../navigatorComponents/GeneralComponentContainer";
 import TopBarComponent from "../header/TopBarComponent";
 
-export default function FirstScreen() {
+export default function FirstScreen({ route }) {
+  const { colorScheme } = route.params;
+
+  const styles = StyleSheet.create({
+    scroll: {
+      marginTop: 20,
+    },
+    stickyHeader: {
+      paddingTop: Platform.OS === "android" ? 45 : 0,
+      marginBottom: 50,
+    },
+    container: {
+      marginHorizontal: 7,
+      paddingHorizontal: 8,
+      zIndex: -100,
+      // marginTop: 65,
+    },
+    txt: {
+      fontSize: 18,
+      lineHeight: 25,
+      fontStyle: "italic",
+      color: colorScheme=="dark"?"#fff":"#000",
+    },
+    all: {
+      fontSize: 20,
+      fontWeight: "500",
+    },
+    title: {
+      fontSize: 28,
+      textAlign: "center",
+      fontWeight: "600",
+      marginBottom: 7,
+      color: "indigo",
+    },
+    imgs: {
+      justifyContent: "center",
+      alignSelf: "center",
+    },
+    subTxt: {
+      fontSize: 22,
+    },
+    bottomTxt: {
+      lineHeight: 23,
+      color: "#696969",
+      fontSize: 15,
+    },
+    lastTxt: {
+      marginBottom: 10,
+    },
+  });
+
   return (
     <View style={styles.stickyHeader}>
       <TopBarComponent shouldDisplayDropdownComponent={"yes"} />
@@ -65,50 +115,3 @@ export default function FirstScreen() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-    scroll: {
-      marginTop: 20,
-},
-stickyHeader: {
-        paddingTop: Platform.OS === "android" ? 45 : 0,
-    marginBottom: 50,
-    },
-  container: {
-    marginHorizontal: 7,
-    paddingHorizontal: 8,
-    zIndex: -100,
-    // marginTop: 65,
-  },
-  txt: {
-    fontSize: 18,
-    lineHeight: 25,
-    fontStyle: "italic",
-  },
-  all: {
-    fontSize: 20,
-    fontWeight: "500",
-  },
-  title: {
-    fontSize: 28,
-    textAlign: "center",
-    fontWeight: "600",
-    marginBottom: 7,
-    color: "indigo",
-  },
-  imgs: {
-    justifyContent: "center",
-    alignSelf: "center",
-  },
-  subTxt: {
-    fontSize: 22,
-  },
-  bottomTxt: {
-    lineHeight: 23,
-    color: "#696969",
-    fontSize: 15,
-  },
-  lastTxt: {
-    marginBottom: 10,
-  },
-});

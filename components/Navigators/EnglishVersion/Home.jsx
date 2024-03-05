@@ -7,13 +7,68 @@ import {
   ScrollView,
   StatusBar,
 } from "react-native";
-import React from "react";
+import React,{useState,useEffect} from "react";
 import pic from "../images/act_of_contrition.gif";
 import GeneralComponentContainer from "../../navigatorComponents/GeneralComponentContainer";
+import { colorScheme, useColorScheme, styled } from "nativewind";
+import { getData, removeData, storeData } from "../../../lib/Storage";
 
-export default function Home() {
+export default function Home({ route }) {
+  const [activeTheme, setActiveTheme] = useState("none");
+  getData("theme").then((theme) => setActiveTheme(theme));
+
+  useEffect(() => {
+    getData("theme").then((theme) => setActiveTheme(theme))    
+  }, [lang]);
+
+  const styles = StyleSheet.create({
+    container: {
+      paddingTop: Platform.OS === "android" ? 45 : 0,
+      // marginHorizontal: 7,
+      paddingHorizontal: 8,
+      zIndex: -100,
+      marginBottom: 52,
+    },
+    flexCont: {
+      paddingBottom: 130,
+    },
+    txt: {
+      fontSize: 18,
+      lineHeight: 25,
+      fontStyle: "italic",
+      color: activeTheme == "dark" ? "#fff" : "#000",
+    },
+    all: {
+      fontSize: 20,
+      fontWeight: "500",
+    },
+    title: {
+      fontSize: 28,
+      textAlign: "center",
+      fontWeight: "600",
+      marginBottom: 7,
+      color: "indigo",
+    },
+    imgs: {
+      justifyContent: "center",
+      alignSelf: "center",
+    },
+    subTxt: {
+      fontSize: 22,
+    },
+    bottomTxt: {
+      lineHeight: 23,
+      color: "#696969",
+      fontSize: 15,
+    },
+    lastTxt: {
+      marginBottom: 10,
+    },
+  });
+
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} className="bg-white dark:bg-[#101720]">
+      <StatusBar translucent />
       <GeneralComponentContainer />
       <View style={styles.flexCont}>
         <Text style={styles.title}>Opening Prayer</Text>
@@ -58,47 +113,3 @@ export default function Home() {
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: Platform.OS === "android" ? 45 : 0,
-    marginHorizontal: 7,
-    paddingHorizontal: 8,
-    zIndex: -100,
-    marginBottom: 52,
-  },
-  flexCont: {
-    paddingBottom: 130,
-  },
-  txt: {
-    fontSize: 18,
-    lineHeight: 25,
-    fontStyle: "italic",
-  },
-  all: {
-    fontSize: 20,
-    fontWeight: "500",
-  },
-  title: {
-    fontSize: 28,
-    textAlign: "center",
-    fontWeight: "600",
-    marginBottom: 7,
-    color: "indigo",
-  },
-  imgs: {
-    justifyContent: "center",
-    alignSelf: "center",
-  },
-  subTxt: {
-    fontSize: 22,
-  },
-  bottomTxt: {
-    lineHeight: 23,
-    color: "#696969",
-    fontSize: 15,
-  },
-  lastTxt: {
-    marginBottom: 10,
-  },
-});

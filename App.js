@@ -46,10 +46,11 @@ import EkpereMmechi from "./components/Navigators/IgboVersion/EkpereMmechi";
 // End of Igbo stations
 import SelectLanguage from "./components/SelectLanguage";
 import { getData } from "./lib/Storage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FirstScreen from "./components/Navigators/EnglishVersion/FirstScreen";
-import { View } from "react-native";
-import LottieView from "lottie-react-native";
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { useColorScheme } from "nativewind";
+
 
 const { Navigator, Screen } = createNativeStackNavigator();
 NativeWindStyleSheet.setOutput({
@@ -57,6 +58,16 @@ NativeWindStyleSheet.setOutput({
 });
 export default function App() {
   const [lang, setLang] = useState("none");
+  const { colorScheme, setColorScheme } = useColorScheme();
+
+  useEffect(() => {
+    fetchTheme();
+  }, [lang]);
+
+  async function fetchTheme() {
+    await getData("theme").then((theme) => setColorScheme(theme));
+  }
+
   getData("lang").then((language) => setLang(language));
 
   return (
@@ -65,6 +76,7 @@ export default function App() {
         {lang == "none" ? (
           <SelectLanguage setLang={setLang} />
         ) : (
+          <GestureHandlerRootView style={{flex: 1}}>
           <Navigator initialRouteName="Home">
             <Screen
               name="SelectLanguage"
@@ -83,26 +95,25 @@ export default function App() {
               name="Settings"
               component={Settings}
               options={{ headerShown: false }}
-              initialParams={{ lang, setLang }}
+              initialParams={{ lang,setLang }}
             />
             <Screen
               name="First"
               component={GeneralComponentContainer}
               initialParams={{ lang }}
             />
-            {/* <Screen name="Deleted" component={Delet} initialParams={{ lang }} /> */}
 
             <Screen
               name="Homes"
               component={Home}
               options={{ headerShown: false }}
-              initialParams={{ lang }}
+              initialParams={{ lang, colorScheme }}
             />
             <Screen
               name="Homey"
               component={FirstScreen}
               options={{ headerShown: false }}
-              initialParams={{ lang }}
+              initialParams={{ lang, colorScheme }}
             />
             <Screen
               name="FirstStationEnglish"
@@ -297,7 +308,7 @@ export default function App() {
               options={{ headerShown: false }}
               initialParams={{ lang }}
             />
-          </Navigator>
+          </Navigator></GestureHandlerRootView>
         )}
       </NavigationContainer>
     </LanguageProvider>
