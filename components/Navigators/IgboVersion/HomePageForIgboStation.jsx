@@ -13,13 +13,13 @@ import IgboComponentForDisplayingAllStations from "../../navigatorComponents/Igb
 
 export default function HomePageForIgboStation() {
   return (
-    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.container} className="bg-light dark:bg-black">
       <IgboComponentForDisplayingAllStations />
       <View style={styles.flexCont}>
-        <Text style={styles.title}>EKPERE MBIDO</Text>
+        <Text className="text-black dark:text-white" style={styles.title}>EKPERE MBIDO</Text>
         <Image style={styles.imgs} source={pic} />
-        <Text style={styles.subTxt}>ACT OF CONTRITION:</Text>
-        <Text style={styles.txt}>
+        <Text className="text-black dark:text-white mt-3" style={styles.subTxt}>ACT OF CONTRITION:</Text>
+        <Text className="text-black dark:text-white" style={styles.txt}>
           O Jesu, Onye-mgbaputa anyi kwesili ihunanya, lee anyi anya ndi ji
           ume-ala da n;ukwu Gi na-ario Gi, bu Chukwu, ebere maka onwe anyi, ya
           na maka ndi niile kwelenu gal’aga. Wedata onwe Gi ka I welu uru
@@ -38,7 +38,7 @@ export default function HomePageForIgboStation() {
 const styles = StyleSheet.create({
   container: {
     paddingTop: Platform.OS === "android" ? 10 : 0,
-    marginHorizontal: 7,
+    // marginHorizontal: 7,
     paddingHorizontal: 8,
     zIndex: -100,
     marginBottom: 10,

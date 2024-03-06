@@ -16,7 +16,7 @@ export default function HomeScreen({ route }) {
   let component = null;
   switch (lang) {
     case "english":
-      component = <Home lang={lang} colorScheme={colorScheme}/>;
+      component = <Home lang={lang}/>;
       break;
     case "igbo":
       component = <HomePageForIgboStation />;
