@@ -10,6 +10,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors:{
+        light:"#e5e5e5",
+        dark:"black",
+        primary:"purple-500",
+        Text:this.darkMode?"red":"blue"
+      }      
     },
   },
 

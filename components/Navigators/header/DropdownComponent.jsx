@@ -11,7 +11,7 @@ export default function DropdownComponent() {
   ]);
 
   return (
-    <View style={styles.container}>
+    <View style={{...styles.container}} >
       <DropDownPicker
         open={open}
         value={value}
@@ -26,7 +26,7 @@ export default function DropdownComponent() {
 }
 
 const styles = StyleSheet.create({
-    container: {
+  container: {
     width: 150,
-    }
+  },
 });

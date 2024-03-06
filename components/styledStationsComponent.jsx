@@ -4,9 +4,12 @@ import TopBarComponent from "./Navigators/header/TopBarComponent";
 
 const StyledStationsComponent = ({ children }) => {
   return (
-    <View className="pt-6">
+    <View className="pt-6 bg-light dark:bg-black  ">
       <TopBarComponent shouldDisplayDropdownComponent={"no"} />
-      <ScrollView contentContainerStyle={{ paddingBottom: 60 }} className="-mt-6">
+      <ScrollView
+        contentContainerStyle={{ paddingBottom: 60 }}
+        className="-mt-6"
+      >
         {children}
       </ScrollView>
     </View>

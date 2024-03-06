@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   Switch,
   TouchableWithoutFeedback,
+  Touchable,
   Dimensions,
 } from "react-native";
 import React, { useEffect, useRef, useState } from "react";
@@ -70,11 +71,12 @@ export default function Settings({ route }) {
         style={{ ...styles.card }}
         onPress={onPressFunc}
       >
-        <Text className="text-[#101318] dark:text-white font-medium text-base">
+        <View className="flex flex-row  items-start justify-between w-[97%]">
+          <Text className="text-[#101318] dark:text-white font-medium text-base">
+            {item}
+          </Text>
           <FontAwesome name={settingObjectIcon} size={25} color={"purple"} />
-          &nbsp;&nbsp;&nbsp;
-          {item}
-        </Text>
+        </View>
 
         {/* <Ionicons
           style={{ display: useIcon ? "none" : "flex" }}
@@ -97,7 +99,7 @@ export default function Settings({ route }) {
   function RenderSelectLanguages({ langName }) {
     return (
       <Pressable
-        className="flex flex-row items-center w-11/12 justify-between"
+        className="flex flex-row items-center w-11/12 justify-between dark:text-black"
         onPress={async () => {
           await removeData("lang");
           await setLang("none");
@@ -106,7 +108,7 @@ export default function Settings({ route }) {
           showToast(`Language set successfully to ${langName}`);
         }}
       >
-        <Text className="font-bold dark:text-white text-lg capitalize my-2.5">
+        <Text className="font-bold text-white dark:text-black text-lg capitalize my-2.5">
           {langName}
         </Text>
         {lang == langName ? (
@@ -257,7 +259,7 @@ export default function Settings({ route }) {
             display: closeBottomSheetModal === "open" ? "flex" : "none",
           }}
         >
-          <View className="flex-1 items-center px-3.5 gap-y-4 pt-8 ">
+          <View className="flex-1 items-center px-3.5 gap-y-4 pt-8">
             <RenderChangeThemeItemsInBottomModal
               onPressFunc={async () => {
                 setColorScheme("dark");

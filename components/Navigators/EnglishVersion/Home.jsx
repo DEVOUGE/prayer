@@ -7,19 +7,24 @@ import {
   ScrollView,
   StatusBar,
 } from "react-native";
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import pic from "../images/act_of_contrition.gif";
 import GeneralComponentContainer from "../../navigatorComponents/GeneralComponentContainer";
 import { colorScheme, useColorScheme, styled } from "nativewind";
 import { getData, removeData, storeData } from "../../../lib/Storage";
 
-export default function Home({ route }) {
+export default function Home({ lang }) {
   const [activeTheme, setActiveTheme] = useState("none");
-  getData("theme").then((theme) => setActiveTheme(theme));
+
+  const { colorScheme, setColorScheme } = useColorScheme();
 
   useEffect(() => {
-    getData("theme").then((theme) => setActiveTheme(theme))    
+    fetchTheme();
   }, [lang]);
+
+  async function fetchTheme() {
+    await getData("theme").then((theme) => setColorScheme(theme));
+  }
 
   const styles = StyleSheet.create({
     container: {
@@ -36,7 +41,7 @@ export default function Home({ route }) {
       fontSize: 18,
       lineHeight: 25,
       fontStyle: "italic",
-      color: activeTheme == "dark" ? "#fff" : "#000",
+      color: colorScheme === "dark" ? "#fff" : "#000",
     },
     all: {
       fontSize: 20,
@@ -60,14 +65,20 @@ export default function Home({ route }) {
       lineHeight: 23,
       color: "#696969",
       fontSize: 15,
+      color: colorScheme === "dark" ? "silver" : "#000",
     },
     lastTxt: {
       marginBottom: 10,
+      color: colorScheme === "dark" ? "silver" : "#000",
     },
   });
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      style={styles.container}
+      className="bg-light dark:bg-black"
+    >
       <GeneralComponentContainer />
       <View style={styles.flexCont}>
         <Text style={styles.title}>Opening Prayer</Text>
