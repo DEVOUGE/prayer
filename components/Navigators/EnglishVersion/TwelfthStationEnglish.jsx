@@ -18,54 +18,54 @@ export default function TwelfthStationEnglish() {
       <View style={styles.container}>
         <GeneralComponentContainer />
         <View style={styles.flexContainer}>
-          <Text style={styles.heading}>
+          <Text className="text-black dark:text-white" style={styles.heading}>
             Twelfth Station: Jesus dies on the cross
           </Text>
-          <Text style={styles.txt}>
+          <Text className="text-black dark:text-white" style={styles.txt}>
             As Jesus hung on the cross, he forgave the soldiers who had
             crucified him, and prayed for his mother and friends. Jesus wanted
             all of us to be able to live forever with God, so he gave all he had
             for us.
           </Text>
           <Image source={pic} style={{ ...globalStyles.image }} />
-          <Text style={styles.leader}>
+          <Text className="text-black dark:text-white" style={styles.leader}>
             Leader:
-            <Text style={styles.all}>
+            <Text className="text-black dark:text-white" style={styles.all}>
               We adore you, O Christ, and we praise you.
             </Text>
           </Text>
-          <Text style={styles.leader}>
+          <Text className="text-black dark:text-white" style={styles.leader}>
             All:
-            <Text style={styles.all}>
+            <Text className="text-black dark:text-white" style={styles.all}>
               Because by your holy cross You have redeemed the world.
             </Text>
           </Text>
-          <Text style={styles.txt}>
+          <Text className="text-black dark:text-white" style={styles.txt}>
             As Jesus hung on the cross, he forgave the soldiers who had
             crucified him, and prayed for his mother and friends. Jesus wanted
             all of us to be able to live forever with God, so he gave all he had
             for us.
           </Text>
-          <Text style={styles.txt}>
+          <Text className="text-black dark:text-white" style={styles.txt}>
             Jesus, let me take a few moments now to consider your love for me.
             Help me thank you for your willingness to go to your death for me.
             Help me express my love for you!
           </Text>
-          <Text style={styles.txt}>
+          <Text className="text-black dark:text-white" style={styles.txt}>
             My Jesus, three hours didst Thou hang in agony, and then die for me;
             let me die before I sin, and if I live, live for Thy love and
             faithful service.
           </Text>
-          <Text style={styles.txt}>
+          <Text className="text-black dark:text-white" style={styles.txt}>
             Our Father.... Hail Mary.... Glory Be to the Father....
           </Text>
-          <Text style={styles.txt}>Leader: Jesus Christ Crucified.</Text>
-          <Text style={styles.txt}>All: Have mercy on Us.</Text>
-          <Text style={styles.txt}>
+          <Text className="text-black dark:text-white" style={styles.txt}>Leader: Jesus Christ Crucified.</Text>
+          <Text className="text-black dark:text-white" style={styles.txt}>All: Have mercy on Us.</Text>
+          <Text className="text-black dark:text-white" style={styles.txt}>
             Leader: May the souls of the faithful departed, through the mercy of
             God, Rest in peace.
           </Text>
-          <Text style={styles.txt}>All: Amen.</Text>
+          <Text className="text-black dark:text-white" style={styles.txt}>All: Amen.</Text>
         </View>
         <StatusBar translucent={true} />
         <GeneralComponentContainer />

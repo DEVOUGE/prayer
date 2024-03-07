@@ -18,59 +18,59 @@ export default function ThirdStationEnglish() {
       <View style={styles.container}>
         <GeneralComponentContainer />
         <View style={styles.flexContainer}>
-          <Text style={styles.heading}>
+          <Text className="text-black dark:text-white" style={styles.heading}>
             Third Station: Jesus falls the first time
           </Text>
-          <Text style={styles.txt}>
+          <Text className="text-black dark:text-white" style={styles.txt}>
             Jesus, the cross you have been carrying is very heavy. You are
             becoming weak and almost ready to faint, and you fall down. Nobody
             seems to want to help you. The soldiers are interested in getting
             home, so they yell at you and try to get you up and moving again.
           </Text>
           <Image source={pic} style={globalStyles.image} />
-          <Text style={styles.leader}>
+          <Text className="text-black dark:text-white" style={styles.leader}>
             Leader:
-            <Text style={styles.all}>
+            <Text className="text-black dark:text-white" style={styles.all}>
               We adore you, O Christ, and we praise you.
             </Text>
           </Text>
-          <Text style={styles.leader}>
+          <Text className="text-black dark:text-white" style={styles.leader}>
             All:
-            <Text style={styles.all}>
+            <Text className="text-black dark:text-white" style={styles.all}>
               Because by your holy cross You have redeemed the world.
             </Text>
           </Text>
-          <Text style={styles.txt}>
+          <Text className="text-black dark:text-white" style={styles.txt}>
             Jesus, the cross you have been carrying is very heavy. You are
             becoming weak and almost ready to faint, and you fall down. Nobody
             seems to want to help you. The soldiers are interested in getting
             home, so they yell at you and try to get you up and moving again.
           </Text>
-          <Text style={styles.txt}>
+          <Text className="text-black dark:text-white" style={styles.txt}>
             As a child, sometimes I start to do something, but then get tired of
             it. I hurry to get finished and sometimes don't do my work well.
             Sometimes I don't pay attention to what I should be doing. When
             things get hard for me, sometimes I give up.
           </Text>
-          <Text style={styles.txt}>
+          <Text className="text-black dark:text-white" style={styles.txt}>
             As an adult, I sometimes put things off. I give up too easily, and
             sometimes don't do my work as well as I know I can.
           </Text>
-          <Text style={styles.txt}>
+          <Text className="text-black dark:text-white" style={styles.txt}>
             My Jesus, the heavy burden of my sins is on Thee, and bears Thee
             down beneath the cross. I loathe them, I detest them; I call on Thee
             to pardon them; may Thy grace aid me never more to commit them.
           </Text>
-          <Text style={styles.txt}>
+          <Text className="text-black dark:text-white" style={styles.txt}>
             Our Father.... Hail Mary.... Glory Be to the Father....
           </Text>
-          <Text style={styles.txt}>Leader: Jesus Christ Crucified.</Text>
-          <Text style={styles.txt}>All: Have mercy on Us.</Text>
-          <Text style={styles.txt}>
+          <Text className="text-black dark:text-white" style={styles.txt}>Leader: Jesus Christ Crucified.</Text>
+          <Text className="text-black dark:text-white" style={styles.txt}>All: Have mercy on Us.</Text>
+          <Text className="text-black dark:text-white" style={styles.txt}>
             Leader: May the souls of the faithful departed, through the mercy of
             God, Rest in peace.
           </Text>
-          <Text style={styles.txt}>All: Amen.</Text>
+          <Text className="text-black dark:text-white" style={styles.txt}>All: Amen.</Text>
         </View>
         <StatusBar translucent={true} />
         <GeneralComponentContainer />

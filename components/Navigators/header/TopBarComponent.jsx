@@ -28,10 +28,8 @@ export default function TopBarComponent({ shouldDisplayDropdownComponent }) {
   }
 
   return (
-    <View style={styles.topCont}>
-      <View style={{ width: 62, height: 35 }}>
-        {/* <Image source={require("../assets/pray.png")} height={15} /> */}
-      </View>
+    <View style={styles.topCont} className={`${shouldDisplayDropdownComponent=="no"?"mb-6":"mb-0"}`}>
+      <View style={{ width: 62, height: 35 }}/>
       {shouldDisplayDropdownComponent == "yes" ? (
         <DropdownComponent />
       ) : (
@@ -39,8 +37,7 @@ export default function TopBarComponent({ shouldDisplayDropdownComponent }) {
           {languageTransform("Stations of the Cross", "Nkwusi nke Obe")}
         </Text>
       )}
-
-      <Ellipsis setting={setting} />
+        <Ellipsis setting={setting} />
     </View>
   );
 }

@@ -7,15 +7,81 @@ import {
   ScrollView,
   StatusBar,
 } from "react-native";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import pic from "../images/act_of_contrition.gif";
 import GeneralComponentContainer from "../../navigatorComponents/GeneralComponentContainer";
+
+import { colorScheme, useColorScheme, styled } from "nativewind";
+import { getData, removeData, storeData } from "../../../lib/Storage";
+
+export default function Home({ lang }) {
+  const [activeTheme, setActiveTheme] = useState("none");
+
+  const { colorScheme, setColorScheme } = useColorScheme();
+
+  useEffect(() => {
+    fetchTheme();
+  }, [lang]);
+
+  async function fetchTheme() {
+    await getData("theme").then((theme) => setColorScheme(theme));
+  }
+
+  const styles = StyleSheet.create({
+    container: {
+      paddingTop: Platform.OS === "android" ? 45 : 0,
+      // marginHorizontal: 7,
+      paddingHorizontal: 8,
+      zIndex: -100,
+      marginBottom: 52,
+    },
+    flexCont: {
+      paddingBottom: 130,
+    },
+    txt: {
+      fontSize: 18,
+      lineHeight: 25,
+      fontStyle: "italic",
+      color: colorScheme === "dark" ? "#fff" : "#000",
+    },
+    all: {
+      fontSize: 20,
+      fontWeight: "500",
+    },
+    title: {
+      fontSize: 28,
+      textAlign: "center",
+      fontWeight: "600",
+      marginBottom: 7,
+      color: "indigo",
+    },
+    imgs: {
+      justifyContent: "center",
+      alignSelf: "center",
+    },
+    subTxt: {
+      fontSize: 22,
+    },
+    bottomTxt: {
+      lineHeight: 23,
+      color: "#696969",
+      fontSize: 15,
+      color: colorScheme === "dark" ? "silver" : "#000",
+    },
+    lastTxt: {
+      marginBottom: 10,
+      color: colorScheme === "dark" ? "silver" : "#000",
+    },
+  });
 import BottomNavigation from "../../navigatorComponents/BottomNavigation.jsx";
 // import BottomNavigation from "./BottomNavigation"
 
-export default function Home() {
   return (
-    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      style={styles.container}
+      className="bg-light dark:bg-black"
+    >
       <GeneralComponentContainer />
       <View style={styles.flexCont}>
         <Text style={styles.title}>Opening Prayer</Text>
@@ -61,46 +127,3 @@ export default function Home() {
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: Platform.OS === "android" ? 10 : 0,
-    marginHorizontal: 7,
-    paddingHorizontal: 8,
-    zIndex: -100,
-  },
-  flexCont: {
-    paddingBottom: 113,
-  },
-  txt: {
-    fontSize: 18,
-    lineHeight: 25,
-    fontStyle: "italic",
-  },
-  all: {
-    fontSize: 20,
-    fontWeight: "500",
-  },
-  title: {
-    fontSize: 28,
-    textAlign: "center",
-    fontWeight: "600",
-    marginBottom: 7,
-    color: "red",
-  },
-  imgs: {
-    justifyContent: "center",
-    alignSelf: "center",
-  },
-  subTxt: {
-    fontSize: 22,
-  },
-  bottomTxt: {
-    lineHeight: 23,
-    color: "#696969",
-    fontSize: 15,
-  },
-  lastTxt: {
-    marginBottom: 10,
-  },
-});

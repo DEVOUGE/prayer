@@ -8,9 +8,11 @@ import {
   Modal,
   TouchableOpacity,
   Switch,
+  TouchableWithoutFeedback,
+  Touchable,
   Dimensions,
 } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
@@ -18,8 +20,14 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import Popup from "../../../popup";
 import { getData, removeData, storeData } from "../../../../lib/Storage";
 import { AntDesign, Entypo, FontAwesome } from "@expo/vector-icons";
-import { colorScheme, useColorScheme } from "nativewind";
+import { colorScheme, useColorScheme, styled } from "nativewind";
 import showToast from "../../../toast";
+import {
+  BottomSheetModal,
+  BottomSheetModalProvider,
+} from "@gorhom/bottom-sheet";
+
+const StyledText = styled(Text);
 import { useContext } from "react";
 import { LanguageContext } from "../../../../lib/LanguageContext";
 export default function Settings({ route }) {
@@ -30,9 +38,14 @@ export default function Settings({ route }) {
   const [selectedLanguage, setSelectedLanguage] = useState(lang);
   const { lang, font } = route.params;
   const [visible, setVisible] = useState(false);
-  const { colorScheme, setColorScheme } = useColorScheme();
+  const { colorScheme, toggleColorScheme, setColorScheme } = useColorScheme();
   const { width, height } = Dimensions.get("window");
-  const [activeStation, setActiveStation] = useState(null);
+  const [activeTheme, setActiveTheme] = useState("none");
+
+  const openBottomSheetModal = useRef(null);
+  // const { width } = useWindowDimensions();
+  const snapPoints = ["35%", "40%", "45%"];
+  const [closeBottomSheetModal, setcloseBottomSheetModal] = useState("open");
 
   const openPopup = () => {
     setVisible(true);
@@ -53,14 +66,15 @@ export default function Settings({ route }) {
     settingObjectIcon,
     fontName,
     item,
-    icon,
+    onPressFunc,
     useIcon,
-    onpressFunc,
+    addStyles,
   }) {
     return (
       <TouchableOpacity
-        className="flex flex-row items-center justify-between "
+        className={`flex flex-row items-center justify-between my-4 ${addStyles}`}
         style={{ ...styles.card }}
+        onPress={onPressFunc}
         onPress={async () => {
           await removeData("font");
           await setFont("none");
@@ -69,8 +83,12 @@ export default function Settings({ route }) {
           showToast(`Font size set successfully to ${fontName}`);
         }}
       >
-        <Text className="text-[#101318] font-medium text-base">
+        <View className="flex flex-row  items-start justify-between w-[97%]">
+          <Text className="text-[#101318] dark:text-white font-medium text-base">
+            {item}
+          </Text>
           <FontAwesome name={settingObjectIcon} size={25} color={"purple"} />
+        </View>
           &nbsp;&nbsp;&nbsp;
           {font == fontName ? (
             <FontAwesome
@@ -104,7 +122,7 @@ export default function Settings({ route }) {
   function RenderSelectLanguages({ langName }) {
     return (
       <Pressable
-        className="flex flex-row items-center w-11/12 justify-between"
+        className="flex flex-row items-center w-11/12 justify-between dark:text-black"
         onPress={async () => {
           await removeData("lang");
           await setLang("none");
@@ -113,7 +131,9 @@ export default function Settings({ route }) {
           showToast(`Language set successfully to ${langName}`);
         }}
       >
-        <Text className="font-bold text-lg capitalize my-2.5">{langName}</Text>
+        <Text className="font-bold text-white dark:text-black text-lg capitalize my-2.5">
+          {langName}
+        </Text>
         {lang == langName ? (
           <FontAwesome
             name="check-circle"
@@ -152,32 +172,96 @@ export default function Settings({ route }) {
     return <Text>{normalTranslation}</Text>;
   }
 
+  useEffect(() => {
+    fetchTheme();
+  }, []);
+
+  async function fetchTheme() {
+    await getData("theme").then((theme) => setColorScheme(theme));
+  }
+
+  const handleOpenThemeTab = () => {
+    openBottomSheetModal.current?.present();
+  };
+
+  function RenderChangeThemeItemsInBottomModal({ onPressFunc, theme }) {
+    return (
+      <TouchableOpacity
+        className="flex flex-row items-center w-11/12 justify-between space-y-6 "
+        onPress={onPressFunc}
+        // onPress={()=>{onPressFunc}}
+      >
+        <Text
+          className="font-medium text-base capitalize dark:text-white"
+          style={{}}
+        >
+          {theme} mode
+        </Text>
+        {colorScheme == theme ? (
+          <FontAwesome
+            name={theme == "light" ? "sun-o" : "moon-o"}
+            style={{ color: theme == "light" ? "#FFD43B" : "#fff" }}
+            size={25}
+          />
+        ) : (
+          // <i class="fas fa-sun fa-spin" style="color: #FFD43B;"></i>
+          <Entypo name="circle" size={24} color={"#56636f"} />
+        )}
+      </TouchableOpacity>
+    );
+  }
+
   return (
-    <SafeAreaProvider className="dark:bg-red-400">
+    <SafeAreaProvider className="bg-[#FCFBF4 ] dark:bg-[#171717] ">
       <StatusBar />
       <View style={{ ...styles.container }} className="">
         <View className="flex ml-3 flex-row  ">
           <Ionicons
             name="arrow-back-outline"
             size={30}
+            color={colorScheme == "dark" ? "#fff" : "#000"}
             style={styles.iconBack}
             onPress={() => navigation.goBack()}
           />
-          <Text className="uppercase text-[#800080e1] ml-5 text-lg font-bold">
+          <Text className="uppercase dark:text-white text-[#800080e1] ml-5 text-lg font-bold">
             Settings
           </Text>
         </View>
+        {/* <Switch
+          value={colorScheme == "dark"}
+          onChange={() => {
+            toggleColorScheme(colorScheme === "light" ? "dark" : "light");
+            console.log(colorScheme);
+          }}
+        /> */}
 
-        {/* <Switch value={colorScheme == "light"} onChange={setColorScheme} />
-
-        <Text className="my-4 font-medium text-xl dark:text-red-400"
+        {/* <Text className="my-4 font-medium text-xl dark:text-blue-400"
           onPress={() =>
-            setColorScheme(colorScheme === "light" ? "dark" : "light")
+            toggleColorScheme(colorScheme === "light" ? "dark" : "light")
           }
         >
           {`The color scheme is ${colorScheme}`}
-        </Text> */}
+        </Text>  */}
 
+        <View style={styles.cardCont} className="space-y-1">
+          <RenderSettingsItems
+            item={"Change font size"}
+            settingObjectIcon={"file-text"}
+            addStyles="-mb-0.5"
+            onPressFunc={() => showToast("coming soon")}
+          />
+
+          <RenderSettingsItems
+            item={"Change Theme"}
+            settingObjectIcon={colorScheme == "dark" ? "moon-o" : "sun-o"}
+            onPressFunc={() => {
+              handleOpenThemeTab();
+              setcloseBottomSheetModal("open");
+            }}
+          />
+          {/* ========================pop up modal ============================*/}
+          <TouchableOpacity style={{ ...styles.card }} onPress={openPopup}>
+            <Text className="font-medium text-base capitalize dark:text-white">
         <View style={styles.cardCont} className="space-y-3">
           {/* <RenderSettingsItems
             item={"Change font size"}
@@ -219,6 +303,71 @@ export default function Settings({ route }) {
           {/* ========================pop up modal ============================*/}
         </View>
       </View>
+      {/* ========================bottom modal ============================*/}
+      <BottomSheetModalProvider>
+        <BottomSheetModal
+          ref={openBottomSheetModal}
+          index={0}
+          enablePanDownToClose={true}
+          snapPoints={snapPoints}
+          backgroundStyle={{
+            borderRadius: 30,
+            backgroundColor: colorScheme == "dark" ? "#000" : "#fff",
+          }}
+          onBlur={() => setcloseBottomSheetModal("close")}
+          stackBehavior="push"
+          style={{
+            display: closeBottomSheetModal === "open" ? "flex" : "none",
+          }}
+        >
+          <View className="flex-1 items-center px-3.5 gap-y-4 pt-8">
+            <RenderChangeThemeItemsInBottomModal
+              onPressFunc={async () => {
+                setColorScheme("dark");
+                await removeData("theme");
+                await storeData("theme", "dark");
+                showToast(`dark theme enabled`);
+              }}
+              theme="dark"
+            />
+            <RenderChangeThemeItemsInBottomModal
+              onPressFunc={async () => {
+                setColorScheme("light");
+                await removeData("theme");
+                await storeData("theme", "light");
+                showToast(`light theme enabled`);
+              }}
+              theme="light"
+            />
+
+            <View
+              className="w-full"
+              style={{
+                width: width,
+                borderBottomWidth: StyleSheet.hairlineWidth,
+                borderBottomColor: "gray",
+                marginVertical: 30,
+              }}
+            />
+            <Pressable
+              className="flex flex-row items-center w-11/12 justify-between"
+              onPress={() => {
+                setcloseBottomSheetModal("close");
+              }}
+            >
+              <Text className="dark:text-white font-bold text-lg" style={{}}>
+                Close
+              </Text>
+              {closeBottomSheetModal === "open" ? (
+                <AntDesign name="close" size={24} color={"red"} />
+              ) : (
+                <Entypo name="circle" size={24} color={"#56636f"} />
+              )}
+            </Pressable>
+          </View>
+        </BottomSheetModal>
+      </BottomSheetModalProvider>
+      {/* ========================bottom  modal ============================*/}
     </SafeAreaProvider>
   );
 }
@@ -235,11 +384,20 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    borderWidth: 2,
+    borderBottomWidth: 2,
+    borderBottomColor: "silver",
     borderRadius: 14,
     paddingVertical: 20,
     paddingHorizontal: 10,
     width: "95%",
     alignSelf: "center",
+  },
+  modalOverlay: {
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: "rgba(0,0,0,0.5)",
   },
 });
