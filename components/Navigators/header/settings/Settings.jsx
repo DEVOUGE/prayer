@@ -32,10 +32,11 @@ import { useContext } from "react";
 import { LanguageContext } from "../../../../lib/LanguageContext";
 export default function Settings({ route }) {
   const { setLang } = useContext(LanguageContext);
+  const { setFont } = useContext(LanguageContext);
   const navigation = useNavigation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState(lang);
-  const { lang } = route.params;
+  const { lang, font } = route.params;
   const [visible, setVisible] = useState(false);
   const { colorScheme, toggleColorScheme, setColorScheme } = useColorScheme();
   const { width, height } = Dimensions.get("window");
@@ -57,9 +58,13 @@ export default function Settings({ route }) {
   useEffect(() => {
     languageTransform();
   }, [lang]);
+  useEffect(() => {
+    fontTransform();
+  }, [font]);
 
   function RenderSettingsItems({
     settingObjectIcon,
+    fontName,
     item,
     onPressFunc,
     useIcon,
@@ -70,6 +75,13 @@ export default function Settings({ route }) {
         className={`flex flex-row items-center justify-between my-4 ${addStyles}`}
         style={{ ...styles.card }}
         onPress={onPressFunc}
+        onPress={async () => {
+          await removeData("font");
+          await setFont("none");
+          await storeData("font", `${fontName}`);
+          // setSelectedLanguage(`${fontName}`);
+          showToast(`Font size set successfully to ${fontName}`);
+        }}
       >
         <View className="flex flex-row  items-start justify-between w-[97%]">
           <Text className="text-[#101318] dark:text-white font-medium text-base">
@@ -77,6 +89,17 @@ export default function Settings({ route }) {
           </Text>
           <FontAwesome name={settingObjectIcon} size={25} color={"purple"} />
         </View>
+          &nbsp;&nbsp;&nbsp;
+          {font == fontName ? (
+            <FontAwesome
+              name="check-circle"
+              style={{ color: "#9e19e6" }}
+              size={25}
+            />
+          ) : (
+            <Entypo name="circle" size={24} color={"#56636f"} />
+          )}
+        </Text>
 
         {/* <Ionicons
           style={{ display: useIcon ? "none" : "flex" }}
@@ -124,6 +147,19 @@ export default function Settings({ route }) {
     );
   }
 
+  // console.log(colorScheme);
+  function fontTransform(
+    normalFontSize,
+    mediumFontSize,
+    largeFontSize
+    // englishTranslation,
+  ) {
+    if (font == 16) {
+      normalFontSize = mediumFontSize;
+    }
+
+    // return <Text>{normalFontSize}</Text>;
+  }
   function languageTransform(
     normalTranslation,
     igboTranslation
@@ -226,9 +262,34 @@ export default function Settings({ route }) {
           {/* ========================pop up modal ============================*/}
           <TouchableOpacity style={{ ...styles.card }} onPress={openPopup}>
             <Text className="font-medium text-base capitalize dark:text-white">
+        <View style={styles.cardCont} className="space-y-3">
+          {/* <RenderSettingsItems
+            item={"Change font size"}
+            // settingObjectIcon={"file-text"}
+            fontName={fontName}
+          /> */}
+          {/* ========================pop up modal ============================*/}
+          <TouchableOpacity style={{ ...styles.card }} onPress={openPopup}>
+            <Text className="font-medium text-base capitalize">
+              {fontTransform("change font size", "Gbanwee ibu")}
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={{ ...styles.card }} onPress={openPopup}>
+            <Text className="font-medium text-base capitalize">
               {languageTransform("change language", "Gbanwee Asụsụ")}
             </Text>
           </TouchableOpacity>
+
+          <Popup
+            visible={visible}
+            transparent={true}
+            dismiss={closePopup}
+            margin={"25%"}
+          >
+            <RenderSettingsItems fontName={16} />
+            <RenderSettingsItems fontName={18} />
+            <RenderSettingsItems fontName={21} />
+          </Popup>
 
           <Popup
             visible={visible}

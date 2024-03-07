@@ -10,6 +10,7 @@ import {
 import React, { useState, useEffect } from "react";
 import pic from "../images/act_of_contrition.gif";
 import GeneralComponentContainer from "../../navigatorComponents/GeneralComponentContainer";
+
 import { colorScheme, useColorScheme, styled } from "nativewind";
 import { getData, removeData, storeData } from "../../../lib/Storage";
 
@@ -72,6 +73,8 @@ export default function Home({ lang }) {
       color: colorScheme === "dark" ? "silver" : "#000",
     },
   });
+import BottomNavigation from "../../navigatorComponents/BottomNavigation.jsx";
+// import BottomNavigation from "./BottomNavigation"
 
   return (
     <ScrollView
@@ -117,7 +120,8 @@ export default function Home({ lang }) {
             Close to Jesus to the last
           </Text>
         </View>
-        <GeneralComponentContainer />
+        {/* <GeneralComponentContainer /> */}
+        <BottomNavigation />
       </View>
       <StatusBar translucent={true} />
     </ScrollView>
