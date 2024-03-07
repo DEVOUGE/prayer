@@ -46,6 +46,7 @@ import AririoNihuAltar from "./components/Navigators/IgboVersion/AririoNihuAltar
 import EkpereMmechi from "./components/Navigators/IgboVersion/EkpereMmechi";
 // End of Igbo stations
 import SelectLanguage from "./components/SelectLanguage";
+import SelectFontSize from "./components/SelectFontSize";
 import { getData } from "./lib/Storage";
 import { useState } from "react";
 
@@ -55,11 +56,13 @@ NativeWindStyleSheet.setOutput({
 });
 export default function App() {
   const [lang, setLang] = useState("none");
+  const [font, setFont] = useState("none");
   getData("lang").then((language) => setLang(language));
+  getData("font").then((fonts) => setFont(fonts));
 
   return (
-    <LanguageProvider setLang={setLang}>
-      <NavigationContainer >
+    <LanguageProvider setLang={setLang} setFont={setFont}>
+      <NavigationContainer>
         {lang == "none" ? (
           <SelectLanguage setLang={setLang} />
         ) : (
@@ -68,14 +71,22 @@ export default function App() {
               name="SelectLanguage"
               component={SelectLanguage}
               options={{ headerShown: false }}
-              initialParams={{ lang }}
-              setLang={setLang}
+              initialParams={{ lang, font }}
+                setLang={setLang}
+                setFont={setFont}
+            />
+            <Screen
+              name="SelectFontSize"
+              component={SelectFontSize}
+              options={{ headerShown: false }}
+              initialParams={{ font }}
+              setFont={setFont}
             />
             <Screen
               name="Home"
               component={HomeScreen}
               options={{ headerShown: false }}
-              initialParams={{ lang }}
+              initialParams={{ lang, font }}
             />
             <Screen
               name="Settings"
@@ -92,7 +103,7 @@ export default function App() {
               name="Homes"
               component={Home}
               options={{ headerShown: false }}
-              initialParams={{ lang }}
+              initialParams={{ lang, font }}
             />
             <Screen
               name="FirstStationEnglish"
@@ -289,6 +300,7 @@ export default function App() {
             />
           </Navigator>
         )}
+       
       </NavigationContainer>
     </LanguageProvider>
   );

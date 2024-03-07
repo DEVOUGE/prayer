@@ -10,6 +10,8 @@ import {
 import React from "react";
 import pic from "../images/act_of_contrition.gif";
 import GeneralComponentContainer from "../../navigatorComponents/GeneralComponentContainer";
+import BottomNavigation from "../../navigatorComponents/BottomNavigation.jsx";
+// import BottomNavigation from "./BottomNavigation"
 
 export default function Home() {
   return (
@@ -52,7 +54,8 @@ export default function Home() {
             Close to Jesus to the last
           </Text>
         </View>
-        <GeneralComponentContainer />
+        {/* <GeneralComponentContainer /> */}
+        <BottomNavigation />
       </View>
       <StatusBar translucent={true} />
     </ScrollView>

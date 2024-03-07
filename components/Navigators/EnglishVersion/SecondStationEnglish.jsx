@@ -11,6 +11,7 @@ import pic from "../images/station02.jpg";
 import GeneralComponentContainer from "../../navigatorComponents/GeneralComponentContainer";
 import globalStyles from "../../../styles/styles";
 import StyledStationsComponent from "../../styledStationsComponent";
+import BottomNavigation from "../../navigatorComponents/BottomNavigation.jsx";
 
 export default function SecondStationEnglish() {
   return (
@@ -73,7 +74,7 @@ export default function SecondStationEnglish() {
           <Text style={styles.txt}>All: Amen.</Text>
         </View>
         <StatusBar translucent={true} />
-        <GeneralComponentContainer />
+        <BottomNavigation />
       </View>
     </StyledStationsComponent>
   );

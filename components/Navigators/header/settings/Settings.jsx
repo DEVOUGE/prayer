@@ -24,10 +24,11 @@ import { useContext } from "react";
 import { LanguageContext } from "../../../../lib/LanguageContext";
 export default function Settings({ route }) {
   const { setLang } = useContext(LanguageContext);
+  const { setFont } = useContext(LanguageContext);
   const navigation = useNavigation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState(lang);
-  const { lang } = route.params;
+  const { lang, font } = route.params;
   const [visible, setVisible] = useState(false);
   const { colorScheme, setColorScheme } = useColorScheme();
   const { width, height } = Dimensions.get("window");
@@ -44,9 +45,13 @@ export default function Settings({ route }) {
   useEffect(() => {
     languageTransform();
   }, [lang]);
+  useEffect(() => {
+    fontTransform();
+  }, [font]);
 
   function RenderSettingsItems({
     settingObjectIcon,
+    fontName,
     item,
     icon,
     useIcon,
@@ -56,14 +61,26 @@ export default function Settings({ route }) {
       <TouchableOpacity
         className="flex flex-row items-center justify-between "
         style={{ ...styles.card }}
-        onPress={() => {
-          showToast("coming soon");
+        onPress={async () => {
+          await removeData("font");
+          await setFont("none");
+          await storeData("font", `${fontName}`);
+          // setSelectedLanguage(`${fontName}`);
+          showToast(`Font size set successfully to ${fontName}`);
         }}
       >
         <Text className="text-[#101318] font-medium text-base">
           <FontAwesome name={settingObjectIcon} size={25} color={"purple"} />
           &nbsp;&nbsp;&nbsp;
-          {item}
+          {font == fontName ? (
+            <FontAwesome
+              name="check-circle"
+              style={{ color: "#9e19e6" }}
+              size={25}
+            />
+          ) : (
+            <Entypo name="circle" size={24} color={"#56636f"} />
+          )}
         </Text>
 
         {/* <Ionicons
@@ -109,7 +126,20 @@ export default function Settings({ route }) {
       </Pressable>
     );
   }
+
   // console.log(colorScheme);
+  function fontTransform(
+    normalFontSize,
+    mediumFontSize,
+    largeFontSize
+    // englishTranslation,
+  ) {
+    if (font == 16) {
+      normalFontSize = mediumFontSize;
+    }
+
+    // return <Text>{normalFontSize}</Text>;
+  }
   function languageTransform(
     normalTranslation,
     igboTranslation
@@ -149,16 +179,33 @@ export default function Settings({ route }) {
         </Text> */}
 
         <View style={styles.cardCont} className="space-y-3">
-          <RenderSettingsItems
+          {/* <RenderSettingsItems
             item={"Change font size"}
-            settingObjectIcon={"file-text"}
-          />
+            // settingObjectIcon={"file-text"}
+            fontName={fontName}
+          /> */}
           {/* ========================pop up modal ============================*/}
+          <TouchableOpacity style={{ ...styles.card }} onPress={openPopup}>
+            <Text className="font-medium text-base capitalize">
+              {fontTransform("change font size", "Gbanwee ibu")}
+            </Text>
+          </TouchableOpacity>
           <TouchableOpacity style={{ ...styles.card }} onPress={openPopup}>
             <Text className="font-medium text-base capitalize">
               {languageTransform("change language", "Gbanwee Asụsụ")}
             </Text>
           </TouchableOpacity>
+
+          <Popup
+            visible={visible}
+            transparent={true}
+            dismiss={closePopup}
+            margin={"25%"}
+          >
+            <RenderSettingsItems fontName={16} />
+            <RenderSettingsItems fontName={18} />
+            <RenderSettingsItems fontName={21} />
+          </Popup>
 
           <Popup
             visible={visible}
