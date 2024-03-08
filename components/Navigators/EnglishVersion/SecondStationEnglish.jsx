@@ -6,14 +6,49 @@ import {
   Text,
   View,
 } from "react-native";
-import React from "react";
+import React, { useContext } from "react";
 import pic from "../images/station02.jpg";
 import GeneralComponentContainer from "../../navigatorComponents/GeneralComponentContainer";
 import globalStyles from "../../../styles/styles";
 import StyledStationsComponent from "../../styledStationsComponent";
 import BottomNavigation from "../../navigatorComponents/BottomNavigation.jsx";
+import FontSizeContext from "../../../lib/FontSizeContext.js";
+import { scale, verticalScale } from "react-native-size-matters";
 
 export default function SecondStationEnglish() {
+  const { newFontSize, fetchAddedFontSize } = useContext(FontSizeContext);
+  const styles = StyleSheet.create({
+    container: {
+      paddingTop: Platform.OS === "android" ? 10 : 0,
+      marginHorizontal: 12,
+      marginBottom: 23,
+    },
+    flexContainer: {
+      display: "flex",
+      rowGap: 15,
+    },
+    heading: {
+      fontSize: 25 + newFontSize,
+      lineHeight: scale(25 + newFontSize),
+      fontWeight: "500",
+      textAlign: "center",
+      color: "red",
+    },
+    txt: {
+      fontSize: 17 + newFontSize,
+      lineHeight: verticalScale(24 + newFontSize),
+      marginBottom: 10,
+    },
+    leader: {
+      fontWeight: "600",
+      fontSize: 17 + newFontSize,
+      lineHeight: verticalScale(24 + newFontSize),
+    },
+    all: {
+      fontWeight: "normal",
+    },
+  });
+
   return (
     <StyledStationsComponent>
       <View style={styles.container}>
@@ -65,13 +100,19 @@ export default function SecondStationEnglish() {
           <Text style={styles.txt} className="text-black dark:text-white">
             Our Father.... Hail Mary.... Glory Be to the Father....
           </Text>
-          <Text style={styles.txt} className="text-black dark:text-white">Leader: Jesus Christ Crucified.</Text>
-          <Text style={styles.txt} className="text-black dark:text-white">All: Have mercy on Us.</Text>
+          <Text style={styles.txt} className="text-black dark:text-white">
+            Leader: Jesus Christ Crucified.
+          </Text>
+          <Text style={styles.txt} className="text-black dark:text-white">
+            All: Have mercy on Us.
+          </Text>
           <Text style={styles.txt} className="text-black dark:text-white">
             Leader: May the souls of the faithful departed, through the mercy of
             God, Rest in peace.
           </Text>
-          <Text style={styles.txt} className="text-black dark:text-white">All: Amen.</Text>
+          <Text style={styles.txt} className="text-black dark:text-white">
+            All: Amen.
+          </Text>
         </View>
         <StatusBar translucent={true} />
         <BottomNavigation />
@@ -79,34 +120,3 @@ export default function SecondStationEnglish() {
     </StyledStationsComponent>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: Platform.OS === "android" ? 10 : 0,
-    marginHorizontal: 12,
-    marginBottom: 23,
-  },
-  flexContainer: {
-    display: "flex",
-    rowGap: 15,
-  },
-  heading: {
-    fontSize: 25,
-    fontWeight: "500",
-    textAlign: "center",
-    color: "red",
-  },
-  txt: {
-    fontSize: 17,
-    lineHeight: 24,
-    marginBottom: 10,
-  },
-  leader: {
-    fontWeight: "600",
-    fontSize: 17,
-    lineHeight: 24,
-  },
-  all: {
-    fontWeight: "normal",
-  },
-});

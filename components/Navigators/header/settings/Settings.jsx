@@ -11,6 +11,7 @@ import {
   TouchableWithoutFeedback,
   Touchable,
   Dimensions,
+  Button,
 } from "react-native";
 import React, { useEffect, useRef, useState } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -41,6 +42,7 @@ export default function Settings({ route }) {
   const { colorScheme, toggleColorScheme, setColorScheme } = useColorScheme();
   const { width, height } = Dimensions.get("window");
   const [fontSize, setFontSize] = useState(0);
+  const [newfontSize, setNewFontSize] = useState(0);
   const [fontSizeSliderDisplay, setFontSizeSliderDisplay] = useState(false);
 
   const openBottomSheetModal = useRef(null);
@@ -57,6 +59,19 @@ export default function Settings({ route }) {
 
   const closePopup = () => {
     setVisible(false);
+  };
+
+  const Tooltip = ({ value }) => {
+    return (
+      <View className="px-3 py-1.5 rounded-md bg-purple-600">
+        <Text
+          className="dark:text-light font-medium text-base"
+          style={{ fontSize: 2 + newfontSize }}
+        >
+          {value}
+        </Text>
+      </View>
+    );
   };
 
   useEffect(() => {
@@ -147,6 +162,7 @@ export default function Settings({ route }) {
 
   async function fetchTheme() {
     await getData("theme").then((theme) => setColorScheme(theme));
+    await getData("addedFontSize").then((size) => setNewFontSize(size));
   }
 
   const handleOpenThemeTab = () => {
@@ -173,7 +189,6 @@ export default function Settings({ route }) {
             size={25}
           />
         ) : (
-          // <i class="fas fa-sun fa-spin" style="color: #FFD43B;"></i>
           <Entypo name="circle" size={24} color={"#56636f"} />
         )}
       </TouchableOpacity>
@@ -224,17 +239,40 @@ export default function Settings({ route }) {
                 }}
                 minimumValue={0}
                 maximumValue={16}
-                minimumTrackTintColor="purple"
+                minimumTrackTintColor={
+                  fontSizeSliderDisplay ? "purple" : "transparent"
+                }
                 maximumTrackTintColor="#000000"
                 onValueChange={(value) => setFontSize(value)}
-                thumbTintColor={fontSizeSliderDisplay?"purple":"transparent"}
+                thumbTintColor={
+                  fontSizeSliderDisplay ? "purple" : "transparent"
+                }
+                value={Number(newfontSize)}
               />
               <Text
                 style={{ fontSize: 19 + fontSize }}
-                className="text-center dark:text-light font-medium"
+                className="text-center dark:text-light font-medium -mt-1"
               >
                 Preview
               </Text>
+
+              <TouchableOpacity
+                style={styles.button}
+                onPress={async () => {
+                  await removeData("addedFontSize");
+                  const jsonValue = JSON.stringify(fontSize);
+                  await storeData("addedFontSize", jsonValue);
+                  showToast(`font size increased by ${fontSize}px`);
+                }}
+                className="py-3 px-6 my-2 bg-purple-600 rounded-md "
+              >
+                <Text
+                  className="text-light text-base"
+                  style={styles.buttonText}
+                >
+                  Set font size
+                </Text>
+              </TouchableOpacity>
             </View>
           </TouchableWithoutFeedback>
 

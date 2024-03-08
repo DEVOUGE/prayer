@@ -6,18 +6,54 @@ import {
   Text,
   View,
 } from "react-native";
-import React, { useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import pic from "../images/station01.jpg";
 import GeneralComponentContainer from "../../navigatorComponents/GeneralComponentContainer";
 import globalStyles from "../../../styles/styles";
 import StyledStationsComponent from "../../styledStationsComponent";
+import { moderateScale, verticalScale } from "react-native-size-matters";
+import { getData } from "../../../lib/Storage";
+import { scale } from "react-native-size-matters";
+import FontSizeContext from "../../../lib/FontSizeContext";
 
 export default function FirstStationEnglish({ route }) {
   const { colorScheme } = route.params;
+  const { newFontSize, fetchAddedFontSize } = useContext(FontSizeContext);
 
+  const styles = StyleSheet.create({
+    container: {
+      paddingTop: Platform.OS === "android" ? 10 : 0,
+      marginHorizontal: 12,
+      marginBottom: 23,
+    },
+    flexContainer: {
+      display: "flex",
+      rowGap: 15,
+    },
+    heading: {
+      fontSize: 25 + newFontSize,
+      lineHeight:scale(25 + newFontSize),
+      fontWeight: "500",
+      textAlign: "center",
+      color: "red",
+    },
+    txt: {
+      fontSize: 17 + newFontSize,
+      lineHeight: verticalScale(24 + newFontSize),
+      marginBottom: 10,
+    },
+    leader: {
+      fontWeight: "600",
+      fontSize: 17 + newFontSize,
+      lineHeight: verticalScale(24 + newFontSize),
+    },
+    all: {
+      fontWeight: "normal",
+    },
+  });
   return (
     <StyledStationsComponent>
-      <View style={styles.container}>
+      <View style={styles.container} onLayout={fetchAddedFontSize}>
         <GeneralComponentContainer />
         <View style={styles.flexContainer}>
           <Text style={styles.heading}>
@@ -94,33 +130,3 @@ export default function FirstStationEnglish({ route }) {
     </StyledStationsComponent>
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: Platform.OS === "android" ? 10 : 0,
-    marginHorizontal: 12,
-    marginBottom: 23,
-  },
-  flexContainer: {
-    display: "flex",
-    rowGap: 15,
-  },
-  heading: {
-    fontSize: 25,
-    fontWeight: "500",
-    textAlign: "center",
-    color: "red",
-  },
-  txt: {
-    fontSize: 17,
-    lineHeight: 24,
-    marginBottom: 10,
-  },
-  leader: {
-    fontWeight: "600",
-    fontSize: 17,
-    lineHeight: 24,
-  },
-  all: {
-    fontWeight: "normal",
-  },
-});

@@ -6,8 +6,9 @@ import {
   View,
   ScrollView,
   StatusBar,
+  Animated,
 } from "react-native";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import pic from "../images/act_of_contrition.gif";
 import GeneralComponentContainer from "../../navigatorComponents/GeneralComponentContainer";
 
@@ -15,9 +16,12 @@ import { colorScheme, useColorScheme, styled } from "nativewind";
 import { getData, removeData, storeData } from "../../../lib/Storage";
 
 import BottomNavigation from "../../navigatorComponents/BottomNavigation.jsx";
+import { scale, verticalScale, moderateScale } from "react-native-size-matters";
+import FontSizeContext from "../../../lib/FontSizeContext.js";
 
 export default function Home({ lang }) {
   const [activeTheme, setActiveTheme] = useState("none");
+  const { newFontSize, fetchAddedFontSize } = useContext(FontSizeContext);
 
   const { colorScheme, setColorScheme } = useColorScheme();
 
@@ -41,9 +45,10 @@ export default function Home({ lang }) {
       paddingBottom: 130,
     },
     txt: {
-      fontSize: 18,
+      fontSize: 18 + newFontSize,
       lineHeight: 25,
-      fontStyle: "italic",
+      // fontStyle: "italic",
+      lineHeight: verticalScale(newFontSize + 18),
       color: colorScheme === "dark" ? "#fff" : "#000",
     },
     all: {
@@ -51,7 +56,7 @@ export default function Home({ lang }) {
       fontWeight: "500",
     },
     title: {
-      fontSize: 28,
+      fontSize: 28 + newFontSize,
       textAlign: "center",
       fontWeight: "600",
       marginBottom: 7,
@@ -62,21 +67,21 @@ export default function Home({ lang }) {
       alignSelf: "center",
     },
     subTxt: {
-      fontSize: 22,
+      fontSize: 22 + newFontSize,
+      lineHeight: verticalScale(newFontSize * 22),
     },
     bottomTxt: {
-      lineHeight: 23,
+      lineHeight: verticalScale(18 + newFontSize),
       color: "#696969",
-      fontSize: 15,
+      fontSize: 15 + newFontSize,
       color: colorScheme === "dark" ? "silver" : "#000",
+      marginTop: 5,
     },
     lastTxt: {
       marginBottom: 10,
       color: colorScheme === "dark" ? "silver" : "#000",
     },
   });
-
-  // import BottomNavigation from "./BottomNavigation"
 
   return (
     <ScrollView
