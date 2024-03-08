@@ -14,6 +14,8 @@ import GeneralComponentContainer from "../../navigatorComponents/GeneralComponen
 import { colorScheme, useColorScheme, styled } from "nativewind";
 import { getData, removeData, storeData } from "../../../lib/Storage";
 
+import BottomNavigation from "../../navigatorComponents/BottomNavigation.jsx";
+
 export default function Home({ lang }) {
   const [activeTheme, setActiveTheme] = useState("none");
 
@@ -73,8 +75,8 @@ export default function Home({ lang }) {
       color: colorScheme === "dark" ? "silver" : "#000",
     },
   });
-import BottomNavigation from "../../navigatorComponents/BottomNavigation.jsx";
-// import BottomNavigation from "./BottomNavigation"
+
+  // import BottomNavigation from "./BottomNavigation"
 
   return (
     <ScrollView
