@@ -11,6 +11,7 @@ import {
   TouchableWithoutFeedback,
   Touchable,
   Dimensions,
+  Button,
 } from "react-native";
 import React, { useEffect, useRef, useState } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -21,6 +22,7 @@ import Popup from "../../../popup";
 import { getData, removeData, storeData } from "../../../../lib/Storage";
 import { AntDesign, Entypo, FontAwesome } from "@expo/vector-icons";
 import { colorScheme, useColorScheme, styled } from "nativewind";
+import Slider from "@react-native-community/slider";
 import showToast from "../../../toast";
 import {
   BottomSheetModal,
@@ -32,20 +34,24 @@ import { useContext } from "react";
 import { LanguageContext } from "../../../../lib/LanguageContext";
 export default function Settings({ route }) {
   const { setLang } = useContext(LanguageContext);
-  const { setFont } = useContext(LanguageContext);
   const navigation = useNavigation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState(lang);
-  const { lang, font } = route.params;
+  const { lang } = route.params;
   const [visible, setVisible] = useState(false);
   const { colorScheme, toggleColorScheme, setColorScheme } = useColorScheme();
   const { width, height } = Dimensions.get("window");
-  const [activeTheme, setActiveTheme] = useState("none");
+  const [fontSize, setFontSize] = useState(0);
+  const [newfontSize, setNewFontSize] = useState(0);
+  const [fontSizeSliderDisplay, setFontSizeSliderDisplay] = useState(false);
 
   const openBottomSheetModal = useRef(null);
   // const { width } = useWindowDimensions();
   const snapPoints = ["35%", "40%", "45%"];
   const [closeBottomSheetModal, setcloseBottomSheetModal] = useState("open");
+  const statusBarStyle =
+    colorScheme === "dark" ? "light-content" : "dark-content";
+  const statusBarBackgroundColor = colorScheme === "dark" ? "black" : "white";
 
   const openPopup = () => {
     setVisible(true);
@@ -55,16 +61,25 @@ export default function Settings({ route }) {
     setVisible(false);
   };
 
+  const Tooltip = ({ value }) => {
+    return (
+      <View className="px-3 py-1.5 rounded-md bg-purple-600">
+        <Text
+          className="dark:text-light font-medium text-base"
+          style={{ fontSize: 2 + newfontSize }}
+        >
+          {value}
+        </Text>
+      </View>
+    );
+  };
+
   useEffect(() => {
     languageTransform();
   }, [lang]);
-  useEffect(() => {
-    fontTransform();
-  }, [font]);
 
   function RenderSettingsItems({
     settingObjectIcon,
-    fontName,
     item,
     onPressFunc,
     useIcon,
@@ -75,13 +90,6 @@ export default function Settings({ route }) {
         className={`flex flex-row items-center justify-between my-4 ${addStyles}`}
         style={{ ...styles.card }}
         onPress={onPressFunc}
-        onPress={async () => {
-          await removeData("font");
-          await setFont("none");
-          await storeData("font", `${fontName}`);
-          // setSelectedLanguage(`${fontName}`);
-          showToast(`Font size set successfully to ${fontName}`);
-        }}
       >
         <View className="flex flex-row  items-start justify-between w-[97%]">
           <Text className="text-[#101318] dark:text-white font-medium text-base">
@@ -89,17 +97,6 @@ export default function Settings({ route }) {
           </Text>
           <FontAwesome name={settingObjectIcon} size={25} color={"purple"} />
         </View>
-          &nbsp;&nbsp;&nbsp;
-          {font == fontName ? (
-            <FontAwesome
-              name="check-circle"
-              style={{ color: "#9e19e6" }}
-              size={25}
-            />
-          ) : (
-            <Entypo name="circle" size={24} color={"#56636f"} />
-          )}
-        </Text>
 
         {/* <Ionicons
           style={{ display: useIcon ? "none" : "flex" }}
@@ -147,19 +144,6 @@ export default function Settings({ route }) {
     );
   }
 
-  // console.log(colorScheme);
-  function fontTransform(
-    normalFontSize,
-    mediumFontSize,
-    largeFontSize
-    // englishTranslation,
-  ) {
-    if (font == 16) {
-      normalFontSize = mediumFontSize;
-    }
-
-    // return <Text>{normalFontSize}</Text>;
-  }
   function languageTransform(
     normalTranslation,
     igboTranslation
@@ -178,6 +162,7 @@ export default function Settings({ route }) {
 
   async function fetchTheme() {
     await getData("theme").then((theme) => setColorScheme(theme));
+    await getData("addedFontSize").then((size) => setNewFontSize(size));
   }
 
   const handleOpenThemeTab = () => {
@@ -204,7 +189,6 @@ export default function Settings({ route }) {
             size={25}
           />
         ) : (
-          // <i class="fas fa-sun fa-spin" style="color: #FFD43B;"></i>
           <Entypo name="circle" size={24} color={"#56636f"} />
         )}
       </TouchableOpacity>
@@ -213,7 +197,10 @@ export default function Settings({ route }) {
 
   return (
     <SafeAreaProvider className="bg-[#FCFBF4 ] dark:bg-[#171717] ">
-      <StatusBar />
+      <StatusBar
+        barStyle={statusBarStyle}
+        backgroundColor={statusBarBackgroundColor}
+      />
       <View style={{ ...styles.container }} className="">
         <View className="flex ml-3 flex-row  ">
           <Ionicons
@@ -227,29 +214,67 @@ export default function Settings({ route }) {
             Settings
           </Text>
         </View>
-        {/* <Switch
-          value={colorScheme == "dark"}
-          onChange={() => {
-            toggleColorScheme(colorScheme === "light" ? "dark" : "light");
-            console.log(colorScheme);
-          }}
-        /> */}
-
-        {/* <Text className="my-4 font-medium text-xl dark:text-blue-400"
-          onPress={() =>
-            toggleColorScheme(colorScheme === "light" ? "dark" : "light")
-          }
-        >
-          {`The color scheme is ${colorScheme}`}
-        </Text>  */}
 
         <View style={styles.cardCont} className="space-y-1">
           <RenderSettingsItems
-            item={"Change font size"}
-            settingObjectIcon={"file-text"}
+            item={"Change Font size"}
+            settingObjectIcon={"font"}
             addStyles="-mb-0.5"
-            onPressFunc={() => showToast("coming soon")}
+            onPressFunc={() => setFontSizeSliderDisplay(!fontSizeSliderDisplay)}
           />
+
+          <TouchableWithoutFeedback
+            onPress={() => setFontSizeSliderDisplay(false)}
+          >
+            <View
+              className={`block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 items-center ${
+                fontSizeSliderDisplay ? "flex" : "hidden"
+              }`}
+            >
+              <Slider
+                style={{
+                  width: 250,
+                  height: 60,
+                  display: fontSizeSliderDisplay ? "flex" : "hidden",
+                }}
+                minimumValue={0}
+                maximumValue={16}
+                minimumTrackTintColor={
+                  fontSizeSliderDisplay ? "purple" : "transparent"
+                }
+                maximumTrackTintColor="#000000"
+                onValueChange={(value) => setFontSize(value)}
+                thumbTintColor={
+                  fontSizeSliderDisplay ? "purple" : "transparent"
+                }
+                value={Number(newfontSize)}
+              />
+              <Text
+                style={{ fontSize: 19 + fontSize }}
+                className="text-center dark:text-light font-medium -mt-1"
+              >
+                Preview
+              </Text>
+
+              <TouchableOpacity
+                style={styles.button}
+                onPress={async () => {
+                  await removeData("addedFontSize");
+                  const jsonValue = JSON.stringify(fontSize);
+                  await storeData("addedFontSize", jsonValue);
+                  showToast(`font size increased by ${fontSize}px`);
+                }}
+                className="py-3 px-6 my-2 bg-purple-600 rounded-md "
+              >
+                <Text
+                  className="text-light text-base"
+                  style={styles.buttonText}
+                >
+                  Set font size
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </TouchableWithoutFeedback>
 
           <RenderSettingsItems
             item={"Change Theme"}
@@ -260,36 +285,16 @@ export default function Settings({ route }) {
             }}
           />
           {/* ========================pop up modal ============================*/}
-          <TouchableOpacity style={{ ...styles.card }} onPress={openPopup}>
+          <TouchableOpacity
+            style={{ ...styles.card }}
+            onPress={openPopup}
+            className="pr-4"
+          >
             <Text className="font-medium text-base capitalize dark:text-white">
-        <View style={styles.cardCont} className="space-y-3">
-          {/* <RenderSettingsItems
-            item={"Change font size"}
-            // settingObjectIcon={"file-text"}
-            fontName={fontName}
-          /> */}
-          {/* ========================pop up modal ============================*/}
-          <TouchableOpacity style={{ ...styles.card }} onPress={openPopup}>
-            <Text className="font-medium text-base capitalize">
-              {fontTransform("change font size", "Gbanwee ibu")}
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={{ ...styles.card }} onPress={openPopup}>
-            <Text className="font-medium text-base capitalize">
               {languageTransform("change language", "Gbanwee Asụsụ")}
             </Text>
+            <FontAwesome name="language" size={25} color={"purple"} />
           </TouchableOpacity>
-
-          <Popup
-            visible={visible}
-            transparent={true}
-            dismiss={closePopup}
-            margin={"25%"}
-          >
-            <RenderSettingsItems fontName={16} />
-            <RenderSettingsItems fontName={18} />
-            <RenderSettingsItems fontName={21} />
-          </Popup>
 
           <Popup
             visible={visible}
