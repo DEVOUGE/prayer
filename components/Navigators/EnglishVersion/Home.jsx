@@ -7,6 +7,7 @@ import {
   ScrollView,
   StatusBar,
   Animated,
+  Dimensions,
 } from "react-native";
 import React, { useState, useEffect, useContext } from "react";
 import pic from "../images/act_of_contrition.gif";
@@ -18,12 +19,16 @@ import { getData, removeData, storeData } from "../../../lib/Storage";
 import BottomNavigation from "../../navigatorComponents/BottomNavigation.jsx";
 import { scale, verticalScale, moderateScale } from "react-native-size-matters";
 import FontSizeContext from "../../../lib/FontSizeContext.js";
+import { ChevronPagination } from "../../chevronPagination.js";
 
 export default function Home({ lang }) {
   const [activeTheme, setActiveTheme] = useState("none");
   const { newFontSize, fetchAddedFontSize } = useContext(FontSizeContext);
-
+  const screenHeight = Dimensions.get("window").height;
   const { colorScheme, setColorScheme } = useColorScheme();
+  const statusBarStyle =
+    colorScheme === "dark" ? "light-content" : "dark-content";
+  const statusBarBackgroundColor = colorScheme === "dark" ? "black" : "white";
 
   useEffect(() => {
     fetchTheme();
@@ -88,6 +93,7 @@ export default function Home({ lang }) {
       showsVerticalScrollIndicator={false}
       style={styles.container}
       className="bg-light dark:bg-black"
+      contentContainerStyle={{ paddingBottom: verticalScale(15) }}
     >
       <GeneralComponentContainer />
       <View style={styles.flexCont}>
@@ -126,11 +132,20 @@ export default function Home({ lang }) {
           <Text style={[styles.bottomTxt, styles.lastTxt]}>
             Close to Jesus to the last
           </Text>
+          <View
+            className="w-full bg-light dark:bg-black absolute bottom-0 left-0 right-0 items-center justify-center"
+            style={{
+              // height: 80, // Set the height of the fixed view
+            }}
+          >
+            <ChevronPagination to={"FirstStationEnglish"} from={"none"} />
+          </View>
         </View>
-        {/* <GeneralComponentContainer /> */}
-        <BottomNavigation />
       </View>
-      <StatusBar translucent={true} />
+      <StatusBar
+        barStyle={statusBarStyle}
+        backgroundColor={statusBarBackgroundColor}
+      />
     </ScrollView>
   );
 }
