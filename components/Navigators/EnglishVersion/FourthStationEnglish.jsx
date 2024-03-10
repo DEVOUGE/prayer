@@ -16,8 +16,8 @@ import { scale, verticalScale } from "react-native-size-matters";
 import { RenderChevronNavigation } from "../../chevronPagination";
 
 export default function FourthStationEnglish() {
-  const { newFontSize } = useContext(FontSizeContext);
-  
+  const { newFontSize, fetchAddedFontSize } = useContext(FontSizeContext);
+
   const styles = StyleSheet.create({
     container: {
       paddingTop: Platform.OS === "android" ? 10 : 0,
@@ -34,8 +34,7 @@ export default function FourthStationEnglish() {
       fontWeight: "500",
       textAlign: "center",
       color: "red",
-      marginTop:verticalScale(newFontSize)
-
+      marginTop: verticalScale(newFontSize),
     },
     txt: {
       fontSize: 17 + newFontSize,
@@ -55,7 +54,7 @@ export default function FourthStationEnglish() {
   return (
     <>
     <StyledStationsComponent>
-      <View style={styles.container}>
+      <View style={styles.container} onLayout={fetchAddedFontSize}>
         <GeneralComponentContainer />
         <View style={styles.flexContainer}>
           <Text className="text-black dark:text-white" style={styles.heading}>

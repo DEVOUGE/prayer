@@ -96,7 +96,7 @@ export default function Home({ lang }) {
       contentContainerStyle={{ paddingBottom: verticalScale(15) }}
     >
       <GeneralComponentContainer />
-      <View style={styles.flexCont}>
+      <View style={styles.flexCont} onLayout={fetchAddedFontSize}>
         <Text style={styles.title}>Opening Prayer</Text>
         <Image style={styles.imgs} source={pic} />
         <Text style={styles.all}>ALL:</Text>

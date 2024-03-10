@@ -6,19 +6,100 @@ import {
   View,
   ScrollView,
   StatusBar,
+  Dimensions,
 } from "react-native";
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import pic from "../images/act_of_contrition.gif";
 import IgboComponentForDisplayingAllStations from "../../navigatorComponents/IgboComponentForDisplayingAllStations";
+import FontSizeContext from "../../../lib/FontSizeContext";
+import { ChevronPagination } from "../../chevronPagination";
+import { verticalScale } from "react-native-size-matters";
 
-export default function HomePageForIgboStation() {
+import { useColorScheme } from "nativewind";
+import { getData } from "../../../lib/Storage";
+
+export default function HomePageForIgboStation({ lang }) {
+  const { newFontSize, fetchAddedFontSize } = useContext(FontSizeContext);
+  const screenHeight = Dimensions.get("window").height;
+  const { colorScheme, setColorScheme } = useColorScheme();
+  const statusBarStyle =
+    colorScheme === "dark" ? "light-content" : "dark-content";
+  const statusBarBackgroundColor = colorScheme === "dark" ? "black" : "white";
+
+  useEffect(() => {
+    fetchTheme();
+  }, [lang]);
+
+  async function fetchTheme() {
+    await getData("theme").then((theme) => setColorScheme(theme));
+  }
+
+  const styles = StyleSheet.create({
+    container: {
+      paddingTop: Platform.OS === "android" ? 45 : 0,
+      // marginHorizontal: 7,
+      paddingHorizontal: 8,
+      zIndex: -100,
+      marginBottom: 52,
+    },
+    flexCont: {
+      paddingBottom: 130,
+    },
+    txt: {
+      fontSize: 18 + newFontSize,
+      lineHeight: 25,
+      // fontStyle: "italic",
+      lineHeight: verticalScale(newFontSize + 18),
+      color: colorScheme === "dark" ? "#fff" : "#000",
+    },
+    all: {
+      fontSize: 20,
+      fontWeight: "500",
+    },
+    title: {
+      fontSize: 28 + newFontSize,
+      textAlign: "center",
+      fontWeight: "600",
+      marginBottom: 7,
+      color: "indigo",
+    },
+    imgs: {
+      justifyContent: "center",
+      alignSelf: "center",
+    },
+    subTxt: {
+      fontSize: 22 + newFontSize,
+      lineHeight: verticalScale(newFontSize * 22),
+    },
+    bottomTxt: {
+      lineHeight: verticalScale(18 + newFontSize),
+      color: "#696969",
+      fontSize: 15 + newFontSize,
+      color: colorScheme === "dark" ? "silver" : "#000",
+      marginTop: 5,
+    },
+    lastTxt: {
+      marginBottom: 10,
+      color: colorScheme === "dark" ? "silver" : "#000",
+    },
+  });
+
   return (
-    <ScrollView showsVerticalScrollIndicator={false} style={styles.container} className="bg-light dark:bg-black">
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      style={styles.container}
+      className="bg-light dark:bg-black"
+      contentContainerStyle={{ paddingBottom: verticalScale(15) }}
+    >
       <IgboComponentForDisplayingAllStations />
-      <View style={styles.flexCont}>
-        <Text className="text-black dark:text-white" style={styles.title}>EKPERE MBIDO</Text>
+      <View style={styles.flexCont} onLayout={fetchAddedFontSize}>
+        <Text className="text-black dark:text-white" style={styles.title}>
+          EKPERE MBIDO
+        </Text>
         <Image style={styles.imgs} source={pic} />
-        <Text className="text-black dark:text-white mt-3" style={styles.subTxt}>ACT OF CONTRITION:</Text>
+        <Text className="text-black dark:text-white mt-3" style={styles.subTxt}>
+          ACT OF CONTRITION:
+        </Text>
         <Text className="text-black dark:text-white" style={styles.txt}>
           O Jesu, Onye-mgbaputa anyi kwesili ihunanya, lee anyi anya ndi ji
           ume-ala da n;ukwu Gi na-ario Gi, bu Chukwu, ebere maka onwe anyi, ya
@@ -28,42 +109,23 @@ export default function HomePageForIgboStation() {
           uzo kuzili anyi iso uzo Kalvari, duru anyi n’uzo ahuhu ahu. Welu
           echiche anyi na aririo anyi nye Ato n’ime otu di Ngozi. Amen.
         </Text>
-        <IgboComponentForDisplayingAllStations />
+        <View style={styles.flxTxt}>
+          <View
+            className="w-full bg-light dark:bg-black absolute bottom-0 left-0 right-0 items-center justify-center"
+            style={
+              {
+                // height: 80, // Set the height of the fixed view
+              }
+            }
+          >
+            <ChevronPagination to={"FirstStationIgbo"} from={"none"} />
+          </View>
+        </View>
       </View>
-      <StatusBar translucent={true} />
+      <StatusBar
+        barStyle={statusBarStyle}
+        backgroundColor={statusBarBackgroundColor}
+      />
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: Platform.OS === "android" ? 10 : 0,
-    // marginHorizontal: 7,
-    paddingHorizontal: 8,
-    zIndex: -100,
-    marginBottom: 10,
-  },
-  flexCont: {
-    marginBottom: 115,
-  },
-  txt: {
-    fontSize: 18,
-    lineHeight: 25,
-    paddingBottom: 10,
-  },
-  title: {
-    fontSize: 28,
-    textAlign: "center",
-    fontWeight: "600",
-    marginTop: 23,
-    marginBottom: 7,
-    color: "red",
-  },
-  imgs: {
-    justifyContent: "center",
-    alignSelf: "center",
-  },
-  subTxt: {
-    fontSize: 22,
-  },
-});

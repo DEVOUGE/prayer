@@ -97,21 +97,6 @@ export default function Settings({ route }) {
           </Text>
           <FontAwesome name={settingObjectIcon} size={25} color={"purple"} />
         </View>
-
-        {/* <Ionicons
-          style={{ display: useIcon ? "none" : "flex" }}
-          name={`${icon}`}
-          color={"purple"}
-          size={25}
-        /> */}
-
-        {/* <Switch
-          style={{ display: useIcon ? "flex" : "none" }}
-          value={pushEnabled}
-          onValueChange={togglePushSwitch}
-          thumbColor={pushEnabled ? "#f4511e" : "#f4f3f4"}
-          trackColor={{ false: "#767577", true: "#f4511e" }}
-        /> */}
       </TouchableOpacity>
     );
   }
@@ -124,7 +109,6 @@ export default function Settings({ route }) {
           await removeData("lang");
           await setLang("none");
           await storeData("lang", `${langName}`);
-          // setSelectedLanguage(`${langName}`);
           showToast(`Language set successfully to ${langName}`);
         }}
       >
@@ -247,7 +231,7 @@ export default function Settings({ route }) {
                 thumbTintColor={
                   fontSizeSliderDisplay ? "purple" : "transparent"
                 }
-                value={Number(newfontSize)}
+                // value={0 || Number(newfontSize)}
               />
               <Text
                 style={{ fontSize: 19 + fontSize }}

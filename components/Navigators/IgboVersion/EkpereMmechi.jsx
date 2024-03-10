@@ -1,12 +1,51 @@
 import { StyleSheet, Text, View, Platform } from "react-native";
-import React from "react";
+import React, { useContext } from "react";
 import IgboComponentForDisplayingAllStations from "../../navigatorComponents/IgboComponentForDisplayingAllStations";
 import StyledStationsComponent from "../../styledStationsComponent";
+import FontSizeContext from "../../../lib/FontSizeContext";
+import { verticalScale } from "react-native-size-matters";
+import { ChevronPaginationLast } from "../../chevronPagination";
 
 export default function EkpereMmechi() {
+  const { newFontSize, fetchAddedFontSize } = useContext(FontSizeContext);
+
+  const styles = StyleSheet.create({
+    container: {
+      paddingTop: Platform.OS === "android" ? 10 : 0,
+      marginHorizontal: 12,
+      marginBottom: 23,
+    },
+    flexContainer: {
+      display: "flex",
+      rowGap: 15,
+    },
+    heading: {
+      fontSize: 25 + newFontSize,
+      lineHeight: verticalScale(25 + newFontSize),
+      fontWeight: "500",
+      textAlign: "center",
+      color: "red",
+      marginTop: verticalScale(newFontSize),
+    },
+    txt: {
+      fontSize: 17 + newFontSize,
+      lineHeight: verticalScale(24 + newFontSize),
+      marginBottom: 10,
+    },
+    leader: {
+      fontWeight: "600",
+      fontSize: 17 + newFontSize,
+      lineHeight: verticalScale(24 + newFontSize),
+    },
+    all: {
+      fontWeight: "normal",
+    },
+  });
+
   return (
-    <StyledStationsComponent>
-      <View style={styles.container}>
+    <>
+      <StyledStationsComponent>
+        <View style={styles.container} onLayout={fetchAddedFontSize}>
           <IgboComponentForDisplayingAllStations />
           <Text style={styles.heading}>
             EKPERE MMECHI {"\n"} (Nke a ga-abu n’‘ihu altar)
@@ -55,47 +94,12 @@ export default function EkpereMmechi() {
             Otu ukwe, lent m‘obu ukwe mbilite n‘onwu. {"\n"}
           </Text>
         </View>
-    </StyledStationsComponent>
+      </StyledStationsComponent>
+      <View
+        className="w-full bg-light dark:bg-black absolute bottom-0 left-0 right-0 items-center justify-center py-8"
+      >
+        <ChevronPaginationLast to={"none"} from={"AririoNihuAltar"} />
+      </View>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: Platform.OS === "android" ? 10 : 0,
-    marginHorizontal: 12,
-    marginBottom: 40,
-  },
-  heading: {
-    textAlign: "center",
-    fontWeight: "600",
-    fontSize: 25,
-    marginTop: 12,
-    color: "red",
-  },
-  response: {
-    fontSize: 17,
-    // color: 'blue',
-    marginVertical: 12,
-    lineHeight: 25,
-  },
-  v: {
-    fontWeight: "500",
-  },
-  prayer: {
-    fontWeight: "700",
-  },
-  ukwe: {
-    fontWeight: "600",
-    fontSize: 18,
-  },
-  chorus: {
-    fontWeight: "600",
-    color: "grey",
-    marginVertical: 17,
-    opacity: 0.8,
-  },
-  mmechi: {
-    lineHeight: 22,
-    fontSize: 15,
-  },
-});

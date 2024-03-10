@@ -12,14 +12,12 @@ import pic from "../images/station02.jpg";
 import GeneralComponentContainer from "../../navigatorComponents/GeneralComponentContainer";
 import globalStyles from "../../../styles/styles";
 import StyledStationsComponent from "../../styledStationsComponent";
-import BottomNavigation from "../../navigatorComponents/BottomNavigation.jsx";
 import FontSizeContext from "../../../lib/FontSizeContext.js";
 import { scale, verticalScale } from "react-native-size-matters";
 import { ChevronPagination, RenderChevronNavigation } from "../../chevronPagination.js";
 
 export default function SecondStationEnglish() {
   const { newFontSize, fetchAddedFontSize } = useContext(FontSizeContext);
-  const screenHeight = Dimensions.get("window").height;
 
   const styles = StyleSheet.create({
     container: {
@@ -33,7 +31,7 @@ export default function SecondStationEnglish() {
     },
     heading: {
       fontSize: 25 + newFontSize,
-      lineHeight: scale(25 + newFontSize),
+      lineHeight: verticalScale(25 + newFontSize),
       fontWeight: "500",
       textAlign: "center",
       color: "red",
@@ -52,19 +50,12 @@ export default function SecondStationEnglish() {
     all: {
       fontWeight: "normal",
     },
-    fixedView: {
-      position: "absolute", // Position the view absolutely // Set the height of the fixed view
-      backgroundColor: "#f8f8f8", // Example background color
-      justifyContent: "center", // Center the content vertically
-      alignItems: "center",
-      zIndex: 600, // Center the content horizontally
-    },
   });
 
   return (
     <>
       <StyledStationsComponent>
-        <View style={styles.container}>
+        <View style={styles.container} onLayout={fetchAddedFontSize}>
           <GeneralComponentContainer />
           <View style={styles.flexContainer}>
             <Text style={styles.heading}>
@@ -75,7 +66,7 @@ export default function SecondStationEnglish() {
               your death on Calvary. You knew it wouldn't be easy, but you
               accepted it and carried it just the same.
             </Text>
-            <Image source={pic} style={globalStyles.image} />
+            <Image source={pic} style={globalStyles.image } />
             <Text style={styles.leader} className="text-black dark:text-white">
               Leader:
               <Text style={styles.all} className="text-black dark:text-white">
@@ -129,7 +120,12 @@ export default function SecondStationEnglish() {
           </View>
         </View>
       </StyledStationsComponent>
-      <RenderChevronNavigation to={"ThirdStationEnglish"} from={"FirstStationEnglish"}/>
+      <RenderChevronNavigation
+        to={"ThirdStationEnglish"}
+        from={"FirstStationEnglish"}
+      />
     </>
   );
+
+  
 }

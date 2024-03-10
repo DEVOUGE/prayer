@@ -28,6 +28,31 @@ export const ChevronPagination = ({ to, from }) => {
   );
 };
 
+export const ChevronPaginationLast = ({  from, to}) => {
+  const navigation = useNavigation();
+  return (
+    <View className="flex flex-row items-center justify-between  w-11/12">
+      <TouchableOpacity
+        className={`${to === "none" ? "absolute left-2" : ""}`}
+        onPress={() => navigation.navigate(from)}
+      >
+        <FontAwesome name="chevron-circle-left" size={50} color="purple" />
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        className={`${to === "none" ? "hidden " : "flex"}`}
+        onPress={() => navigation.navigate(to)}
+      >
+        <FontAwesome
+          name="chevron-circle-right"
+          size={50}
+          color="purple"
+        />
+      </TouchableOpacity>
+    </View>
+  );
+};
+
 export const RenderChevronNavigation = ({to, from})=>{
     return(
         <View
