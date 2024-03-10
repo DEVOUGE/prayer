@@ -1,42 +1,48 @@
-import { StyleSheet, Text, View, Pressable, useWindowDimensions } from "react-native";
-import React, { useEffect, useState } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Pressable,
+  useWindowDimensions,
+} from "react-native";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { getData, removeData, storeData } from "../../lib/Storage";
+import FontSizeContext from "../../lib/FontSizeContext";
+import { scale, verticalScale } from "react-native-size-matters";
 
 export default function StationsComponent({ name, no }) {
   const navigation = useNavigation();
   const [activeStation, setActiveStation] = useState(null);
   const { width } = useWindowDimensions();
+  const { newFontSize, fetchAddedFontSize } = useContext(FontSizeContext);
 
-
-  async function getActiveStation() {
-    await getData("activeStation").then((station) => setActiveStation(station));
-    // console.log(activeStation, "active staton just got updated");
-  }
-  
-  useEffect(() => {
-    getActiveStation();
-  }, []);
 
   return (
     <View>
       <Pressable
         // style={styles.btn}
         onPress={async () => {
-          await removeData("activeStation");
-          await storeData("activeStation", name);
+          // await removeData("activeStation");
+          // await storeData("activeStation", name);
           navigation.navigate(name);
         }}
         className={` focus:ring-4 focus:ring-blue-300 font-medium rounded-lg  px-5 py-2.5 focus:outline-none`}
       >
-        <Text className={`${activeStation == name ? "text-purple-600" : "text-slate-500"} text-base font-medium capitalize`} style={styles.txt}>{no} </Text>
+        <Text
+          className={`text-base font-medium capitalize dark:text-light`}
+          style={{fontSize:16+newFontSize, lineHeight:verticalScale(16+newFontSize)}}
+        >
+          {name.slice(0,-14) }&nbsp; Station
+        </Text>
       </Pressable>
+      
       <View
-        className="self-center rounded-md mb-1"
+        className={`self-center border-b-4 rounded-md mb-1`}
         style={{
-          width: 50,
-          borderBottomWidth: 3,
-          borderBottomColor: activeStation == name ?"purple":"gray",
+          // borderBottomWidth: 3,
+          borderBottomColor: "gray",
+          width:scale(100+newFontSize)
           // marginVertical: 2,
         }}
       />
@@ -53,5 +59,4 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-
 });

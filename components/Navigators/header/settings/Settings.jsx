@@ -319,7 +319,6 @@ export default function Settings({ route }) {
             borderRadius: 30,
             backgroundColor: colorScheme == "dark" ? "#000" : "#fff",
           }}
-          onBlur={() => setcloseBottomSheetModal("close")}
           stackBehavior="push"
           style={{
             display: closeBottomSheetModal === "open" ? "flex" : "none",

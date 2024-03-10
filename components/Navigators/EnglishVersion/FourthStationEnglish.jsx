@@ -6,14 +6,54 @@ import {
   Text,
   View,
 } from "react-native";
-import React from "react";
+import {useContext} from "react";
 import pic from "../images/station04.jpg";
 import GeneralComponentContainer from "../../navigatorComponents/GeneralComponentContainer";
 import StyledStationsComponent from "../../styledStationsComponent";
 import globalStyles from "../../../styles/styles";
+import FontSizeContext from "../../../lib/FontSizeContext";
+import { scale, verticalScale } from "react-native-size-matters";
+import { RenderChevronNavigation } from "../../chevronPagination";
 
 export default function FourthStationEnglish() {
+  const { newFontSize } = useContext(FontSizeContext);
+  
+  const styles = StyleSheet.create({
+    container: {
+      paddingTop: Platform.OS === "android" ? 10 : 0,
+      marginHorizontal: 12,
+      marginBottom: 23,
+    },
+    flexContainer: {
+      display: "flex",
+      rowGap: 15,
+    },
+    heading: {
+      fontSize: 25 + newFontSize,
+      lineHeight: verticalScale(25 + newFontSize),
+      fontWeight: "500",
+      textAlign: "center",
+      color: "red",
+      marginTop:verticalScale(newFontSize)
+
+    },
+    txt: {
+      fontSize: 17 + newFontSize,
+      lineHeight: verticalScale(24 + newFontSize),
+      marginBottom: 10,
+    },
+    leader: {
+      fontWeight: "600",
+      fontSize: 17 + newFontSize,
+      lineHeight: verticalScale(24 + newFontSize),
+    },
+    all: {
+      fontWeight: "normal",
+    },
+  });
+
   return (
+    <>
     <StyledStationsComponent>
       <View style={styles.container}>
         <GeneralComponentContainer />
@@ -77,40 +117,10 @@ export default function FourthStationEnglish() {
           </Text>
           <Text className="text-black dark:text-white" style={styles.txt}>All: Amen.</Text>
         </View>
-        <StatusBar translucent={true} />
-        <GeneralComponentContainer />
       </View>
     </StyledStationsComponent>
+    <RenderChevronNavigation to={"FifthStationEnglish"} from={"ThirdStationEnglish"}/>
+
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: Platform.OS === "android" ? 10 : 0,
-    marginHorizontal: 12,
-    marginBottom: 23,
-  },
-  flexContainer: {
-    display: "flex",
-    rowGap: 15,
-  },
-  heading: {
-    fontSize: 25,
-    fontWeight: "500",
-    textAlign: "center",
-    color: "red",
-  },
-  txt: {
-    fontSize: 17,
-    lineHeight: 24,
-    marginBottom: 10,
-  },
-  leader: {
-    fontWeight: "600",
-    fontSize: 17,
-    lineHeight: 24,
-  },
-  all: {
-    fontWeight: "normal",
-  },
-});
