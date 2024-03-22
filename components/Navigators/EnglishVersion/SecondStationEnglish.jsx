@@ -1,8 +1,6 @@
 import {
-  Dimensions,
   Image,
   Platform,
-  StatusBar,
   StyleSheet,
   Text,
   View,
@@ -13,11 +11,16 @@ import GeneralComponentContainer from "../../navigatorComponents/GeneralComponen
 import globalStyles from "../../../styles/styles";
 import StyledStationsComponent from "../../styledStationsComponent";
 import FontSizeContext from "../../../lib/FontSizeContext.js";
-import { scale, verticalScale } from "react-native-size-matters";
-import { ChevronPagination, RenderChevronNavigation } from "../../chevronPagination.js";
+import {  verticalScale } from "react-native-size-matters";
+import {  RenderChevronNavigation } from "../../chevronPagination.js";
+import { useFonts } from "expo-font";
 
 export default function SecondStationEnglish() {
   const { newFontSize, fetchAddedFontSize } = useContext(FontSizeContext);
+  const [fontsLoaded] = useFonts({
+    "PTSans-Regular": require("../../../assets/fonts/PTSans-Regular.ttf"),
+    "SourceSerif": require("../../../assets/fonts/SourceSerif4-SemiBold.ttf")
+  })
 
   const styles = StyleSheet.create({
     container: {
@@ -36,21 +39,33 @@ export default function SecondStationEnglish() {
       textAlign: "center",
       color: "red",
       marginTop: verticalScale(newFontSize),
+      fontFamily: "SourceSerif",
     },
     txt: {
       fontSize: 17 + newFontSize,
       lineHeight: verticalScale(24 + newFontSize),
       marginBottom: 10,
+      fontFamily: "PTSans-Regular",
     },
     leader: {
       fontWeight: "600",
       fontSize: 17 + newFontSize,
       lineHeight: verticalScale(24 + newFontSize),
+      fontFamily: "PTSans-Regular",
+      color: "purple",
+    },
+    lastTxt: {
+      marginBottom: 10,
     },
     all: {
       fontWeight: "normal",
+      fontFamily: "PTSans-Regular",
     },
   });
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
     <>
@@ -104,18 +119,18 @@ export default function SecondStationEnglish() {
             <Text style={styles.txt} className="text-black dark:text-white">
               Our Father.... Hail Mary.... Glory Be to the Father....
             </Text>
-            <Text style={styles.txt} className="text-black dark:text-white">
-              Leader: Jesus Christ Crucified.
+            <Text style={styles.leader} className="text-black dark:text-white">
+              Leader:  <Text style={styles.all} className="text-black dark:text-white">Jesus Christ Crucified.</Text>
             </Text>
-            <Text style={styles.txt} className="text-black dark:text-white">
-              All: Have mercy on Us.
+            <Text style={styles.leader} className="text-black dark:text-white">
+              All:  <Text style={styles.all} className="text-black dark:text-white">Have mercy on Us.</Text>
             </Text>
             <Text style={styles.txt} className="text-black dark:text-white">
               Leader: May the souls of the faithful departed, through the mercy
               of God, Rest in peace.
             </Text>
-            <Text style={styles.txt} className="text-black dark:text-white">
-              All: Amen.
+            <Text style={[styles.leader, styles.lastTxt]} className="text-black dark:text-white">
+              All:  <Text style={styles.all} className="text-black dark:text-white">Amen.</Text>
             </Text>
           </View>
         </View>

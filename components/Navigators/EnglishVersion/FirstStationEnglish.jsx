@@ -1,27 +1,27 @@
 import {
   Image,
   Platform,
-  StatusBar,
   StyleSheet,
   Text,
   View,
-  TouchableOpacity,
 } from "react-native";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import pic from "../images/station01.jpg";
 import GeneralComponentContainer from "../../navigatorComponents/GeneralComponentContainer";
 import globalStyles from "../../../styles/styles";
 import StyledStationsComponent from "../../styledStationsComponent";
-import { moderateScale, verticalScale } from "react-native-size-matters";
-import { getData } from "../../../lib/Storage";
-import { scale } from "react-native-size-matters";
+import { verticalScale } from "react-native-size-matters";
 import FontSizeContext from "../../../lib/FontSizeContext";
-import { AntDesign, Entypo, FontAwesome } from "@expo/vector-icons";
 import { ChevronPagination } from "../../chevronPagination";
+import { useFonts } from "expo-font";
 
-export default function FirstStationEnglish({ route }) {
-  const { colorScheme } = route.params;
+export default function FirstStationEnglish() {
   const { newFontSize, fetchAddedFontSize } = useContext(FontSizeContext);
+ 
+   const [fontsLoaded] = useFonts({
+     "PTSans-Regular": require("../../../assets/fonts/PTSans-Regular.ttf"),
+     "SourceSerif" : require("../../../assets/fonts/SourceSerif4-SemiBold.ttf")
+   });
 
   const styles = StyleSheet.create({
     container: {
@@ -40,21 +40,30 @@ export default function FirstStationEnglish({ route }) {
       textAlign: "center",
       color: "red",
       marginTop: verticalScale(newFontSize),
+      fontFamily: "SourceSerif",
     },
     txt: {
       fontSize: 17 + newFontSize,
       lineHeight: verticalScale(24 + newFontSize),
       marginBottom: 10,
+      fontFamily: "PTSans-Regular",
     },
     leader: {
       fontWeight: "600",
       fontSize: 17 + newFontSize,
       lineHeight: verticalScale(24 + newFontSize),
+      fontFamily: "PTSans-Regular",
+      color: "purple"
     },
     all: {
       fontWeight: "normal",
+      fontFamily:"PTSans-Regular",
     },
   });
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
     <>
@@ -117,18 +126,18 @@ export default function FirstStationEnglish({ route }) {
             <Text style={styles.txt} className="text-black dark:text-white">
               Our Father.... Hail Mary.... Glory Be to the Father....
             </Text>
-            <Text style={styles.txt} className="text-black dark:text-white">
-              Leader: Jesus Christ Crucified.
+            <Text style={styles.leader} className="text-black dark:text-white">
+              Leader: <Text style={styles.all} className="text-black dark:text-white">Jesus Christ Crucified.</Text> 
             </Text>
-            <Text style={styles.txt} className="text-black dark:text-white">
-              All: Have mercy on Us.
+            <Text style={styles.leader} className="text-black dark:text-white">
+              All:  <Text style={styles.all} className="text-black dark:text-white">Have mercy on Us.</Text>
             </Text>
             <Text style={styles.txt} className="text-black dark:text-white">
               Leader: May the souls of the faithful departed, through the mercy
               of God, Rest in peace.
             </Text>
-            <Text style={styles.txt} className="text-black dark:text-white">
-              All: Amen.
+            <Text style={styles.leader} className="text-black dark:text-white">
+              All: <Text style={styles.all} className="text-black dark:text-white">Amen.</Text> 
             </Text>
           </View>
         </View>
@@ -136,7 +145,6 @@ export default function FirstStationEnglish({ route }) {
       <View
         className="w-full bg-light dark:bg-black absolute bottom-0 left-0 right-0 items-center justify-center py-8"
         style={{
-          // height: verticalScale(80), // Set the height of the fixed view
         }}
       >
         <ChevronPagination to={"SecondStationEnglish"} from={"none"} />

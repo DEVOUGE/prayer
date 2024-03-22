@@ -1,7 +1,6 @@
 import {
   Image,
   Platform,
-  StatusBar,
   StyleSheet,
   Text,
   View,
@@ -14,9 +13,14 @@ import { verticalScale } from "react-native-size-matters";
 import FontSizeContext from "../../../lib/FontSizeContext";
 import { ChevronPagination } from "../../chevronPagination";
 import globalStyles from "../../../styles/styles"
+import { useFonts } from "expo-font";
 
 export default function FirstStationIgbo() {
   const { newFontSize, fetchAddedFontSize } = useContext(FontSizeContext);
+  const [fontsLoaded] = useFonts({
+    "PTSans-Regular": require("../../../assets/fonts/PTSans-Regular.ttf"),
+    "SourceSerif": require("../../../assets/fonts/SourceSerif4-SemiBold.ttf"),
+  });
 
   const styles = StyleSheet.create({
     container: {
@@ -35,22 +39,29 @@ export default function FirstStationIgbo() {
       textAlign: "center",
       color: "red",
       marginTop: verticalScale(newFontSize),
+      fontFamily: "SourceSerif",
     },
     txt: {
       fontSize: 17 + newFontSize,
       lineHeight: verticalScale(24 + newFontSize),
       marginBottom: 10,
+      fontFamily: "PTSans-Regular",
     },
     leader: {
       fontWeight: "600",
       fontSize: 17 + newFontSize,
       lineHeight: verticalScale(24 + newFontSize),
+      fontFamily: "PTSans-Regular",
     },
     all: {
       fontWeight: "normal",
+      fontFamily: "PTSans-Regular",
     },
   });
 
+  if (!fontsLoaded) {
+  return <Text>Text Loading!</Text>
+}
   return (
     <>
       <StyledStationsComponent>
@@ -169,9 +180,6 @@ export default function FirstStationIgbo() {
       </StyledStationsComponent>
       <View
         className="w-full bg-light dark:bg-black absolute bottom-0 left-0 right-0 items-center justify-center py-8"
-        style={{
-          // height: verticalScale(80), // Set the height of the fixed view
-        }}
       >
         <ChevronPagination to={"SecondStationIgbo"} from={"none"} />
         </View>

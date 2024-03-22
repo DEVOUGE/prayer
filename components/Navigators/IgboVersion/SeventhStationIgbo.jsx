@@ -1,7 +1,6 @@
 import {
   Image,
   Platform,
-  StatusBar,
   StyleSheet,
   Text,
   View,
@@ -10,13 +9,17 @@ import React, { useContext } from "react";
 import pic from "../images/station07.jpg";
 import IgboComponentForDisplayingAllStations from "../../navigatorComponents/IgboComponentForDisplayingAllStations";
 import StyledStationsComponent from "../../styledStationsComponent";
-import globalStyles from "../../../styles/styles";
 import FontSizeContext from "../../../lib/FontSizeContext";
 import { verticalScale } from "react-native-size-matters";
 import { RenderChevronNavigation } from "../../chevronPagination";
+import { useFonts } from "expo-font";
 
 export default function SeventhStationIgbo() {
   const { newFontSize, fetchAddedFontSize } = useContext(FontSizeContext);
+  const [fontsLoaded] = useFonts({
+    "PTSans-Regular": require("../../../assets/fonts/PTSans-Regular.ttf"),
+    "SourceSerif": require("../../../assets/fonts/SourceSerif4-SemiBold.ttf"),
+  });
 
   const styles = StyleSheet.create({
     container: {
@@ -35,21 +38,30 @@ export default function SeventhStationIgbo() {
       textAlign: "center",
       color: "red",
       marginTop: verticalScale(newFontSize),
+      fontFamily: "SourceSerif",
     },
     txt: {
       fontSize: 17 + newFontSize,
       lineHeight: verticalScale(24 + newFontSize),
       marginBottom: 10,
+      fontFamily: "PTSans-Regular",
     },
     leader: {
       fontWeight: "600",
       fontSize: 17 + newFontSize,
       lineHeight: verticalScale(24 + newFontSize),
+      fontFamily: "PTSans-Regular",
     },
     all: {
       fontWeight: "normal",
+      fontFamily: "PTSans-Regular",
     },
   });
+
+  if (!fontsLoaded) {
+    return <Text>Font Loading!</Text>;
+  }
+  
 
   return (
     <>

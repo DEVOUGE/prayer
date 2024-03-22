@@ -97,7 +97,9 @@ export default function App() {
             {lang == "none" ? (
               <SelectLanguage setLang={setLang} />
             ) : (
-              <Navigator initialRouteName="Home">
+                <Navigator initialRouteName="Home" screenOptions={{
+                  animation: "slide_from_right",
+              }}>
                 <Screen
                   name="SelectLanguage"
                   component={SelectLanguage}
@@ -139,13 +141,17 @@ export default function App() {
                 <Screen
                   name="FirstStationEnglish"
                   component={FirstStationEnglish}
-                  options={{ headerShown: false }}
-                  initialParams={{ lang, newFontSize }}
+                    options={{
+                      headerShown: false,
+                    }}
+                    initialParams={{ lang, newFontSize }}
                 />
                 <Screen
                   name="SecondStationEnglish"
                   component={SecondStationEnglish}
-                  options={{ headerShown: false }}
+                  options={{
+                    headerShown: false,
+                  }}
                   initialParams={{ lang }}
                 />
                 <Screen
@@ -243,7 +249,8 @@ export default function App() {
                   name="SecondStationIgbo"
                   component={SecondStationIgbo}
                   options={{ headerShown: false }}
-                  initialParams={{ lang }}
+                    initialParams={{ lang }}
+                    
                 />
                 <Screen
                   name="ThirdStationIgbo"

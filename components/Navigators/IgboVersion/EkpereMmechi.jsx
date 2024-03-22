@@ -47,18 +47,22 @@ export default function EkpereMmechi() {
       <StyledStationsComponent>
         <View style={styles.container} onLayout={fetchAddedFontSize}>
           <IgboComponentForDisplayingAllStations />
-          <Text style={styles.heading}>
+          <Text className="text-black dark:text-white" style={styles.heading}>
             EKPERE MMECHI {"\n"} (Nke a ga-abu n’‘ihu altar)
           </Text>
-          <Text style={styles.response}>
-            <Text style={styles.ukwe}>Onye-ndu: </Text>
+          <Text className="text-black dark:text-white" style={styles.response}>
+            <Text className="text-black dark:text-white" style={styles.ukwe}>
+              Onye-ndu:{" "}
+            </Text>
             Maka Izuzu Pope na Nzuko Nso Katolik:
           </Text>
-          <Text style={styles.response}>
-            <Text style={styles.ukwe}>Sekpurunu ala za: </Text>
+          <Text className="text-black dark:text-white" style={styles.response}>
+            <Text className="text-black dark:text-white" style={styles.ukwe}>
+              Sekpurunu ala za:{" "}
+            </Text>
             ONWU N’ELU OBE
           </Text>
-          <Text style={styles.response}>
+          <Text className="text-black dark:text-white" style={styles.response}>
             GEENU nti ka m gwa unu otu ihe omimi. Anyi nile agaghi adacha mba
             n‘ura, ma anyi nile ga-agba-nwocha. N‘oge ntakiri, n‘otu ntabi anya,
             n‘uda opi-igwe. Maka na a ga-egbu opi-igwe, ndi nwuru anwu ebilite
@@ -69,35 +73,45 @@ export default function EkpereMmechi() {
             dere si: Eloole onwu na mmeri" “Onwu! olee mmeri gi? Onwul! olee ufu
             gi? {"       "} (I Ndi Korint 15:51 -52)
           </Text>
-          <Text style={styles.response}>
-            <Text style={styles.ukwe}>Sekpurunu ala Oha: </Text>
+          <Text className="text-black dark:text-white" style={styles.response}>
+            <Text className="text-black dark:text-white" style={styles.ukwe}>
+              Sekpurunu ala Oha:{" "}
+            </Text>
             Jesu m, ahuru m gi n’anya Karichaa ihe nile; Ejim obi m nile
             chegharia na mmehie m mehiere gi E kwela ka m kewapu onwe m ozo
             n’ebe I no; Mee kam hu gi n’anya mgbe o bula; Bia jim mee ihe o bula
             masiri gi.
           </Text>
-          <Text style={styles.response}>
+          <Text className="text-black dark:text-white" style={styles.response}>
             Nna anyi no n’eligwe ...................... {"\n"}
             Ekele Maria....................................... {"\n"}
             Otito diri Nna.................................... {"\n"}
           </Text>
-          <Text style={styles.response}>
-            <Text style={styles.ukwe}>Onye-ndu: </Text>
+          <Text className="text-black dark:text-white" style={styles.response}>
+            <Text className="text-black dark:text-white" style={styles.ukwe}>
+              Onye-ndu:{" "}
+            </Text>
             Jesu a kpodoro n’obe maka ihi anyi; {"\n"}
-            <Text style={styles.ukwe}>Oha: </Text>
+            <Text className="text-black dark:text-white" style={styles.ukwe}>
+              Oha:{" "}
+            </Text>
             Meere anyi ebere. {"\n"}
-            <Text style={styles.ukwe}>Onye-ndu: </Text>
+            <Text className="text-black dark:text-white" style={styles.ukwe}>
+              Onye-ndu:{" "}
+            </Text>
             Ka mkpuruobi ndi nile kwerenu gara aga; {"\n"}
-            <Text style={styles.ukwe}>Oha: </Text>
+            <Text className="text-black dark:text-white" style={styles.ukwe}>
+              Oha:{" "}
+            </Text>
             Site n’ebere nke Chukwu were Zuo ike na ndokwa. Amen. {"\n"}
-            <Text style={styles.ukwe}>Ukwe: </Text>
+            <Text className="text-black dark:text-white" style={styles.ukwe}>
+              Ukwe:{" "}
+            </Text>
             Otu ukwe, lent m‘obu ukwe mbilite n‘onwu. {"\n"}
           </Text>
         </View>
       </StyledStationsComponent>
-      <View
-        className="w-full bg-light dark:bg-black absolute bottom-0 left-0 right-0 items-center justify-center py-8"
-      >
+      <View className="w-full bg-light dark:bg-black absolute bottom-0 left-0 right-0 items-center justify-center py-8">
         <ChevronPaginationLast to={"none"} from={"AririoNihuAltar"} />
       </View>
     </>

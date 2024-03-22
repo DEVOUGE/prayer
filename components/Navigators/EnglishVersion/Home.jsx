@@ -6,29 +6,29 @@ import {
   View,
   ScrollView,
   StatusBar,
-  Animated,
-  Dimensions,
 } from "react-native";
-import React, { useState, useEffect, useContext } from "react";
+import React, {  useEffect, useContext } from "react";
 import pic from "../images/act_of_contrition.gif";
 import GeneralComponentContainer from "../../navigatorComponents/GeneralComponentContainer";
 
-import { colorScheme, useColorScheme, styled } from "nativewind";
-import { getData, removeData, storeData } from "../../../lib/Storage";
+import { useColorScheme } from "nativewind";
+import { getData } from "../../../lib/Storage";
 
-import BottomNavigation from "../../navigatorComponents/BottomNavigation.jsx";
-import { scale, verticalScale, moderateScale } from "react-native-size-matters";
+import { verticalScale } from "react-native-size-matters";
 import FontSizeContext from "../../../lib/FontSizeContext.js";
 import { ChevronPagination } from "../../chevronPagination.js";
+import { useFonts } from "expo-font";
 
 export default function Home({ lang }) {
-  const [activeTheme, setActiveTheme] = useState("none");
   const { newFontSize, fetchAddedFontSize } = useContext(FontSizeContext);
-  const screenHeight = Dimensions.get("window").height;
   const { colorScheme, setColorScheme } = useColorScheme();
   const statusBarStyle =
     colorScheme === "dark" ? "light-content" : "dark-content";
   const statusBarBackgroundColor = colorScheme === "dark" ? "black" : "white";
+  const [fontsLoaded] = useFonts({
+    "PTSans-Regular": require("../../../assets/fonts/PTSans-Regular.ttf"),
+    "SourceSerif": require("../../../assets/fonts/SourceSerif4-SemiBold.ttf")
+  })
 
   useEffect(() => {
     fetchTheme();
@@ -41,7 +41,6 @@ export default function Home({ lang }) {
   const styles = StyleSheet.create({
     container: {
       paddingTop: Platform.OS === "android" ? 45 : 0,
-      // marginHorizontal: 7,
       paddingHorizontal: 8,
       zIndex: -100,
       marginBottom: 52,
@@ -51,14 +50,14 @@ export default function Home({ lang }) {
     },
     txt: {
       fontSize: 18 + newFontSize,
-      lineHeight: 25,
-      // fontStyle: "italic",
-      lineHeight: verticalScale(newFontSize + 18),
+      fontFamily: "PTSans-Regular",
+      lineHeight: verticalScale(newFontSize + 20),
       color: colorScheme === "dark" ? "#fff" : "#000",
     },
     all: {
       fontSize: 20,
       fontWeight: "500",
+      fontFamily: "PTSans-Regular"
     },
     title: {
       fontSize: 28 + newFontSize,
@@ -66,6 +65,7 @@ export default function Home({ lang }) {
       fontWeight: "600",
       marginBottom: 7,
       color: "indigo",
+      fontFamily: "SourceSerif",
     },
     imgs: {
       justifyContent: "center",
@@ -87,6 +87,10 @@ export default function Home({ lang }) {
       color: colorScheme === "dark" ? "silver" : "#000",
     },
   });
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
     <ScrollView
@@ -135,7 +139,6 @@ export default function Home({ lang }) {
           <View
             className="w-full bg-light dark:bg-black absolute bottom-0 left-0 right-0 items-center justify-center"
             style={{
-              // height: 80, // Set the height of the fixed view
             }}
           >
             <ChevronPagination to={"FirstStationEnglish"} from={"none"} />

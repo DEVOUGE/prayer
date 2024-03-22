@@ -14,9 +14,14 @@ import globalStyles from "../../../styles/styles";
 import FontSizeContext from "../../../lib/FontSizeContext";
 import { verticalScale } from "react-native-size-matters";
 import { RenderChevronNavigation } from "../../chevronPagination";
+import { useFonts } from "expo-font";
 
 export default function EighthStationIgbo() {
   const { newFontSize, fetchAddedFontSize } = useContext(FontSizeContext);
+  const [fontsLoaded] = useFonts({
+    "PTSans-Regular": require("../../../assets/fonts/PTSans-Regular.ttf"),
+    SourceSerif: require("../../../assets/fonts/SourceSerif4-SemiBold.ttf"),
+  });
 
   const styles = StyleSheet.create({
     container: {
@@ -35,21 +40,30 @@ export default function EighthStationIgbo() {
       textAlign: "center",
       color: "red",
       marginTop: verticalScale(newFontSize),
+      fontFamily: "SourceSerif",
     },
     txt: {
       fontSize: 17 + newFontSize,
       lineHeight: verticalScale(24 + newFontSize),
       marginBottom: 10,
+      fontFamily: "PTSans-Regular",
     },
     leader: {
       fontWeight: "600",
       fontSize: 17 + newFontSize,
       lineHeight: verticalScale(24 + newFontSize),
+      fontFamily: "PTSans-Regular",
     },
     all: {
       fontWeight: "normal",
+      fontFamily: "PTSans-Regular",
     },
   });
+
+  if (!fontsLoaded) {
+    return <Text>Font Loading!</Text>;
+  }
+  
 
   return (
     <>

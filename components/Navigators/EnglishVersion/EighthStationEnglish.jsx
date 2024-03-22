@@ -1,7 +1,6 @@
 import {
   Image,
   Platform,
-  StatusBar,
   StyleSheet,
   Text,
   View,
@@ -14,9 +13,14 @@ import FontSizeContext from "../../../lib/FontSizeContext";
 import { verticalScale } from "react-native-size-matters";
 import { RenderChevronNavigation } from "../../chevronPagination";
 import StyledStationsComponent from "../../styledStationsComponent";
+import { useFonts } from "expo-font";
 
 export default function EighthStationEnglish() {
   const { newFontSize, fetchAddedFontSize } = useContext(FontSizeContext);
+  const [fontsLoaded] = useFonts({
+    "PTSans-Regular": require("../../../assets/fonts/PTSans-Regular.ttf"),
+    "SourceSerif": require("../../../assets/fonts/SourceSerif4-SemiBold.ttf")
+  })
 
   const styles = StyleSheet.create({
     container: {
@@ -35,21 +39,33 @@ export default function EighthStationEnglish() {
       textAlign: "center",
       color: "red",
       marginTop: verticalScale(newFontSize),
+      fontFamily: "SourceSerif",
     },
     txt: {
       fontSize: 17 + newFontSize,
       lineHeight: verticalScale(24 + newFontSize),
       marginBottom: 10,
+      fontFamily: "PTSans-Regular",
     },
     leader: {
       fontWeight: "600",
       fontSize: 17 + newFontSize,
       lineHeight: verticalScale(24 + newFontSize),
+      fontFamily: "PTSans-Regular",
+      color: "purple"
+    },
+    lastTxt: {
+      marginBottom: 10
     },
     all: {
       fontWeight: "normal",
+      fontFamily: "PTSans-Regular",
     },
   });
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
     <>
@@ -67,7 +83,7 @@ export default function EighthStationEnglish() {
               have been abandoned by your friends and are in pain, you stop and
               try to help them.
             </Text>
-            <Image source={pic} style={globalStyles.image } />
+            <Image source={pic} style={globalStyles.image} />
             <Text className="text-black dark:text-white" style={styles.leader}>
               Leader:
               <Text className="text-black dark:text-white" style={styles.all}>
@@ -111,18 +127,27 @@ export default function EighthStationEnglish() {
             <Text className="text-black dark:text-white" style={styles.txt}>
               Our Father.... Hail Mary.... Glory Be to the Father....
             </Text>
-            <Text className="text-black dark:text-white" style={styles.txt}>
-              Leader: Jesus Christ Crucified.
+            <Text className="text-black dark:text-white" style={styles.leader}>
+              Leader:{" "}
+              <Text style={styles.all} className="text-black dark: text-white">
+                Jesus Christ Crucified.
+              </Text>
             </Text>
-            <Text className="text-black dark:text-white" style={styles.txt}>
-              All: Have mercy on Us.
+            <Text className="text-black dark:text-white" style={styles.leader}>
+              All: <Text style={styles.all} className="text-black dark:text-white">Have mercy on Us.</Text>
             </Text>
-            <Text className="text-black dark:text-white" style={styles.txt}>
-              Leader: May the souls of the faithful departed, through the mercy
-              of God, Rest in peace.
+            <Text className="text-black dark:text-white" style={styles.leader}>
+              Leader:{" "}
+              <Text style={styles.all} className="text-black dark:text-white">
+                May the souls of the faithful departed, through the mercy of
+                God, Rest in peace.
+              </Text>
             </Text>
-            <Text className="text-black dark:text-white" style={styles.txt}>
-              All: Amen.
+            <Text
+              className="text-black dark:text-white"
+              style={[styles.leader, styles.lastTxt]}
+            >
+              All: <Text style={styles.all} className="text-black dark:text-white">Amen.</Text>
             </Text>
           </View>
         </View>

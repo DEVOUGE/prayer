@@ -14,17 +14,21 @@ import IgboComponentForDisplayingAllStations from "../../navigatorComponents/Igb
 import FontSizeContext from "../../../lib/FontSizeContext";
 import { ChevronPagination } from "../../chevronPagination";
 import { verticalScale } from "react-native-size-matters";
+import { useFonts } from "expo-font";
 
 import { useColorScheme } from "nativewind";
 import { getData } from "../../../lib/Storage";
 
 export default function HomePageForIgboStation({ lang }) {
   const { newFontSize, fetchAddedFontSize } = useContext(FontSizeContext);
-  const screenHeight = Dimensions.get("window").height;
   const { colorScheme, setColorScheme } = useColorScheme();
   const statusBarStyle =
     colorScheme === "dark" ? "light-content" : "dark-content";
   const statusBarBackgroundColor = colorScheme === "dark" ? "black" : "white";
+  const [fontsLoaded] = useFonts({
+    "PTSans-Regular": require("../../../assets/fonts/PTSans-Regular.ttf"),
+    "SourceSerif": require("../../../assets/fonts/SourceSerif4-SemiBold.ttf"),
+  });
 
   useEffect(() => {
     fetchTheme();
@@ -37,7 +41,6 @@ export default function HomePageForIgboStation({ lang }) {
   const styles = StyleSheet.create({
     container: {
       paddingTop: Platform.OS === "android" ? 45 : 0,
-      // marginHorizontal: 7,
       paddingHorizontal: 8,
       zIndex: -100,
       marginBottom: 52,
@@ -48,9 +51,9 @@ export default function HomePageForIgboStation({ lang }) {
     txt: {
       fontSize: 18 + newFontSize,
       lineHeight: 25,
-      // fontStyle: "italic",
       lineHeight: verticalScale(newFontSize + 18),
       color: colorScheme === "dark" ? "#fff" : "#000",
+      fontFamily: "PTSans-Regular",
     },
     all: {
       fontSize: 20,
@@ -62,6 +65,7 @@ export default function HomePageForIgboStation({ lang }) {
       fontWeight: "600",
       marginBottom: 7,
       color: "indigo",
+      fontFamily: "SourceSerif"
     },
     imgs: {
       justifyContent: "center",
@@ -83,6 +87,10 @@ export default function HomePageForIgboStation({ lang }) {
       color: colorScheme === "dark" ? "silver" : "#000",
     },
   });
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
     <ScrollView
@@ -112,11 +120,6 @@ export default function HomePageForIgboStation({ lang }) {
         <View style={styles.flxTxt}>
           <View
             className="w-full bg-light dark:bg-black absolute bottom-0 left-0 right-0 items-center justify-center"
-            style={
-              {
-                // height: 80, // Set the height of the fixed view
-              }
-            }
           >
             <ChevronPagination to={"FirstStationIgbo"} from={"none"} />
           </View>

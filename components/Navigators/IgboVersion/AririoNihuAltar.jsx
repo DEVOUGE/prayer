@@ -4,16 +4,21 @@ import IgboComponentForDisplayingAllStations from "../../navigatorComponents/Igb
 import StyledStationsComponent from "../../styledStationsComponent";
 import FontSizeContext from "../../../lib/FontSizeContext";
   import { verticalScale } from "react-native-size-matters";
-  import { RenderChevronNavigation } from "../../chevronPagination";
+import { RenderChevronNavigation } from "../../chevronPagination";
+  import { useFonts } from "expo-font";
 
 export default function AririoNihuAltar() {
 const { newFontSize, fetchAddedFontSize } = useContext(FontSizeContext);
+const [fontsLoaded] = useFonts({
+  "PTSans-Regular": require("../../../assets/fonts/PTSans-Regular.ttf"),
+  "SourceSerif": require("../../../assets/fonts/SourceSerif4-SemiBold.ttf"),
+});
 
 const styles = StyleSheet.create({
   container: {
     paddingTop: Platform.OS === "android" ? 10 : 0,
     marginHorizontal: 12,
-    marginBottom: 23,
+    marginBottom: 230,
   },
   flexContainer: {
     display: "flex",
@@ -26,21 +31,25 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "red",
     marginTop: verticalScale(newFontSize),
+    fontFamily: "SourceSerif"
   },
   txt: {
     fontSize: 17 + newFontSize,
     lineHeight: verticalScale(24 + newFontSize),
     marginBottom: 10,
+    fontFamily: "SourceSerif"
   },
-  leader: {
+  vr: {
     fontWeight: "600",
     fontSize: 17 + newFontSize,
     lineHeight: verticalScale(24 + newFontSize),
-  },
-  all: {
-    fontWeight: "normal",
+    fontFamily: "PTSans-Regular"
   },
 });
+
+  if (!fontsLoaded) {
+  return <Text>Font Loading!</Text>
+}
 
   return (
     <>
@@ -79,26 +88,3 @@ const styles = StyleSheet.create({
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: Platform.OS === "android" ? 10 : 0,
-    marginHorizontal: 12,
-  },
-  heading: {
-    textAlign: "center",
-    fontSize: 27,
-    marginTop: 12,
-    fontWeight: "600",
-    color: "red",
-  },
-  vr: {
-    fontSize: 17,
-  },
-  boldTxt: {
-    fontWeight: "500",
-  },
-  txt: {
-    fontSize: 16,
-    lineHeight: 25,
-  },
-});

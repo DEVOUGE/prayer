@@ -1,7 +1,6 @@
 import {
   Image,
   Platform,
-  StatusBar,
   StyleSheet,
   Text,
   View,
@@ -14,9 +13,14 @@ import FontSizeContext from "../../../lib/FontSizeContext";
 import { verticalScale } from "react-native-size-matters";
 import { RenderChevronNavigation } from "../../chevronPagination";
 import globalStyles from "../../../styles/styles"
+import { useFonts } from "expo-font";
 
 export default function SecondStationIgbo() {
   const { newFontSize, fetchAddedFontSize } = useContext(FontSizeContext);
+  const [fontsLoaded] = useFonts({
+    "PTSans-Regular" : require("../../../assets/fonts/PTSans-Regular.ttf"),
+    "SourceSerif": require("../../../assets/fonts/SourceSerif4-SemiBold.ttf")
+  })
 
   const styles = StyleSheet.create({
     container: {
@@ -31,25 +35,36 @@ export default function SecondStationIgbo() {
     heading: {
       fontSize: 25 + newFontSize,
       lineHeight: verticalScale(25 + newFontSize),
-      fontWeight: "500",
+      fontWeight: "600",
       textAlign: "center",
       color: "red",
       marginTop: verticalScale(newFontSize),
+      fontFamily: "SourceSerif",
     },
     txt: {
       fontSize: 17 + newFontSize,
       lineHeight: verticalScale(24 + newFontSize),
       marginBottom: 10,
+      fontFamily: "PTSans-Regular",
+    },
+    tt: {
+      color: 'purple'
     },
     leader: {
       fontWeight: "600",
       fontSize: 17 + newFontSize,
       lineHeight: verticalScale(24 + newFontSize),
+      fontFamily: "PTSans-Regular",
     },
     all: {
       fontWeight: "normal",
+      fontFamily: "PTSans-Regular",
     },
   });
+
+  if (!fontsLoaded) {
+    return <Text>Text Loading!</Text>
+  }
 
   return (
     <>
@@ -70,7 +85,7 @@ export default function SecondStationIgbo() {
               </Text>{" "}
               Anyi esekpuoro gi Jesu na-enye gi ekele
             </Text>
-            <Text className="text-black dark:text-white" style={styles.boldTxt}>
+            <Text className="text-black dark:text-white" style={styles.tt}>
               Gbuonu otu ikpere n’ala za:
             </Text>
             <Text className="text-black dark:text-white" style={styles.txt}>
@@ -80,7 +95,7 @@ export default function SecondStationIgbo() {
             <Image source={pic} style={globalStyles.image} />
             <Text
               className="text-black dark:text-white"
-              style={styles.centerTxt}
+              style={styles.tt}
             >
               kulitenu
             </Text>
@@ -93,7 +108,7 @@ export default function SecondStationIgbo() {
             </Text>
             <Text
               className="text-black dark:text-white"
-              style={[styles.boldTxt, styles.txt]}
+              style={[styles.tt, styles.txt]}
             >
               Sekpurunu Ala
             </Text>
@@ -112,10 +127,10 @@ export default function SecondStationIgbo() {
               <Text style={styles.boldTxt}>Oha: </Text>
               Jesu m, ahuru m gi n’anya karichaa ihe-nile; Ejim obi m nile
               chegharia na mmehie m mehiere gi. E kwela ka m Kewapu onwe m ozo
-              n’ ebe ino Mee kam hu gi n’anya mabe o bula; Bia jim mee ihe o
+              n’ ebe ino Mee kam hu gi n’anya mgbe o bula; Bia jim mee ihe o
               bula masiri gi.
             </Text>
-            <Text className="text-black dark:text-white" style={styles.txt}>
+            <Text className="text-black dark:text-white" style={[styles.txt, styles.tt]}>
               <Text style={styles.boldTxt}>Kulitenu </Text>
               kwere ukwe a gaa na nkwusi nke ato.
             </Text>
